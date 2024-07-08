@@ -23,6 +23,13 @@ public class Tests
         new SolarCalendar().IsLeap(year: 3).Should().BeFalse();
         new SolarCalendar().IsLeap(year: 7).Should().BeFalse();
     }
+    
+    [Test]
+    public void IsLeapYear_IfDivisible_By400()
+    {
+        new SolarCalendar().IsLeap(year: 400).Should().BeTrue();
+        new SolarCalendar().IsLeap(year: 800).Should().BeTrue();
+    }
 }
 
 public readonly struct SolarCalendar
