@@ -14,6 +14,7 @@ public class Tests
     public void IsLeapYear_IfDivisible_By4()
     {
         new SolarCalendar().IsLeapYear(4).Should().BeTrue();
+        new SolarCalendar().IsLeapYear(8).Should().BeTrue();
     }
     
     [Test]
@@ -27,6 +28,6 @@ public readonly struct SolarCalendar
 {
     public bool IsLeapYear(int year)
     {
-        return year == 4;
+        return year % 4 == 0;
     }
 }
