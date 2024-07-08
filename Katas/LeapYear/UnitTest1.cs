@@ -21,6 +21,7 @@ public class Tests
     public void IsNotLeapYear_IfNotDivisible_By4()
     {
         new SolarCalendar().IsLeap(year: 3).Should().BeFalse();
+        new SolarCalendar().IsLeap(year: 7).Should().BeFalse();
     }
 }
 
