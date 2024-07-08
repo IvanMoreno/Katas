@@ -51,8 +51,16 @@ public readonly struct SolarCalendar
 {
     public bool IsLeap(int year)
     {
-        return year % 100 == 0
-            ? year % 400 == 0
-            : year % 4 == 0 || year % 400 == 0;
+        return year.DivisibleBy(100)
+            ? year.DivisibleBy(400)
+            : year.DivisibleBy(4) || year.DivisibleBy(400);
+    }
+}
+
+public static class Mathematics
+{
+    public static bool DivisibleBy(this int dividend, int divisor)
+    {
+        return dividend % divisor == 0;
     }
 }
