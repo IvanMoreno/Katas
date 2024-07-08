@@ -1,3 +1,5 @@
+using FluentAssertions;
+
 namespace LeapYear;
 
 // https://www.codurance.com/katas/leap-year
@@ -9,8 +11,16 @@ namespace LeapYear;
 public class Tests
 {
     [Test]
-    public void Test1()
+    public void IsLeapYear_IfDivisible_By4()
     {
-        Assert.Pass();
+        new SolarCalendar().IsLeapYear(4).Should().BeTrue();
+    }
+}
+
+public readonly struct SolarCalendar
+{
+    public bool IsLeapYear(int year)
+    {
+        return true;
     }
 }
