@@ -48,19 +48,3 @@ public class Tests
         new SolarCalendar().IsLeap(year: 1800).Should().BeFalse();
     }
 }
-
-public readonly struct SolarCalendar
-{
-    public bool IsLeap(int year) 
-        => year.DivisibleBy(100)
-            ? year.DivisibleBy(400)
-            : year.DivisibleBy(4) || year.DivisibleBy(400);
-}
-
-public static class Mathematics
-{
-    public static bool DivisibleBy(this int dividend, int divisor)
-    {
-        return dividend % divisor == 0;
-    }
-}
