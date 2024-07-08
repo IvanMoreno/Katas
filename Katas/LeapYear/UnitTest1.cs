@@ -44,6 +44,8 @@ public class Tests
     {
         new SolarCalendar().IsLeap(year: 1997).Should().BeFalse();
         new SolarCalendar().IsLeap(year: 1996).Should().BeTrue();
+        new SolarCalendar().IsLeap(year: 1600).Should().BeTrue();
+        new SolarCalendar().IsLeap(year: 1800).Should().BeFalse();
     }
 }
 
