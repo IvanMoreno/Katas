@@ -38,14 +38,21 @@ public class Tests
         new SolarCalendar().IsLeap(year: 200).Should().BeFalse();
         new SolarCalendar().IsLeap(year: 300).Should().BeFalse();
     }
+    
+    [Test]
+    public void AcceptanceTest()
+    {
+        new SolarCalendar().IsLeap(year: 1997).Should().BeFalse();
+        new SolarCalendar().IsLeap(year: 1996).Should().BeTrue();
+    }
 }
 
 public readonly struct SolarCalendar
 {
     public bool IsLeap(int year)
     {
-        return year < 100
-            ? year % 4 == 0
-            : year % 400 == 0;
+        return year % 100 == 0
+            ? year % 400 == 0
+            : year % 4 == 0 || year % 400 == 0;
     }
 }
