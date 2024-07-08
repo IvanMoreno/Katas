@@ -6,7 +6,7 @@ namespace LeapYear;
 // [x] A year is a leap year if divisible by 4
 // [x] A year is a leap year if divisible by 400
 // [x] A year is not a leap year if not divisible by 4
-// [] A year is not a leap year if divisible by 100 but not by 400
+// [x] A year is not a leap year if divisible by 100 but not by 400
 
 public class Tests
 {
@@ -51,12 +51,10 @@ public class Tests
 
 public readonly struct SolarCalendar
 {
-    public bool IsLeap(int year)
-    {
-        return year.DivisibleBy(100)
+    public bool IsLeap(int year) 
+        => year.DivisibleBy(100)
             ? year.DivisibleBy(400)
             : year.DivisibleBy(4) || year.DivisibleBy(400);
-    }
 }
 
 public static class Mathematics
