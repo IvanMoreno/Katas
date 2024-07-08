@@ -35,6 +35,8 @@ public class Tests
     public void IsNotLeapYear_IfDivisible_By100_ButNotBy400()
     {
         new SolarCalendar().IsLeap(year: 100).Should().BeFalse();
+        new SolarCalendar().IsLeap(year: 200).Should().BeFalse();
+        new SolarCalendar().IsLeap(year: 300).Should().BeFalse();
     }
 }
 
