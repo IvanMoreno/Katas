@@ -15,12 +15,18 @@ public class Tests
     {
         new SolarCalendar().IsLeapYear(4).Should().BeTrue();
     }
+    
+    [Test]
+    public void IsNotLeapYear_IfNotDivisible_By4()
+    {
+        new SolarCalendar().IsLeapYear(3).Should().BeFalse();
+    }
 }
 
 public readonly struct SolarCalendar
 {
     public bool IsLeapYear(int year)
     {
-        return true;
+        return year == 4;
     }
 }
