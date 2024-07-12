@@ -1,5 +1,6 @@
 using FluentAssertions;
 using static Katas.EmployeeReport.Employee;
+using static Katas.EmployeeReport.EmployeeFilter;
 
 namespace Katas.EmployeeReport;
 
@@ -29,7 +30,7 @@ public class EmployeeReportTests
     [Test]
     public void SortEmployees_ByTheirNames_InDescendingOrder()
     {
-        EmployeeFilter.OrderByNamesDescending
+        OrderByNamesDescending
             .ApplyFor(StaffOf(Hire(19, "Abigail"), Hire(18, "Ivan")))
             .First().Should().Be(Hire(18, "Ivan"));
     }
