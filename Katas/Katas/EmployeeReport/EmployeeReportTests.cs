@@ -41,6 +41,6 @@ public class OrderByNamesDescending
 {
     public IEnumerable<Employee> ApplyFor(IEnumerable<Employee> allEmployees)
     {
-        return allEmployees;
+        return allEmployees.OrderByDescending(x => x.Name);
     }
 }
