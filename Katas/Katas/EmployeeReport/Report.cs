@@ -4,7 +4,7 @@ namespace Katas.EmployeeReport;
 
 public class Report
 {
-    public IEnumerable<Employee> ShowEligibleFrom(IEnumerable<Employee> allEmployees)
+    public IEnumerable<Employee> EligibleFrom(IEnumerable<Employee> allEmployees)
     {
         return allEmployees
             .Where(x => x.Years >= 18)
