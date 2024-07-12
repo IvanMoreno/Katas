@@ -13,7 +13,9 @@ public class EmployeeReportTests
     {
         var doc = new List<Employee> { Hire(years: 17), Hire(years: 18), Hire(years: 54) };
 
-        new Report().ShowEligibleFrom(doc).Should().HaveCount(2);
+        new Report().ShowEligibleFrom(doc)
+            .Should().HaveCount(2).And
+            .NotContain(Hire(years: 17));
     }
 }
 
