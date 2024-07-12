@@ -12,11 +12,11 @@ public class EmployeeReportTests
     [Test]
     public void SelectEmployees_With18YearsOrOlder()
     {
-        var doc = new List<Employee> { Hire(years: 17), Hire(years: 18), Hire(years: 54) };
+        var doc = new List<Employee> { Hire(17, "John"), Hire(18, "John"), Hire(54, "John") };
 
         new Report().ShowEligibleFrom(doc)
             .Should().HaveCount(2).And
-            .NotContain(Hire(years: 17));
+            .NotContain(Hire(17, "John"));
     }
 }
 
@@ -40,7 +40,5 @@ public struct Employee
         this.Name = name;
     }
 
-    [Obsolete]
-    public static Employee Hire(int years) => Hire(years, "John");
     public static Employee Hire(int years, string name) => new(years, name);
 }
