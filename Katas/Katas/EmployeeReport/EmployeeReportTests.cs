@@ -17,7 +17,7 @@ public class EmployeeReportTests
 
         new Report().ShowEligibleFrom(doc)
             .Should().HaveCount(2).And
-            .NotContain(Hire(17, "John"));
+            .NotContain(Hire(17, "JOHN"));
     }
 
     [Test]
@@ -26,6 +26,6 @@ public class EmployeeReportTests
         var doc = new List<Employee> { Hire(18, "Ivan"), Hire(19, "Abigail") };
 
         new Report().ShowEligibleFrom(doc)
-            .First().Should().Be(Hire(19, "Abigail"));
+            .First().Should().Be(Hire(19, "ABIGAIL"));
     }
 }
