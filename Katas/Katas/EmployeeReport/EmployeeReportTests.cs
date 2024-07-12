@@ -40,6 +40,7 @@ public struct Employee
         this.Name = name;
     }
 
-    public static Employee Hire(int years) => new(years);
+    [Obsolete]
+    public static Employee Hire(int years) => Hire(years, "John");
     public static Employee Hire(int years, string name) => new(years, name);
 }
