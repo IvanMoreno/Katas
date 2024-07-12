@@ -1,6 +1,6 @@
 namespace Katas.EmployeeReport;
 
-public struct Employee
+public readonly struct Employee
 {
     public readonly int Years;
     public readonly string Name;
