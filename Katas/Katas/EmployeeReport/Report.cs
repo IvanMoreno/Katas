@@ -1,3 +1,5 @@
+using static Katas.EmployeeReport.Employee;
+
 namespace Katas.EmployeeReport;
 
 public class Report
@@ -10,8 +12,5 @@ public class Report
             .Select(Capitalize);
     }
 
-    Employee Capitalize(Employee who)
-    {
-        return Employee.Hire(who.Years, who.Name.ToUpper());
-    }
+    static Employee Capitalize(Employee who) => Hire(who.Years, who.Name.ToUpper());
 }
