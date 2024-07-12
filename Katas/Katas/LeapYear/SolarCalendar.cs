@@ -1,4 +1,4 @@
-namespace LeapYear;
+namespace Katas.LeapYear;
 
 public readonly struct SolarCalendar
 {

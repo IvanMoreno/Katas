@@ -1,6 +1,6 @@
 using FluentAssertions;
 
-namespace LeapYear;
+namespace Katas.LeapYear;
 
 // https://www.codurance.com/katas/leap-year
 // [x] A year is a leap year if divisible by 4
