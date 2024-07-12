@@ -15,9 +15,12 @@ public class EmployeeReportTests
     [Test]
     public void SelectEmployees_With18YearsOrOlder()
     {
-        new Report(Only18OrOlder, OrderByNames, CapitalizeNames).EligibleFrom(StaffOf(Hire(17, "John"), Hire(18, "John"), Hire(54, "John")))
+        var underageEmployee = Hire(17, "Matias");
+        
+        Only18OrOlder
+            .ApplyFor(StaffOf(underageEmployee, Hire(18, "John"), Hire(54, "John")))
             .Should().HaveCount(2).And
-            .NotContain(Hire(17, "JOHN"));
+            .NotContain(underageEmployee);
     }
 
     [Test]
