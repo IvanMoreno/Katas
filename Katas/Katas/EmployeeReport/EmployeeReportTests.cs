@@ -10,6 +10,11 @@ namespace Katas.EmployeeReport;
 // [x] Capitalize employees names
 // [x] Sort employees by their names DESCENDING
 
+// What I have learn:
+// In this kata, I realized late that all the requirements were changing rapidly, and that a rigid solution would not be valid for so long.
+// I think the time to introduce the "filters" refactor would have been in the third rule, as it broke my previous tests.
+// Continuing with the "minimal code" mentality led me to a later and more complicated refactoring.
+
 public class EmployeeReportTests
 {
     [Test]
