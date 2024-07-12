@@ -18,6 +18,15 @@ public class EmployeeReportTests
             .Should().HaveCount(2).And
             .NotContain(Hire(17, "John"));
     }
+
+    [Test]
+    public void SortEmployees_ByTheirNames()
+    {
+        var doc = new List<Employee> { Hire(18, "Ivan"), Hire(19, "Abigail") };
+
+        new Report().ShowEligibleFrom(doc)
+            .First().Should().Be(Hire(19, "Abigail"));
+    }
 }
 
 public class Report
