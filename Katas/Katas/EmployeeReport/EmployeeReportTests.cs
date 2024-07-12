@@ -5,6 +5,7 @@ namespace Katas.EmployeeReport;
 
 // https://codingdojo.org/kata/Employee-Report/
 // [x] See the employees who are 18 years or older
+// [] Sort employees names by their names
 
 public class EmployeeReportTests
 {
