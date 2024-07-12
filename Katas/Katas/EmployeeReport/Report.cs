@@ -15,10 +15,13 @@ public class Report
 
     public IEnumerable<Employee> EligibleFrom(IEnumerable<Employee> staff)
     {
-        return staff
-            .Where(x => x.Years >= 18)
-            .OrderBy(x => x.Name)
-            .Select(Capitalize);
+        var result = staff;
+        foreach (var filter in filters)
+        {
+            result = filter.ApplyFor(result);
+        }
+
+        return result;
     }
 
     static Employee Capitalize(Employee who) => Hire(who.Years, who.Name.ToUpper());
