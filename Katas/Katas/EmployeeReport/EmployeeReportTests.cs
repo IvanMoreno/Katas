@@ -1,6 +1,6 @@
 using FluentAssertions;
 using static Katas.EmployeeReport.Employee;
-using static Katas.EmployeeReport.EmployeeFilter;
+using static Katas.EmployeeReport.Filter;
 
 namespace Katas.EmployeeReport;
 
