@@ -13,16 +13,8 @@ public class Report
         return new Report(new[] { Only18OrOlder, OrderByNames, CapitalizeNames, });
     }
 
-    public IEnumerable<Employee> EligibleFrom(IEnumerable<Employee> staff)
-    {
-        var result = staff;
-        foreach (var filter in filters)
-        {
-            result = filter.ApplyFor(result);
-        }
-
-        return result;
-    }
+    public IEnumerable<Employee> EligibleFrom(IEnumerable<Employee> staff) 
+        => filters.Aggregate(staff, (current, filter) => filter.ApplyFor(current));
 
     static Employee Capitalize(Employee who) => Hire(who.Years, who.Name.ToUpper());
 }
