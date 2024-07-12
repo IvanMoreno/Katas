@@ -15,7 +15,7 @@ public class EmployeeReportTests
     [Test]
     public void SelectEmployees_With18YearsOrOlder()
     {
-        new Report().EligibleFrom(StaffOf(Hire(17, "John"), Hire(18, "John"), Hire(54, "John")))
+        Report.WithInitialFilters().EligibleFrom(StaffOf(Hire(17, "John"), Hire(18, "John"), Hire(54, "John")))
             .Should().HaveCount(2).And
             .NotContain(Hire(17, "JOHN"));
     }
@@ -23,7 +23,7 @@ public class EmployeeReportTests
     [Test]
     public void SortEmployees_ByTheirNames()
     {
-        new Report().EligibleFrom(StaffOf(Hire(18, "Ivan"), Hire(19, "Abigail")))
+        Report.WithInitialFilters().EligibleFrom(StaffOf(Hire(18, "Ivan"), Hire(19, "Abigail")))
             .First().Should().Be(Hire(19, "ABIGAIL"));
     }
 

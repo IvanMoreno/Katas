@@ -4,9 +4,14 @@ namespace Katas.EmployeeReport;
 
 public class Report
 {
-    public IEnumerable<Employee> EligibleFrom(IEnumerable<Employee> allEmployees)
+    public static Report WithInitialFilters()
     {
-        return allEmployees
+        return new Report();
+    }
+
+    public IEnumerable<Employee> EligibleFrom(IEnumerable<Employee> staff)
+    {
+        return staff
             .Where(x => x.Years >= 18)
             .OrderBy(x => x.Name)
             .Select(Capitalize);
