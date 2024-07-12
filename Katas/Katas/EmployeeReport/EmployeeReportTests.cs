@@ -5,7 +5,7 @@ namespace Katas.EmployeeReport;
 
 // https://codingdojo.org/kata/Employee-Report/
 // [x] See the employees who are 18 years or older
-// [] Sort employees names by their names
+// [x] Sort employees names by their names
 
 public class EmployeeReportTests
 {
@@ -27,26 +27,4 @@ public class EmployeeReportTests
         new Report().ShowEligibleFrom(doc)
             .First().Should().Be(Hire(19, "Abigail"));
     }
-}
-
-public class Report
-{
-    public IEnumerable<Employee> ShowEligibleFrom(IEnumerable<Employee> allEmployees)
-    {
-        return allEmployees.Where(x => x.Years >= 18).OrderBy(x => x.Name);
-    }
-}
-
-public struct Employee
-{
-    public readonly int Years;
-    public readonly string Name;
-
-    Employee(int years, string name)
-    {
-        Years = years;
-        Name = name;
-    }
-
-    public static Employee Hire(int years, string name) => new(years, name);
 }
