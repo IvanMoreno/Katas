@@ -8,7 +8,7 @@ namespace LeapYear;
 // [x] A year is not a leap year if not divisible by 4
 // [x] A year is not a leap year if divisible by 100 but not by 400
 
-public class Tests
+public class LeapYearTests
 {
     [Test]
     public void IsLeapYear_IfDivisible_By4()
