@@ -26,5 +26,21 @@ public class EmployeeReportTests
             .First().Should().Be(Hire(19, "ABIGAIL"));
     }
 
+    [Test]
+    public void SortEmployees_ByTheirNames_InDescendingOrder()
+    {
+        new OrderByNamesDescending()
+            .ApplyFor(StaffOf(Hire(19, "Abigail"), Hire(18, "Ivan")))
+            .First().Should().Be(Hire(18, "Ivan"));
+    }
+
     static IEnumerable<Employee> StaffOf(params Employee[] allEmployees) => allEmployees;
+}
+
+public class OrderByNamesDescending
+{
+    public IEnumerable<Employee> ApplyFor(IEnumerable<Employee> allEmployees)
+    {
+        return allEmployees;
+    }
 }
