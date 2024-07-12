@@ -8,7 +8,7 @@ namespace Katas.EmployeeReport;
 // [x] See the employees who are 18 years or older
 // [x] Sort employees by their names
 // [x] Capitalize employees names
-// [] Sort employees by their names DESCENDING
+// [x] Sort employees by their names DESCENDING
 
 public class EmployeeReportTests
 {
@@ -21,18 +21,19 @@ public class EmployeeReportTests
     }
 
     [Test]
-    public void SortEmployees_ByTheirNames()
-    {
-        new Report(Only18OrOlder, OrderByNames, CapitalizeNames).EligibleFrom(StaffOf(Hire(18, "Ivan"), Hire(19, "Abigail")))
-            .First().Should().Be(Hire(19, "ABIGAIL"));
-    }
-
-    [Test]
     public void SortEmployees_ByTheirNames_InDescendingOrder()
     {
         OrderByNamesDescending
             .ApplyFor(StaffOf(Hire(19, "Abigail"), Hire(18, "Ivan")))
             .First().Should().Be(Hire(18, "Ivan"));
+    }
+
+    [Test]
+    public void Report_CanCompose_SeveralFilters()
+    {
+        new Report(Only18OrOlder, OrderByNames, CapitalizeNames)
+            .EligibleFrom(StaffOf(Hire(18, "Ivan"), Hire(19, "Abigail")))
+            .First().Should().Be(Hire(19, "ABIGAIL"));
     }
 
     static IEnumerable<Employee> StaffOf(params Employee[] allEmployees) => allEmployees;
