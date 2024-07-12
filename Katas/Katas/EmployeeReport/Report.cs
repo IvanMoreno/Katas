@@ -15,6 +15,4 @@ public class Report
 
     public IEnumerable<Employee> EligibleFrom(IEnumerable<Employee> staff) 
         => filters.Aggregate(staff, (current, filter) => filter.ApplyFor(current));
-
-    static Employee Capitalize(Employee who) => Hire(who.Years, who.Name.ToUpper());
 }
