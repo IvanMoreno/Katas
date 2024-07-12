@@ -29,7 +29,7 @@ public class EmployeeReportTests
     [Test]
     public void SortEmployees_ByTheirNames_InDescendingOrder()
     {
-        new EmployeeFilter()
+        EmployeeFilter.OrderByNamesDescending
             .ApplyFor(StaffOf(Hire(19, "Abigail"), Hire(18, "Ivan")))
             .First().Should().Be(Hire(18, "Ivan"));
     }
@@ -39,6 +39,15 @@ public class EmployeeReportTests
 
 public class EmployeeFilter
 {
-    public IEnumerable<Employee> ApplyFor(IEnumerable<Employee> allEmployees) 
-        => allEmployees.OrderByDescending(employee => employee.Name);
+    readonly Func<IEnumerable<Employee>, IEnumerable<Employee>> filter;
+
+    EmployeeFilter(Func<IEnumerable<Employee>, IEnumerable<Employee>> filter)
+    {
+        this.filter = filter;
+    }
+
+    public IEnumerable<Employee> ApplyFor(IEnumerable<Employee> staff) 
+        => staff.OrderByDescending(employee => employee.Name);
+
+    public static EmployeeFilter OrderByNamesDescending => new(staff => staff.OrderByDescending(x => x.Name));
 }
