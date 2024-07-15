@@ -5,7 +5,7 @@ namespace Katas.RomanNumerals;
 // https://www.codurance.com/katas/roman-numerals
 // [x] 1 --> I
 // [x] 2 and 3 --> II and III
-// [] 4 --> IV (there cannot exist a sequence of four 'I')
+// [x] 4 --> IV (there cannot exist a sequence of four 'I')
 // [] 5 --> V
 // [] 6, 7 and 8 --> Append 'I' for each unit after five (VI, VII, VIII)
 // [] 9 --> IX an 'I' is also prepended to avoid a sequence of four 'I'
@@ -52,9 +52,9 @@ public class RomanNumeralsTests
         new RomanTranslator().Translate(13).Should().Be("XIII");
     }
 
-    [Test]
-    public void Translate_4()
+    [TestCase(4, "IV")]
+    public void TranslateNumber_ToItsRomanEquivalent(int number, string expected)
     {
-        new RomanTranslator().Translate(4).Should().Be("IV");
+        new RomanTranslator().Translate(number).Should().Be(expected);
     }
 }
