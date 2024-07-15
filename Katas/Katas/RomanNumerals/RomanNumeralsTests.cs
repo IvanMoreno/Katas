@@ -71,4 +71,10 @@ public class RomanNumeralsTests
         new RomanTranslator().Translate(7).Should().Be("VII");
         new RomanTranslator().Translate(8).Should().Be("VIII");
     }
+
+    [Test]
+    public void Subtract_L_ThenAppend_X()
+    {
+        new RomanTranslator().Translate(60).Should().Be("LX");
+    }
 }
