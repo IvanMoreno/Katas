@@ -23,11 +23,7 @@ public class RomanTranslator
         if (symbols.TryGetValue(howMuch, out var translate))
             return translate;
 
-        if (howMuch > 50)
-            return "L" + Translate(howMuch - 50);
-        if (howMuch > 10)
-            return "X" + Translate(howMuch - 10);
-
-        return Translate(howMuch - 1) + "I";
+        var firstSmaller = symbols.Keys.OrderDescending().First(symbol => howMuch > symbol);
+        return Translate(firstSmaller) + Translate(howMuch - firstSmaller);
     }
 }
