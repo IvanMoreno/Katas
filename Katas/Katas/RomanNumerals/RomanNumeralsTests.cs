@@ -57,6 +57,7 @@ public class RomanNumeralsTests
     [TestCase(4, "IV")]
     [TestCase(5, "V")]
     [TestCase(9, "IX")]
+    [TestCase(40, "XL")]
     public void TranslateNumber_ToItsRomanEquivalent(int number, string expected)
     {
         new RomanTranslator().Translate(number).Should().Be(expected);
