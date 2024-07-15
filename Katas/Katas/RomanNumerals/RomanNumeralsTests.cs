@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using FluentAssertions;
 
 namespace Katas.RomanNumerals;
@@ -58,5 +59,13 @@ public class RomanNumeralsTests
     public void TranslateNumber_ToItsRomanEquivalent(int number, string expected)
     {
         new RomanTranslator().Translate(number).Should().Be(expected);
+    }
+
+    [Test]
+    public void Append_I_ForEveryUnit_After5_Until9()
+    {
+        new RomanTranslator().Translate(6).Should().Be("VI");
+        new RomanTranslator().Translate(7).Should().Be("VII");
+        new RomanTranslator().Translate(8).Should().Be("VIII");
     }
 }

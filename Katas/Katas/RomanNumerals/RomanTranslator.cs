@@ -18,7 +18,7 @@ public class RomanTranslator
         if (howMuch == 9)
             return "IX";
         if (howMuch < 10)
-            return "I" + Translate(howMuch - 1);
+            return Translate(howMuch - 1) + "I";
         if (howMuch == 10)
             return "X";
 
