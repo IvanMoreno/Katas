@@ -13,9 +13,9 @@ namespace Katas.RomanNumerals;
 // [x] 'X' works as 'I'
 // [x] 40 --> 'XL'
 // [x] 50 --> 'L'
-// [] 100 --> 'C'
-// [] 90 --> 'XC'
-// [] 500 --> 'D'
+// [x] 100 --> 'C'
+// [x] 90 --> 'XC'
+// [x] 500 --> 'D'
 // [] 490 --> 'XD' would be incorrect, 'CDXC' is correct
 
 public class RomanNumeralsTests
@@ -85,5 +85,12 @@ public class RomanNumeralsTests
         new RomanTranslator().Translate(60).Should().Be("LX");
         new RomanTranslator().Translate(70).Should().Be("LXX");
         new RomanTranslator().Translate(78).Should().Be("LXXVIII");
+    }
+
+    [Test]
+    [Ignore("The 400 case is necessary to be implemented before this")]
+    public void ASymbol_CannotBePrepended_ToANextDecimalOrder_Symbol()
+    {
+        new RomanTranslator().Translate(490).Should().Be("CDXC");
     }
 }
