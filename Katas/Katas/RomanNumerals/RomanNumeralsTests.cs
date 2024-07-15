@@ -89,8 +89,7 @@ public class RomanNumeralsTests
     }
 
     [Test]
-    [Ignore("The 400 case is necessary to be implemented before this")]
-    public void ASymbol_CannotBePrepended_ToANextDecimalOrder_Symbol()
+    public void ASymbol_CannotBePrepended_ToANextDecimalLevel_Symbol()
     {
         new RomanTranslator().Translate(490).Should().Be("CDXC");
     }
