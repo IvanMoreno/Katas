@@ -17,6 +17,8 @@ namespace Katas.RomanNumerals;
 // [x] 90 --> 'XC'
 // [x] 500 --> 'D'
 // [x] 490 --> 'XD' would be incorrect, 'CDXC' is correct
+// [] 1000 --> 'M'
+// [] 900 --> 'CM'
 
 public class RomanNumeralsTests
 {
