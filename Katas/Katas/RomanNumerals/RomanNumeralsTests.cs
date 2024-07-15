@@ -65,6 +65,7 @@ public class RomanNumeralsTests
     [TestCase(50, "L")]
     [TestCase(90, "XC")]
     [TestCase(100, "C")]
+    [TestCase(400, "CD")]
     [TestCase(500, "D")]
     public void TranslateNumber_ToItsRomanEquivalent(int number, string expected)
     {
