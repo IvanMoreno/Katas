@@ -1,7 +1,9 @@
+using FluentAssertions;
+
 namespace Katas.RomanNumerals;
 
 // https://www.codurance.com/katas/roman-numerals
-// [] 1 --> I
+// [x] 1 --> I
 // [] 2 and 3 --> II and III
 // [] 4 --> IV (there cannot exist a sequence of four 'I')
 // [] 5 --> V
@@ -11,5 +13,17 @@ namespace Katas.RomanNumerals;
 
 public class RomanNumeralsTests
 {
-    
+    [Test]
+    public void Translate_1()
+    {
+        new RomanTranslator().Translate(1).Should().Be("I");
+    }
+}
+
+public class RomanTranslator
+{
+    public string Translate(int howMuch)
+    {
+        return "I";
+    }
 }
