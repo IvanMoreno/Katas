@@ -22,30 +22,26 @@ namespace Katas.RomanNumerals;
 
 public class RomanNumeralsTests
 {
-    [Test]
-    public void Translate_1()
+    [TestCase(1, "I")]
+    [TestCase(2, "II")]
+    [TestCase(3, "III")]
+    [TestCase(4, "IV")]
+    [TestCase(5, "V")]
+    [TestCase(9, "IX")]
+    [TestCase(10, "X")]
+    [TestCase(40, "XL")]
+    [TestCase(50, "L")]
+    [TestCase(90, "XC")]
+    [TestCase(100, "C")]
+    [TestCase(400, "CD")]
+    [TestCase(500, "D")]
+    [TestCase(900, "CM")]
+    [TestCase(1000, "M")]
+    public void TranslateNumber_ToItsRomanEquivalent(int number, string expected)
     {
-        new RomanTranslator().Translate(1).Should().Be("I");
+        new RomanTranslator().Translate(number).Should().Be(expected);
     }
-
-    [Test]
-    public void Translate_2()
-    {
-        new RomanTranslator().Translate(2).Should().Be("II");
-    }
-
-    [Test]
-    public void Translate_3()
-    {
-        new RomanTranslator().Translate(3).Should().Be("III");
-    }
-
-    [Test]
-    public void Translate_10()
-    {
-        new RomanTranslator().Translate(10).Should().Be("X");
-    }
-
+    
     [Test]
     public void Append_X_ForEvery_10()
     {
@@ -58,22 +54,6 @@ public class RomanNumeralsTests
     {
         new RomanTranslator().Translate(22).Should().Be("XXII");
         new RomanTranslator().Translate(13).Should().Be("XIII");
-    }
-
-    [TestCase(4, "IV")]
-    [TestCase(5, "V")]
-    [TestCase(9, "IX")]
-    [TestCase(40, "XL")]
-    [TestCase(50, "L")]
-    [TestCase(90, "XC")]
-    [TestCase(100, "C")]
-    [TestCase(400, "CD")]
-    [TestCase(500, "D")]
-    [TestCase(900, "CM")]
-    [TestCase(1000, "M")]
-    public void TranslateNumber_ToItsRomanEquivalent(int number, string expected)
-    {
-        new RomanTranslator().Translate(number).Should().Be(expected);
     }
 
     [Test]
