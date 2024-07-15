@@ -26,10 +26,9 @@ public class RomanTranslator
         if (howMuch == 0)
             throw new ArgumentException("The Romans did not use 0");
 
-        if (symbols.TryGetValue(howMuch, out var translate))
-            return translate;
-
-        return Translate(FirstSmaller(howMuch)) + Translate(howMuch - FirstSmaller(howMuch));
+        return symbols.TryGetValue(howMuch, out var translate)
+            ? translate
+            : Translate(FirstSmaller(howMuch)) + Translate(howMuch - FirstSmaller(howMuch));
     }
 
     int FirstSmaller(int than) => symbols.Keys.OrderDescending().First(symbol => than > symbol);
