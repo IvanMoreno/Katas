@@ -2,6 +2,15 @@ namespace Katas.RomanNumerals;
 
 public class RomanTranslator
 {
+    readonly Dictionary<int, string> symbols = new()
+    {
+        {1, "I"},
+        {4, "IV"},
+        {5, "V"},
+        {9, "IX"},
+        {10, "X"},
+    };
+    
     public string Translate(int howMuch)
     {
         if (howMuch < 0)
@@ -9,18 +18,11 @@ public class RomanTranslator
         if (howMuch == 0)
             throw new ArgumentException("The Romans did not use 0");
 
-        if (howMuch == 1)
-            return "I";
-        if (howMuch == 4)
-            return "IV";
-        if (howMuch == 5)
-            return "V";
-        if (howMuch == 9)
-            return "IX";
+        if (symbols.TryGetValue(howMuch, out var translate))
+            return translate;
+        
         if (howMuch < 10)
             return Translate(howMuch - 1) + "I";
-        if (howMuch == 10)
-            return "X";
 
         return "X" + Translate(howMuch - 10);
     }
