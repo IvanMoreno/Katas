@@ -54,11 +54,13 @@ public class RomanTranslator
         if (howMuch == 0)
             throw new ArgumentException("The Romans did not use 0");
 
-        if (howMuch == 2) return "II";
-        if (howMuch == 3) return "III";
-        if (howMuch == 10) return "X";
-        if (howMuch == 20) return "XX";
-        if (howMuch == 30) return "XXX";
-        return "I";
+        if (howMuch == 1)
+            return "I";
+        if (howMuch < 10)
+            return "I" + Translate(howMuch - 1);
+        if (howMuch == 10)
+            return "X";
+
+        return "X" + Translate(howMuch - 10);
     }
 }
