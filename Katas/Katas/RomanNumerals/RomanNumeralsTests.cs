@@ -1,4 +1,3 @@
-using System.Runtime.CompilerServices;
 using FluentAssertions;
 
 namespace Katas.RomanNumerals;
@@ -8,10 +7,12 @@ namespace Katas.RomanNumerals;
 // [x] 2 and 3 --> II and III
 // [x] 4 --> IV (there cannot exist a sequence of four 'I')
 // [x] 5 --> V
-// [] 6, 7 and 8 --> Append 'I' for each unit after five (VI, VII, VIII)
+// [x] 6, 7 and 8 --> Append 'I' for each unit after five (VI, VII, VIII)
 // [x] 9 --> IX an 'I' is also prepended to avoid a sequence of four 'I'
 // [x] 10 --> X
 // [x] 'X' works as 'I'
+// [] 40 --> 'XL'
+// [] 50 --> 'L'
 
 public class RomanNumeralsTests
 {
