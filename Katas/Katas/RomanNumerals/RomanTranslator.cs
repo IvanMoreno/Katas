@@ -23,7 +23,8 @@ public class RomanTranslator
         if (symbols.TryGetValue(howMuch, out var translate))
             return translate;
 
-        var firstSmaller = symbols.Keys.OrderDescending().First(symbol => howMuch > symbol);
-        return Translate(firstSmaller) + Translate(howMuch - firstSmaller);
+        return Translate(FirstSmaller(howMuch)) + Translate(howMuch - FirstSmaller(howMuch));
     }
+
+    int FirstSmaller(int than) => symbols.Keys.OrderDescending().First(symbol => than > symbol);
 }
