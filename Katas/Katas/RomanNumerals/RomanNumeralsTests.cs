@@ -51,4 +51,10 @@ public class RomanNumeralsTests
         new RomanTranslator().Translate(22).Should().Be("XXII");
         new RomanTranslator().Translate(13).Should().Be("XIII");
     }
+
+    [Test]
+    public void Translate_4()
+    {
+        new RomanTranslator().Translate(4).Should().Be("IV");
+    }
 }
