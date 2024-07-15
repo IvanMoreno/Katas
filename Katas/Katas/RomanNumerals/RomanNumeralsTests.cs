@@ -70,6 +70,7 @@ public class RomanNumeralsTests
     [TestCase(400, "CD")]
     [TestCase(500, "D")]
     [TestCase(900, "CM")]
+    [TestCase(1000, "M")]
     public void TranslateNumber_ToItsRomanEquivalent(int number, string expected)
     {
         new RomanTranslator().Translate(number).Should().Be(expected);
