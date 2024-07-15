@@ -24,6 +24,11 @@ public class RomanTranslator
 {
     public string Translate(int howMuch)
     {
+        if (howMuch < 0)
+            throw new ArgumentException("The Romans did not use negative numbers");
+        if (howMuch == 0)
+            throw new ArgumentException("The Romans did not use 0");
+        
         return "I";
     }
 }
