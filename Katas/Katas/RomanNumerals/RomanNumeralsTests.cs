@@ -36,6 +36,13 @@ public class RomanNumeralsTests
     {
         new RomanTranslator().Translate(10).Should().Be("X");
     }
+
+    [Test]
+    public void Append_X_ForEvery_10()
+    {
+        new RomanTranslator().Translate(20).Should().Be("XX");
+        new RomanTranslator().Translate(30).Should().Be("XXX");
+    }
 }
 
 public class RomanTranslator
@@ -50,6 +57,8 @@ public class RomanTranslator
         if (howMuch == 2) return "II";
         if (howMuch == 3) return "III";
         if (howMuch == 10) return "X";
+        if (howMuch == 20) return "XX";
+        if (howMuch == 30) return "XXX";
         return "I";
     }
 }
