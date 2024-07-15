@@ -11,8 +11,12 @@ namespace Katas.RomanNumerals;
 // [x] 9 --> IX an 'I' is also prepended to avoid a sequence of four 'I'
 // [x] 10 --> X
 // [x] 'X' works as 'I'
-// [] 40 --> 'XL'
-// [] 50 --> 'L'
+// [x] 40 --> 'XL'
+// [x] 50 --> 'L'
+// [] 100 --> 'C'
+// [] 90 --> 'XC'
+// [] 500 --> 'D'
+// [] 490 --> 'XD' would be incorrect, 'CDXC' is correct
 
 public class RomanNumeralsTests
 {
