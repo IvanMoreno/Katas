@@ -13,6 +13,7 @@ public class RomanTranslator
         { 50, "L" },
         { 90, "XC" },
         { 100, "C" },
+        { 500, "D" },
     };
 
     public string Translate(int howMuch)
