@@ -6,9 +6,9 @@ namespace Katas.RomanNumerals;
 // [x] 1 --> I
 // [x] 2 and 3 --> II and III
 // [x] 4 --> IV (there cannot exist a sequence of four 'I')
-// [] 5 --> V
+// [x] 5 --> V
 // [] 6, 7 and 8 --> Append 'I' for each unit after five (VI, VII, VIII)
-// [] 9 --> IX an 'I' is also prepended to avoid a sequence of four 'I'
+// [x] 9 --> IX an 'I' is also prepended to avoid a sequence of four 'I'
 // [x] 10 --> X
 // [x] 'X' works as 'I'
 
@@ -53,6 +53,7 @@ public class RomanNumeralsTests
     }
 
     [TestCase(4, "IV")]
+    [TestCase(5, "V")]
     [TestCase(9, "IX")]
     public void TranslateNumber_ToItsRomanEquivalent(int number, string expected)
     {

@@ -13,6 +13,8 @@ public class RomanTranslator
             return "I";
         if (howMuch == 4)
             return "IV";
+        if (howMuch == 5)
+            return "V";
         if (howMuch == 9)
             return "IX";
         if (howMuch < 10)
