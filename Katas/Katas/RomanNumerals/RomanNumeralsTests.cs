@@ -18,6 +18,12 @@ public class RomanNumeralsTests
     {
         new RomanTranslator().Translate(1).Should().Be("I");
     }
+
+    [Test]
+    public void Translate_2()
+    {
+        new RomanTranslator().Translate(2).Should().Be("II");
+    }
 }
 
 public class RomanTranslator
@@ -28,7 +34,8 @@ public class RomanTranslator
             throw new ArgumentException("The Romans did not use negative numbers");
         if (howMuch == 0)
             throw new ArgumentException("The Romans did not use 0");
-        
+
+        if (howMuch == 2) return "II";
         return "I";
     }
 }
