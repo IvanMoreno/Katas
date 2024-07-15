@@ -20,6 +20,9 @@ namespace Katas.RomanNumerals;
 // [x] 1000 --> 'M'
 // [x] 900 --> 'CM'
 
+// What I have learn:
+// Doing small steps and being aware of the transformation priority premise made the work for this kata much easier.
+
 public class RomanNumeralsTests
 {
     [TestCase(1, "I")]
