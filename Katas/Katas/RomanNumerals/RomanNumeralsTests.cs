@@ -16,7 +16,7 @@ namespace Katas.RomanNumerals;
 // [x] 100 --> 'C'
 // [x] 90 --> 'XC'
 // [x] 500 --> 'D'
-// [] 490 --> 'XD' would be incorrect, 'CDXC' is correct
+// [x] 490 --> 'XD' would be incorrect, 'CDXC' is correct
 
 public class RomanNumeralsTests
 {
@@ -92,5 +92,6 @@ public class RomanNumeralsTests
     public void ASymbol_CannotBePrepended_ToANextDecimalLevel_Symbol()
     {
         new RomanTranslator().Translate(490).Should().Be("CDXC");
+        new RomanTranslator().Translate(294).Should().Be("CCXCIV");
     }
 }
