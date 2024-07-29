@@ -12,12 +12,13 @@ namespace Katas.Mastermind;
 public class MastermindTests
 {
     [Test]
-    public void RevealAmountOf_WellPlacedColors()
+    public void RevealAmountOf_OneCorrectGuess()
     {
         new CodeMaker(secret: Color.Red)
             .Guess(new[] { Color.Red })
             .CorrectGuesses.Should().Be(1);
     }
+    
 }
 
 public class CodeMaker
