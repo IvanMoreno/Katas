@@ -1,4 +1,5 @@
 using FluentAssertions;
+using static Katas.Mastermind.Color;
 
 namespace Katas.Mastermind;
 
@@ -14,48 +15,48 @@ public class MastermindTests
     [Test]
     public void RevealAmountOf_OneCorrectGuess()
     {
-        new CodeMaker(secret: Color.Red)
-            .Guess(new[] { Color.Red })
+        new CodeMaker(secret: Red)
+            .Guess(new[] { Red })
             .CorrectGuesses.Should().Be(1);
     }
 
     [Test]
     public void FailGuess_OnlyOneColor()
     {
-        new CodeMaker(secret: Color.Green)
-            .Guess(new[] { Color.Red })
+        new CodeMaker(secret: Green)
+            .Guess(new[] { Red })
             .CorrectGuesses.Should().Be(0);
     }
 
     [Test]
     public void FailGuess_TwoColors()
     {
-        new CodeMaker(Color.Red, Color.Green)
-            .Guess(new[] { Color.Green, Color.Red })
+        new CodeMaker(Red, Green)
+            .Guess(new[] { Green, Red })
             .CorrectGuesses.Should().Be(0);
     }
 
     [Test]
     public void Guess_TwoCorrectColors()
     {
-        new CodeMaker(Color.Red, Color.Green)
-            .Guess(new[] { Color.Red, Color.Green })
+        new CodeMaker(Red, Green)
+            .Guess(new[] { Red, Green })
             .CorrectGuesses.Should().Be(2);
     }
     
     [Test]
     public void GuessOneColor_FailTheOther()
     {
-        new CodeMaker(Color.Red, Color.Yellow)
-            .Guess(new[] { Color.Red, Color.Green })
+        new CodeMaker(Red, Yellow)
+            .Guess(new[] { Red, Green })
             .CorrectGuesses.Should().Be(1);
     }
 
     [Test]
     public void RevealCorrectColor_ButMisplaced()
     {
-        new CodeMaker(Color.Red, Color.Yellow)
-            .Guess(new[] { Color.Yellow, Color.Green })
+        new CodeMaker(Red, Yellow)
+            .Guess(new[] { Yellow, Green })
             .Misplaced.Should().Be(1);
     }
 }
