@@ -14,15 +14,28 @@ public class RockPaperScissorsTests
         Rock.Beats(Scissors).Should().BeTrue();
         Scissors.Beats(Rock).Should().BeFalse();
     }
+
+    [Test]
+    public void PaperBeatsRock()
+    {
+        Paper.Beats(Rock).Should().BeTrue();
+        Rock.Beats(Paper).Should().BeFalse();
+    }
 }
 
 public record Figure(string name)
 {
     public bool Beats(Figure rival)
     {
-        return rival == Scissors;
+        return name switch
+        {
+            "Rock" => rival == Scissors,
+            "Paper" => rival == Rock,
+            "Scissors" => false
+        };
     }
 
     public static Figure Rock => new("Rock");
+    public static Figure Paper => new("Paper");
     public static Figure Scissors => new("Scissors");
 }
