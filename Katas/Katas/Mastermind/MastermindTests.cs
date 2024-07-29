@@ -34,6 +34,14 @@ public class MastermindTests
             .Guess(new[] { Color.Green, Color.Red })
             .CorrectGuesses.Should().Be(0);
     }
+
+    [Test]
+    public void Guess_TwoCorrectColors()
+    {
+        new CodeMaker(Color.Red, Color.Green)
+            .Guess(new[] { Color.Red, Color.Green })
+            .CorrectGuesses.Should().Be(2);
+    }
 }
 
 public class CodeMaker(params Color[] secret)
