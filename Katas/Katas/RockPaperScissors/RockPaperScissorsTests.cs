@@ -43,11 +43,11 @@ public class RockPaperScissorsTests
     [Test]
     public void AnnounceWinningMove()
     {
-        new Match().ResultOf(Scissors, Paper)
+        Match.ResultOf(Scissors, Paper)
             .Should()
             .Be("Scissors");
         
-        new Match().ResultOf(Rock, Paper)
+        Match.ResultOf(Rock, Paper)
             .Should()
             .Be("Paper");
     }
@@ -55,7 +55,7 @@ public class RockPaperScissorsTests
     [Test]
     public void AnnounceDraw()
     {
-        new Match().ResultOf(Scissors, Scissors)
+        Match.ResultOf(Scissors, Scissors)
             .Should()
             .Be("Draw");
     }

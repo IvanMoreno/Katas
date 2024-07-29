@@ -1,11 +1,11 @@
 namespace Katas.RockPaperScissors;
 
-public class Match
+public static class Match
 {
-    public string ResultOf(Move scissors, Move paper)
+    public static string ResultOf(Move theOne, Move theOther)
     {
-        if (scissors == paper) return "Draw";
-        
-        return scissors.Beats(paper) ? scissors.Figure : paper.Figure;
+        if (theOne.Equals(theOther)) return "Draw";
+
+        return theOne.Beats(theOther) ? theOne.Figure : theOther.Figure;
     }
 }
