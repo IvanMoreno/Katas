@@ -8,7 +8,7 @@ namespace Katas.Mastermind;
 //   [x] In order for this to happen, there must exist a secret code
 //   [x] It is necessary to know where a color is placed
 //   [x] A secret code is the relation of a color with its position (we could use the index of the array for the moment)
-// [] Return the number of correct but misplaced colors
+// [x] Return the number of correct but misplaced colors
 
 public class MastermindTests
 {
