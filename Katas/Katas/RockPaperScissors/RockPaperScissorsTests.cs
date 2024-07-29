@@ -12,16 +12,17 @@ public class RockPaperScissorsTests
     public void RockBeatsScissors()
     {
         Rock.Beats(Scissors).Should().BeTrue();
+        Scissors.Beats(Rock).Should().BeFalse();
     }
 }
 
-public class Figure
+public record Figure(string name)
 {
-    public bool Beats(object scissors)
+    public bool Beats(Figure rival)
     {
-        return true;
+        return rival == Scissors;
     }
 
-    public static Figure Rock => new();
-    public static Figure Scissors => new();
+    public static Figure Rock => new("Rock");
+    public static Figure Scissors => new("Scissors");
 }
