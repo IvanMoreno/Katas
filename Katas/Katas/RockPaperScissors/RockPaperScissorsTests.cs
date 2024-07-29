@@ -46,6 +46,10 @@ public class RockPaperScissorsTests
         new Match().ResultOf(Scissors, Paper)
             .Should()
             .Be("Scissors");
+        
+        new Match().ResultOf(Rock, Paper)
+            .Should()
+            .Be("Paper");
     }
 
     [Test]
