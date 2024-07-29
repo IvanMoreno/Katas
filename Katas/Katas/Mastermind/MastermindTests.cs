@@ -20,10 +20,18 @@ public class MastermindTests
     }
 
     [Test]
-    public void FailGuess()
+    public void FailGuess_OnlyOneColor()
     {
         new CodeMaker(secret: Color.Green)
             .Guess(new[] { Color.Red })
+            .CorrectGuesses.Should().Be(0);
+    }
+
+    [Test]
+    public void FailGuess_TwoColors()
+    {
+        new CodeMaker(Color.Red, Color.Green)
+            .Guess(new[] { Color.Green, Color.Red })
             .CorrectGuesses.Should().Be(0);
     }
 }
@@ -32,9 +40,7 @@ public class CodeMaker(params Color[] secret)
 {
     public GuessResult Guess(IEnumerable<Color> guess)
     {
-        if (secret.First() == Color.Green) return new GuessResult(correctGuesses: 0);
-        
-        return new GuessResult(correctGuesses: 1);
+        return new GuessResult(correctGuesses: secret.Zip(guess).Count(x => x.First == x.Second));
     }
 }
 
