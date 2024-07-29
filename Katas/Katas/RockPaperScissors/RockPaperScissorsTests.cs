@@ -5,7 +5,9 @@ namespace Katas.RockPaperScissors;
 
 // https://hackmd.io/@evalverde/rock-paper-scissors-kata
 // [x] Rock beats scissors
-// [] Paper beats rock
+// [x] Paper beats rock
+// [] Scissors beats paper
+
 public class RockPaperScissorsTests
 {
     [Test]
@@ -21,6 +23,12 @@ public class RockPaperScissorsTests
         Paper.Beats(Rock).Should().BeTrue();
         Rock.Beats(Paper).Should().BeFalse();
     }
+
+    [Test]
+    public void ScissorBeatsPaper()
+    {
+        Scissors.Beats(Paper).Should().BeTrue();
+    }
 }
 
 public record Figure(string name)
@@ -31,7 +39,7 @@ public record Figure(string name)
         {
             "Rock" => rival == Scissors,
             "Paper" => rival == Rock,
-            "Scissors" => false
+            "Scissors" => rival == Paper
         };
     }
 
