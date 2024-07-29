@@ -50,4 +50,12 @@ public class MastermindTests
             .Guess(new[] { Color.Red, Color.Green })
             .CorrectGuesses.Should().Be(1);
     }
+
+    [Test]
+    public void RevealCorrectColor_ButMisplaced()
+    {
+        new CodeMaker(Color.Red, Color.Yellow)
+            .Guess(new[] { Color.Yellow, Color.Green })
+            .Misplaced.Should().Be(1);
+    }
 }
