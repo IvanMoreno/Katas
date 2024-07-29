@@ -12,6 +12,6 @@ public static class Match
 
     static string Winner(Move theOne, Move theOther)
         => theOne.Beats(theOther)
-            ? theOne.Figure
-            : theOther.Figure;
+            ? theOne.ToString()
+            : theOther.ToString();
 }
