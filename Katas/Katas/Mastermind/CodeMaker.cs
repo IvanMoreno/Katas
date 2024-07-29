@@ -12,7 +12,7 @@ public class CodeMaker(params Color[] secret)
 
     int MisplacedFrom(IEnumerable<Color> guess)
     {
-        return secret.Zip(guess).Where(x => x.First != x.Second).Count(y => secret.Contains(y.Second));
+        return secret.Zip(guess).Where(y => secret.Contains(y.Second)).Count(x => x.First != x.Second);
     }
 
     int WellPlacedFrom(IEnumerable<Color> guess)
