@@ -28,6 +28,7 @@ public class RockPaperScissorsTests
     public void ScissorBeatsPaper()
     {
         Scissors.Beats(Paper).Should().BeTrue();
+        Paper.Beats(Scissors).Should().BeFalse();
     }
 }
 
