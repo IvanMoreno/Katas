@@ -67,4 +67,14 @@ public class MastermindTests
             .Guess(new[] { Yellow, Red })
             .Misplaced.Should().Be(2);
     }
+
+    [Test]
+    public void Misplace_OneColor_AndGuess_OneCorrectColor()
+    {
+        var result = new CodeMaker(Red, Yellow, Blue)
+            .Guess(new[] { Blue, Yellow, Green });
+        
+        result.Misplaced.Should().Be(1);
+        result.CorrectGuesses.Should().Be(1);
+    }
 }
