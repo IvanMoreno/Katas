@@ -1,5 +1,5 @@
 using FluentAssertions;
-using static Katas.RockPaperScissors.Figure;
+using static Katas.RockPaperScissors.Move;
 
 namespace Katas.RockPaperScissors;
 
@@ -33,19 +33,19 @@ public class RockPaperScissorsTests
     }
 }
 
-public record Figure(string name)
+public record Move(string Figure)
 {
-    public bool Beats(Figure rival)
+    public bool Beats(Move opposed)
     {
-        return name switch
+        return Figure switch
         {
-            "Rock" => rival == Scissors,
-            "Paper" => rival == Rock,
-            "Scissors" => rival == Paper
+            "Rock" => opposed == Scissors,
+            "Paper" => opposed == Rock,
+            "Scissors" => opposed == Paper
         };
     }
 
-    public static Figure Rock => new("Rock");
-    public static Figure Paper => new("Paper");
-    public static Figure Scissors => new("Scissors");
+    public static Move Rock => new("Rock");
+    public static Move Paper => new("Paper");
+    public static Move Scissors => new("Scissors");
 }
