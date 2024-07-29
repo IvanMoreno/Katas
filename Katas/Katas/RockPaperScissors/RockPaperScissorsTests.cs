@@ -7,7 +7,7 @@ namespace Katas.RockPaperScissors;
 // [x] Rock beats scissors
 // [x] Paper beats rock
 // [x] Scissors beats paper
-// [] Same move results in draw
+// [x] Same move results in draw
 
 public class RockPaperScissorsTests
 {
@@ -39,21 +39,4 @@ public class RockPaperScissorsTests
         Paper.Beats(Paper).Should().BeFalse();
         Rock.Beats(Rock).Should().BeFalse();
     }
-}
-
-public record Move(string Figure)
-{
-    public bool Beats(Move opposed)
-    {
-        return Figure switch
-        {
-            "Rock" => opposed == Scissors,
-            "Paper" => opposed == Rock,
-            "Scissors" => opposed == Paper
-        };
-    }
-
-    public static Move Rock => new("Rock");
-    public static Move Paper => new("Paper");
-    public static Move Scissors => new("Scissors");
 }
