@@ -7,6 +7,11 @@ public class CodeMaker(params Color[] secret)
         if (guess.Count() != secret.Length)
             throw new ArgumentException("Guess must have same length than secret");
         
-        return new GuessResult(correctGuesses: secret.Zip(guess).Count(x => x.First == x.Second), 1);
+        return new GuessResult(correctGuesses: WellPlacedFrom(guess), 1);
+    }
+
+    int WellPlacedFrom(IEnumerable<Color> guess)
+    {
+        return secret.Zip(guess).Count(x => x.First == x.Second);
     }
 }
