@@ -4,8 +4,8 @@ using static Katas.RockPaperScissors.Figure;
 namespace Katas.RockPaperScissors;
 
 // https://hackmd.io/@evalverde/rock-paper-scissors-kata
-// Rock beats scissors
-
+// [x] Rock beats scissors
+// [] Paper beats rock
 public class RockPaperScissorsTests
 {
     [Test]
