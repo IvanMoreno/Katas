@@ -18,18 +18,29 @@ public class MastermindTests
             .Guess(new[] { Color.Red })
             .CorrectGuesses.Should().Be(1);
     }
-    
+
+    [Test]
+    public void FailGuess()
+    {
+        new CodeMaker(secret: Color.Green)
+            .Guess(new[] { Color.Red })
+            .CorrectGuesses.Should().Be(0);
+    }
 }
 
 public class CodeMaker
 {
+    readonly Color[] secret;
+
     public CodeMaker(params Color[] secret)
     {
-        
+        this.secret = secret;
     }
 
     public GuessResult Guess(IEnumerable<Color> guess)
     {
+        if (secret.First() == Color.Green) return new GuessResult(correctGuesses: 0);
+        
         return new GuessResult(correctGuesses: 1);
     }
 }
@@ -41,5 +52,6 @@ public readonly struct GuessResult(int correctGuesses)
 
 public enum Color
 {
-    Red
+    Red,
+    Green
 }
