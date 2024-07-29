@@ -39,4 +39,20 @@ public class RockPaperScissorsTests
         Paper.Beats(Paper).Should().BeFalse();
         Rock.Beats(Rock).Should().BeFalse();
     }
+
+    [Test]
+    public void AnnounceWinningMove()
+    {
+        new Match().ResultOf(Scissors, Paper)
+            .Should()
+            .Be("Scissors");
+    }
+}
+
+public class Match
+{
+    public string ResultOf(Move scissors, Move paper)
+    {
+        return "Scissors";
+    }
 }
