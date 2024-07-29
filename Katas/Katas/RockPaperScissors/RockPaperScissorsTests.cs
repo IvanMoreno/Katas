@@ -6,7 +6,8 @@ namespace Katas.RockPaperScissors;
 // https://hackmd.io/@evalverde/rock-paper-scissors-kata
 // [x] Rock beats scissors
 // [x] Paper beats rock
-// [] Scissors beats paper
+// [x] Scissors beats paper
+// [] Same move results in draw
 
 public class RockPaperScissorsTests
 {
