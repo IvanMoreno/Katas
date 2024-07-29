@@ -42,4 +42,12 @@ public class MastermindTests
             .Guess(new[] { Color.Red, Color.Green })
             .CorrectGuesses.Should().Be(2);
     }
+    
+    [Test]
+    public void GuessOneColor_FailTheOther()
+    {
+        new CodeMaker(Color.Red, Color.Yellow)
+            .Guess(new[] { Color.Red, Color.Green })
+            .CorrectGuesses.Should().Be(1);
+    }
 }
