@@ -1,3 +1,5 @@
+using FluentAssertions;
+
 namespace Katas.Mastermind;
 
 // https://codingdojo.org/kata/Mastermind/
@@ -9,5 +11,34 @@ namespace Katas.Mastermind;
 
 public class MastermindTests
 {
-    
+    [Test]
+    public void RevealAmountOf_WellPlacedColors()
+    {
+        new CodeMaker(secret: Color.Red)
+            .Guess(new[] { Color.Red })
+            .CorrectGuesses.Should().Be(1);
+    }
+}
+
+public class CodeMaker
+{
+    public CodeMaker(params Color[] secret)
+    {
+        
+    }
+
+    public GuessResult Guess(IEnumerable<Color> guess)
+    {
+        return new GuessResult(correctGuesses: 1);
+    }
+}
+
+public readonly struct GuessResult(int correctGuesses)
+{
+    public readonly int CorrectGuesses = correctGuesses;
+}
+
+public enum Color
+{
+    Red
 }
