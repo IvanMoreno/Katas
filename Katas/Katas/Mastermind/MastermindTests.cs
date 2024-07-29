@@ -28,15 +28,8 @@ public class MastermindTests
     }
 }
 
-public class CodeMaker
+public class CodeMaker(params Color[] secret)
 {
-    readonly Color[] secret;
-
-    public CodeMaker(params Color[] secret)
-    {
-        this.secret = secret;
-    }
-
     public GuessResult Guess(IEnumerable<Color> guess)
     {
         if (secret.First() == Color.Green) return new GuessResult(correctGuesses: 0);
