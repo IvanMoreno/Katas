@@ -31,6 +31,14 @@ public class RockPaperScissorsTests
         Scissors.Beats(Paper).Should().BeTrue();
         Paper.Beats(Scissors).Should().BeFalse();
     }
+
+    [Test]
+    public void SameMoves_ResultsInDraw()
+    {
+        Scissors.Beats(Scissors).Should().BeFalse();
+        Paper.Beats(Paper).Should().BeFalse();
+        Rock.Beats(Rock).Should().BeFalse();
+    }
 }
 
 public record Move(string Figure)
