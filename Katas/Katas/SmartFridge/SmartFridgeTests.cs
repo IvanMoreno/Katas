@@ -22,13 +22,13 @@ public class SmartFridgeTests
     [Test]
     public void DisplayNoItems_WhenFridgeIsEmpty()
     {
-        Fridge.Empty().Display().Should().BeEmpty();
+        Fridge.At(new DateTime()).Display().Should().BeEmpty();
     }
 
     [Test]
     public void DisplayAnItem_ThatExpires_Tomorrow()
     {
-        Fridge.Empty()
+        Fridge.At(new DateTime())
             .Put(new Item("Tomato", new DateTime().AddDays(1)))
             .Display()
             .Should().Be("Tomato: 0 day(s) remaining");
@@ -37,7 +37,7 @@ public class SmartFridgeTests
     [Test]
     public void DisplayAnItem_ThatExpires_InTwoDays()
     {
-        Fridge.Empty()
+        Fridge.At(new DateTime())
             .Put(new Item("Tomato", new DateTime().AddDays(2)))
             .Display()
             .Should().Be("Tomato: 1 day(s) remaining");

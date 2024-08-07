@@ -25,11 +25,6 @@ public class Fridge
         return this;
     }
 
-    public static Fridge Empty()
-    {
-        return At(new DateTime());
-    }
-
     public static Fridge At(DateTime today)
     {
         return new Fridge(today);
