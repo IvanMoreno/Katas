@@ -1,4 +1,5 @@
 using FluentAssertions;
+using static Katas.SmartFridge.Supermarket;
 
 namespace Katas.SmartFridge;
 
@@ -33,7 +34,7 @@ public class SmartFridgeTests
     public void DisplayAnItem_ThatExpires_Tomorrow()
     {
         Fridge.At(Today)
-            .Put(new Item("Tomato", Today.AddDays(1)))
+            .Put(Tomato(expires: Today.AddDays(1)))
             .Display()
             .Should().Be("Tomato: 0 day(s) remaining");
     }
@@ -42,7 +43,7 @@ public class SmartFridgeTests
     public void DisplayAnItem_ThatExpires_InTwoDays()
     {
         Fridge.At(Today)
-            .Put(new Item("Tomato", Today.AddDays(2)))
+            .Put(Tomato(expires: Today.AddDays(2)))
             .Display()
             .Should().Be("Tomato: 1 day(s) remaining");
     }
@@ -51,7 +52,7 @@ public class SmartFridgeTests
     public void AFridge_CanBeInitialized_AtAnyDate()
     {
         Fridge.At(Today)
-            .Put(new Item("Lettuce", NextWeek))
+            .Put(Lettuce(expires: NextWeek))
             .Display()
             .Should().Be("Lettuce: 6 day(s) remaining");
     }
@@ -60,7 +61,7 @@ public class SmartFridgeTests
     public void DisplayExpiredItem()
     {
         Fridge.At(Today)
-            .Put(new Item("Lettuce", Today))
+            .Put(Lettuce(expires: Today))
             .Display()
             .Should().Be("EXPIRED: Lettuce");
     }
@@ -69,9 +70,22 @@ public class SmartFridgeTests
     public void DisplayTwoItems()
     {
         Fridge.At(Today)
-            .Put(new Item("Tomato", Tomorrow))
-            .Put(new Item("Lettuce", Tomorrow))
+            .Put(Tomato(expires: Tomorrow))
+            .Put(Lettuce(expires: Tomorrow))
             .Display()
             .Should().Be("Tomato: 0 day(s) remaining\nLettuce: 0 day(s) remaining");
+    }
+}
+
+public static class Supermarket
+{
+    public static Item Tomato(DateTime expires)
+    {
+        return new Item("Tomato", expires);
+    }
+
+    public static Item Lettuce(DateTime expires)
+    {
+        return new Item("Lettuce", expires);
     }
 }
