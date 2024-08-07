@@ -2,7 +2,10 @@ namespace Katas.SmartFridge;
 
 public class Fridge
 {
+    readonly DateTime today;
     Item? stored;
+
+    Fridge(DateTime today) => this.today = today;
 
     public string Display()
     {
@@ -13,7 +16,7 @@ public class Fridge
 
     int DaysUntilExpiration(Item item)
     {
-        return (item.ExpirationDate - new DateTime()).Days - 1;
+        return (item.ExpirationDate - today).Days - 1;
     }
 
     public Fridge Put(Item item)
@@ -24,6 +27,11 @@ public class Fridge
 
     public static Fridge Empty()
     {
-        return new Fridge();
+        return At(new DateTime());
+    }
+
+    public static Fridge At(DateTime today)
+    {
+        return new Fridge(today);
     }
 }

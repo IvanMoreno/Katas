@@ -42,4 +42,14 @@ public class SmartFridgeTests
             .Display()
             .Should().Be("Tomato: 1 day(s) remaining");
     }
+
+    [Test]
+    public void AFridge_CanBeInitialized_AtAnyDate()
+    {
+        var today = new DateTime().AddDays(5);
+        Fridge.At(today)
+            .Put(new Item("Tomato", today.AddDays(1)))
+            .Display()
+            .Should().Be("Tomato: 0 day(s) remaining");
+    }
 }
