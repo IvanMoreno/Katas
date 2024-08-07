@@ -6,7 +6,14 @@ public class Fridge
 
     public string Display()
     {
-        return stored == null ? "" : "Tomato: 0 day(s) remaining";
+        return stored == null
+            ? ""
+            : $"Tomato: {DaysUntilExpiration(stored)} day(s) remaining";
+    }
+
+    int DaysUntilExpiration(Item item)
+    {
+        return (item.ExpirationDate - new DateTime()).Days - 1;
     }
 
     public Fridge Put(Item item)
