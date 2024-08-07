@@ -11,7 +11,7 @@ public class Fridge
     {
         return stored == null
             ? ""
-            : $"Tomato: {DaysUntilExpiration(stored)} day(s) remaining";
+            : $"{stored.Name}: {DaysUntilExpiration(stored)} day(s) remaining";
     }
 
     int DaysUntilExpiration(Item item)
