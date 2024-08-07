@@ -12,16 +12,14 @@ public class Fridge
 
     public string Display()
     {
-        return stored == null
-            ? ""
-            : Join('\n', allStored.Select(LineFor));
+        return Join('\n', allStored.Select(LineFor));
     }
 
     string LineFor(Item? item)
     {
         if (IsExpired(item))
             return "EXPIRED: Lettuce";
-        
+
         return $"{item.Name}: {DaysUntilExpiration(item)} day(s) remaining";
     }
 
