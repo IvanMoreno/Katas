@@ -19,17 +19,19 @@ namespace Katas.SmartFridge;
 
 public class SmartFridgeTests
 {
+    static DateTime ADate => new();
+
     [Test]
     public void DisplayNoItems_WhenFridgeIsEmpty()
     {
-        Fridge.At(new DateTime()).Display().Should().BeEmpty();
+        Fridge.At(ADate).Display().Should().BeEmpty();
     }
 
     [Test]
     public void DisplayAnItem_ThatExpires_Tomorrow()
     {
-        Fridge.At(new DateTime())
-            .Put(new Item("Tomato", new DateTime().AddDays(1)))
+        Fridge.At(ADate)
+            .Put(new Item("Tomato", ADate.AddDays(1)))
             .Display()
             .Should().Be("Tomato: 0 day(s) remaining");
     }
@@ -37,8 +39,8 @@ public class SmartFridgeTests
     [Test]
     public void DisplayAnItem_ThatExpires_InTwoDays()
     {
-        Fridge.At(new DateTime())
-            .Put(new Item("Tomato", new DateTime().AddDays(2)))
+        Fridge.At(ADate)
+            .Put(new Item("Tomato", ADate.AddDays(2)))
             .Display()
             .Should().Be("Tomato: 1 day(s) remaining");
     }
@@ -46,7 +48,8 @@ public class SmartFridgeTests
     [Test]
     public void AFridge_CanBeInitialized_AtAnyDate()
     {
-        var today = new DateTime().AddDays(5);
+        var today = ADate.AddDays(5);
+        
         Fridge.At(today)
             .Put(new Item("Tomato", today.AddDays(1)))
             .Display()
