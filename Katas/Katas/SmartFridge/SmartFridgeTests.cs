@@ -24,12 +24,34 @@ public class SmartFridgeTests
     {
         new Fridge().Display().Should().BeEmpty();
     }
+
+    [Test]
+    public void DisplayAnItem_ThatExpires_Tomorrow()
+    {
+        new Fridge()
+            .Put(new Item("Tomato", new DateTime().AddDays(1)))
+            .Display().Should()
+            .Be("Tomato: 0 day(s) remaining");
+    }
 }
 
 public class Fridge
 {
+    Item? stored;
+    
     public string Display()
     {
-        return "";
+        return stored == null ? "" : "Tomato: 0 day(s) remaining";
     }
+
+    public Fridge Put(Item item)
+    {
+        stored = item;
+        return this;
+    }
+}
+
+public record Item(string Name, DateTime ExpirationDate)
+{
+    
 }
