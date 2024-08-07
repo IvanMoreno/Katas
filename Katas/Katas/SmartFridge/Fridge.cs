@@ -11,7 +11,12 @@ public class Fridge
     {
         return stored == null
             ? ""
-            : $"{stored.Name}: {DaysUntilExpiration(stored)} day(s) remaining";
+            : LineFor(stored);
+    }
+
+    string LineFor(Item? item)
+    {
+        return $"{item.Name}: {DaysUntilExpiration(item)} day(s) remaining";
     }
 
     int DaysUntilExpiration(Item item)
