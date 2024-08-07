@@ -20,6 +20,8 @@ namespace Katas.SmartFridge;
 public class SmartFridgeTests
 {
     static DateTime Today => new();
+    static DateTime Tomorrow => Today.AddDays(1);
+    static DateTime NextWeek => Today.AddDays(7);
 
     [Test]
     public void DisplayNoItems_WhenFridgeIsEmpty()
@@ -48,12 +50,10 @@ public class SmartFridgeTests
     [Test]
     public void AFridge_CanBeInitialized_AtAnyDate()
     {
-        var today = Today.AddDays(5);
-        
-        Fridge.At(today)
-            .Put(new Item("Lettuce", today.AddDays(1)))
+        Fridge.At(Today)
+            .Put(new Item("Lettuce", NextWeek))
             .Display()
-            .Should().Be("Lettuce: 0 day(s) remaining");
+            .Should().Be("Lettuce: 6 day(s) remaining");
     }
 
     [Test]
