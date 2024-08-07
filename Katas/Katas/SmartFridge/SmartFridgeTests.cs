@@ -6,9 +6,9 @@ namespace Katas.SmartFridge;
 // [] Display the items of the Fridge:
 //    [x] Each item have an expiration date
 //    [] Each item can be opened or closed when introduced in the fridge, this cannot be changed
-//    [] An item is expired if its expiration date matches today's date
+//    [x] An item is expired if its expiration date matches today's date
 //    [x] A non expired item will be displayed as 'item.name: n day(s) remaining'
-//    [] An expired item will be displayed as 'EXPIRED: item.name'
+//    [x] An expired item will be displayed as 'EXPIRED: item.name'
 //    [] Expired items are displayed before non expired items
 // [x] Add an item to the fridge
 // [] Opening the fridge degrades all items inside the fridge
