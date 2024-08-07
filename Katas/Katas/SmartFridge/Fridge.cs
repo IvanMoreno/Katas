@@ -1,8 +1,11 @@
+using static System.String;
+
 namespace Katas.SmartFridge;
 
 public class Fridge
 {
     readonly DateTime today;
+    readonly List<Item> allStored = new();
     Item? stored;
 
     Fridge(DateTime today) => this.today = today;
@@ -11,7 +14,7 @@ public class Fridge
     {
         return stored == null
             ? ""
-            : LineFor(stored);
+            : Join('\n', allStored.Select(LineFor));
     }
 
     string LineFor(Item? item)
@@ -28,6 +31,7 @@ public class Fridge
     public Fridge Put(Item item)
     {
         stored = item;
+        allStored.Add(item);
         return this;
     }
 

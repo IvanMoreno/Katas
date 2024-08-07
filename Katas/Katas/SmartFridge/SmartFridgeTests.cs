@@ -64,4 +64,14 @@ public class SmartFridgeTests
             .Display()
             .Should().Be("EXPIRED: Lettuce");
     }
+
+    [Test]
+    public void DisplayTwoItems()
+    {
+        Fridge.At(Today)
+            .Put(new Item("Tomato", Tomorrow))
+            .Put(new Item("Lettuce", Tomorrow))
+            .Display()
+            .Should().Be("Tomato: 0 day(s) remaining\nLettuce: 0 day(s) remaining");
+    }
 }
