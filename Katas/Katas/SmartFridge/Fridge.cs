@@ -22,15 +22,8 @@ public class Fridge
         return $"{item.Name}: {DaysUntilExpiration(item)} day(s) remaining";
     }
 
-    bool IsExpired(Item item)
-    {
-        return DaysUntilExpiration(item) < 0;
-    }
-
-    int DaysUntilExpiration(Item item)
-    {
-        return (item.ExpirationDate - today).Days - 1;
-    }
+    bool IsExpired(Item item) => DaysUntilExpiration(item) < 0;
+    int DaysUntilExpiration(Item item) => (item.ExpirationDate - today).Days - 1;
 
     public Fridge Put(Item item)
     {
