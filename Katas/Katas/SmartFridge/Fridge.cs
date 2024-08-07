@@ -6,7 +6,6 @@ public class Fridge
 {
     readonly DateTime today;
     readonly List<Item> allStored = new();
-    Item? stored;
 
     Fridge(DateTime today) => this.today = today;
 
@@ -28,7 +27,6 @@ public class Fridge
 
     public Fridge Put(Item item)
     {
-        stored = item;
         allStored.Add(item);
         return this;
     }
