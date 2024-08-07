@@ -1,3 +1,5 @@
+using FluentAssertions;
+
 namespace Katas.SmartFridge;
 
 // https://www.codurance.com/katas/smart-fridge
@@ -17,5 +19,17 @@ namespace Katas.SmartFridge;
 
 public class SmartFridgeTests
 {
-    
+    [Test]
+    public void DisplayNoItems_WhenFridgeIsEmpty()
+    {
+        new Fridge().Display().Should().BeEmpty();
+    }
+}
+
+public class Fridge
+{
+    public string Display()
+    {
+        return "";
+    }
 }
