@@ -1,4 +1,5 @@
 using FluentAssertions;
+using static Katas.SmartFridge.FridgeMessagesBuilder;
 using static Katas.SmartFridge.Supermarket;
 
 namespace Katas.SmartFridge;
@@ -63,7 +64,7 @@ public class SmartFridgeTests
         Fridge.At(Today)
             .Put(Lettuce(expires: Today))
             .Display()
-            .Should().Be("EXPIRED: Lettuce");
+            .Should().Be(ALettuce.Expired());
     }
 
     [Test]
