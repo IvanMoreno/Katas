@@ -10,6 +10,12 @@ public class Fridge
     bool wasOpen = false;
 
     Fridge(DateTime today) => this.today = today;
+    Fridge(DateTime today, List<Item> allStored, bool wasOpen)
+    {
+        this.today = today;
+        this.allStored = allStored;
+        this.wasOpen = wasOpen;
+    }
 
     public string Display()
     {
@@ -50,5 +56,10 @@ public class Fridge
     {
         wasOpen = true;
         return this;
+    }
+
+    public Fridge Pass(TimeSpan howMuchTime)
+    {
+        return new(today + howMuchTime, allStored, wasOpen);
     }
 }

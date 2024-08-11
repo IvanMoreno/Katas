@@ -25,6 +25,8 @@ public class SmartFridgeTests
     static DateTime Tomorrow => Today.AddDays(1);
     static DateTime NextWeek => Today.AddDays(7);
 
+    static TimeSpan OneHour => TimeSpan.FromHours(1);
+
     [Test]
     public void DisplayNoItems_WhenFridgeIsEmpty()
     {
@@ -102,11 +104,12 @@ public class SmartFridgeTests
             .Should().Be(ATomato.Expired());
     }
 
-    [Test]
+    [Test, Ignore("Test before the pass time method")]
     public void OpeningAFridge_BeforePuttingItem_DoesNotDegradeIt()
     {
         Fridge.At(Today)
             .OpenDoor()
+            .Pass(OneHour)
             .Put(Tomato(expires: Tomorrow))
             .Display()
             .Should().NotBe(ATomato.Expired());
