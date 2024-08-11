@@ -120,7 +120,7 @@ public class SmartFridgeTests
         Fridge.At(Today)
             .OpenDoor()
             .Pass(OneHour)
-            .Put(Tomato(expires: Tomorrow))
+            .Put(Tomato(expires: Tomorrow + OneHour))
             .Display()
             .Should().NotBe(ATomato.Expired());
     }
