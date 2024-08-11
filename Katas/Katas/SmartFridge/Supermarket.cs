@@ -11,4 +11,9 @@ public static class Supermarket
     {
         return new Item("Lettuce", expires);
     }
+
+    public static Item Opened(this Item item)
+    {
+        return item with { Opened = true };
+    }
 }

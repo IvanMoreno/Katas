@@ -170,4 +170,14 @@ public class SmartFridgeTests
             .Display()
             .Should().NotBe(ALettuce.Expired());
     }
+
+    [Test]
+    public void AnOpenedItem_IsDegraded_FiveHours()
+    {
+        Fridge.At(Today)
+            .Put(Lettuce(expires: Tomorrow + OneHour).Opened())
+            .OpenDoor()
+            .Display()
+            .Should().Be(ALettuce.Expired());
+    }
 }
