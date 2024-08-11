@@ -7,8 +7,8 @@ namespace Katas.SmartFridge;
 public class Fridge
 {
     readonly DateTime today;
-    readonly List<Item> allStored = new();
-    readonly List<DateTime> openings = new();
+    readonly List<Item> allStored;
+    readonly List<DateTime> openings;
 
     Fridge(DateTime today, List<Item> allStored, List<DateTime> openings)
     {
