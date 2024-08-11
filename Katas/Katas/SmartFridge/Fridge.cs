@@ -7,20 +7,19 @@ namespace Katas.SmartFridge;
 public class Fridge
 {
     readonly DateTime today;
-    readonly List<Item> allStored;
+    List<Item> AllStored => allEvents.OfType<Item>().ToList();
     readonly List<DateTime> openings;
     readonly IEnumerable<Event> allEvents;
 
     Fridge(DateTime today, List<Item> allStored, List<DateTime> openings)
     {
         this.today = today;
-        this.allStored = allStored;
         this.openings = openings;
         this.allEvents = allStored.Select(x => x as Event);
     }
 
     public string Display()
-        => Join('\n', allStored.OrderByDescending(IsExpired).Select(LineFor));
+        => Join('\n', AllStored.OrderByDescending(IsExpired).Select(LineFor));
 
     string LineFor(Item item)
         => IsExpired(item)
@@ -44,13 +43,13 @@ public class Fridge
         => anItem.Opened ? FromHours(5) : FromHours(1);
 
     public Fridge Put(Item item)
-        => new(today, allStored.Append(item with { AdditionDate = today }).ToList(), openings);
+        => new(today, AllStored.Append(item with { AdditionDate = today }).ToList(), openings);
 
     public Fridge OpenDoor()
-        => new(today, allStored, openings.Append(today).ToList());
+        => new(today, AllStored, openings.Append(today).ToList());
 
     public Fridge Pass(TimeSpan howMuchTime)
-        => new(today + howMuchTime, allStored, openings);
+        => new(today + howMuchTime, AllStored, openings);
 
     public static Fridge At(DateTime today)
         => new(today, Empty<Item>().ToList(), Empty<DateTime>().ToList());
