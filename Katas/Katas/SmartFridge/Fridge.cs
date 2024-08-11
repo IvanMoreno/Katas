@@ -7,11 +7,11 @@ namespace Katas.SmartFridge;
 public class Fridge
 {
     readonly DateTime today;
-    List<Item> AllStored => allEvents.OfType<Item>().ToList();
+    IEnumerable<Item> AllStored => allEvents.OfType<Item>();
     readonly List<DateTime> openings;
     readonly IEnumerable<Event> allEvents;
 
-    Fridge(DateTime today, List<Item> allStored, List<DateTime> openings)
+    Fridge(DateTime today, IEnumerable<Item> allStored, List<DateTime> openings)
     {
         this.today = today;
         this.openings = openings;
