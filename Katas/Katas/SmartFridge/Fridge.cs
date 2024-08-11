@@ -6,24 +6,24 @@ namespace Katas.SmartFridge;
 
 public class Fridge
 {
-    readonly DateTime today;
+    readonly DateTime firstDay;
     readonly IEnumerable<Event> allEvents;
 
-    Fridge(DateTime today, IEnumerable<Event> allEvents)
+    Fridge(DateTime firstDay, IEnumerable<Event> allEvents)
     {
-        this.today = today;
+        this.firstDay = firstDay;
         this.allEvents = allEvents;
     }
     
-    public Fridge Put(Item item) => new(today, allEvents.Append(item with { AdditionDate = today }));
-    public Fridge OpenDoor() => new(today, allEvents.Append(new OpenedFridge(today)));
-    public Fridge Pass(TimeSpan howMuchTime) => new(today + howMuchTime, allEvents);
+    public Fridge Put(Item item) => new(firstDay, allEvents.Append(item with { AdditionDate = firstDay }));
+    public Fridge OpenDoor() => new(firstDay, allEvents.Append(new OpenedFridge(firstDay)));
+    public Fridge Pass(TimeSpan howMuchTime) => new(firstDay + howMuchTime, allEvents);
     
     public string Display() => Join('\n', AllItems());
     IEnumerable<string> AllItems() => allEvents.OfType<Item>().OrderByDescending(IsExpired).Select(LineFor);
     bool IsExpired(Item item) => DaysUntilExpiration(item) < 0;
     int DaysUntilExpiration(Item item) => ExpirationOf(item).Days - 1;
-    TimeSpan ExpirationOf(Item item) => item.ExpirationDate - today - AirExposureDegradation(item);
+    TimeSpan ExpirationOf(Item item) => item.ExpirationDate - firstDay - AirExposureDegradation(item);
     TimeSpan AirExposureDegradation(Item item) => OpeningsAfter(item) * DegradationTimeFor(item);
     int OpeningsAfter(Item item) => Openings().Count(x => x.When >= item.AdditionDate);
     IEnumerable<OpenedFridge> Openings() => allEvents.OfType<OpenedFridge>();
