@@ -5,17 +5,17 @@ using static Katas.SmartFridge.Supermarket;
 namespace Katas.SmartFridge;
 
 // https://www.codurance.com/katas/smart-fridge
-// [] Display the items of the Fridge:
+// [x] Display the items of the Fridge:
 //    [x] Each item have an expiration date
-//    [] Each item can be opened or closed when introduced in the fridge, this cannot be changed
+//    [x] Each item can be opened or closed when introduced in the fridge, this cannot be changed
 //    [x] An item is expired if its expiration date matches today's date
 //    [x] A non expired item will be displayed as 'item.name: n day(s) remaining'
 //    [x] An expired item will be displayed as 'EXPIRED: item.name'
 //    [x] Expired items are displayed before non expired items
 // [x] Add an item to the fridge
 // [x] Opening the fridge degrades all items inside the fridge
-//    [] If the item is opened, it is degraded by 5 hours
-//    [] If the item is closed, it is degraded by 1 hour
+//    [x] If the item is opened, it is degraded by 5 hours
+//    [x] If the item is closed, it is degraded by 1 hour
 
 // Dates are an important part of this kata, every operation performed in the fridge must be tracked.
 
