@@ -6,6 +6,7 @@ public class Fridge
 {
     readonly DateTime today;
     readonly List<Item> allStored = new();
+    bool wasOpen = false;
 
     Fridge(DateTime today) => this.today = today;
 
@@ -23,7 +24,10 @@ public class Fridge
     }
 
     bool IsExpired(Item item) => DaysUntilExpiration(item) < 0;
-    int DaysUntilExpiration(Item item) => (item.ExpirationDate - today).Days - 1;
+    int DaysUntilExpiration(Item item)
+    {
+        return (item.ExpirationDate - today - (wasOpen ? TimeSpan.FromHours(1) : TimeSpan.FromHours(0))).Days - 1;
+    }
 
     public Fridge Put(Item item)
     {
@@ -34,5 +38,11 @@ public class Fridge
     public static Fridge At(DateTime today)
     {
         return new Fridge(today);
+    }
+
+    public Fridge OpenDoor()
+    {
+        wasOpen = true;
+        return this;
     }
 }
