@@ -10,6 +10,7 @@ public class Fridge
     DateTime? whenWasOpened = null;
 
     Fridge(DateTime today) => this.today = today;
+
     Fridge(DateTime today, List<Item> allStored, DateTime? whenWasOpened)
     {
         this.today = today;
@@ -31,6 +32,7 @@ public class Fridge
     }
 
     bool IsExpired(Item item) => DaysUntilExpiration(item) < 0;
+
     int DaysUntilExpiration(Item item)
     {
         return (item.ExpirationDate - today - DegradationByAirExposure(item)).Days - 1;
@@ -39,13 +41,13 @@ public class Fridge
     TimeSpan DegradationByAirExposure(Item item)
     {
         if (whenWasOpened == null) return FromHours(0);
-        
-        return whenWasOpened >= today ? FromHours(1) : FromHours(0);
+
+        return whenWasOpened >= item.AdditionDate ? FromHours(1) : FromHours(0);
     }
 
     public Fridge Put(Item item)
     {
-        allStored.Add(item);
+        allStored.Add(item with { AdditionDate = today });
         return this;
     }
 
