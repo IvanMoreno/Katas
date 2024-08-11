@@ -76,16 +76,3 @@ public class SmartFridgeTests
             .Should().Be("Tomato: 0 day(s) remaining\nLettuce: 0 day(s) remaining");
     }
 }
-
-public static class Supermarket
-{
-    public static Item Tomato(DateTime expires)
-    {
-        return new Item("Tomato", expires);
-    }
-
-    public static Item Lettuce(DateTime expires)
-    {
-        return new Item("Lettuce", expires);
-    }
-}
