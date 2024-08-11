@@ -38,7 +38,9 @@ public class Fridge
 
     TimeSpan DegradationByAirExposure(Item item)
     {
-        return whenWasOpened != null ? FromHours(1) : FromHours(0);
+        if (whenWasOpened == null) return FromHours(0);
+        
+        return whenWasOpened >= today ? FromHours(1) : FromHours(0);
     }
 
     public Fridge Put(Item item)
