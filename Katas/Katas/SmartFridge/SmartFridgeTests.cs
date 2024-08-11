@@ -101,4 +101,14 @@ public class SmartFridgeTests
             .Display()
             .Should().Be(ATomato.Expired());
     }
+
+    [Test]
+    public void OpeningAFridge_BeforePuttingItem_DoesNotDegradeIt()
+    {
+        Fridge.At(Today)
+            .OpenDoor()
+            .Put(Tomato(expires: Tomorrow))
+            .Display()
+            .Should().NotBe(ATomato.Expired());
+    }
 }
