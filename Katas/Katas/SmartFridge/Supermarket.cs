@@ -9,6 +9,7 @@ public static class FridgeMessagesBuilder
     }
 
     public static string ALettuce => "Lettuce";
+    public static string ATomato => "Tomato";
 }
 
 public static class Supermarket

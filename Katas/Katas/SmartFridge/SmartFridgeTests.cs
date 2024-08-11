@@ -46,7 +46,7 @@ public class SmartFridgeTests
         Fridge.At(Today)
             .Put(Tomato(expires: Today.AddDays(2)))
             .Display()
-            .Should().Be("Tomato: 1 day(s) remaining");
+            .Should().Be(ATomato.ExpiringInDays(1));
     }
 
     [Test]
