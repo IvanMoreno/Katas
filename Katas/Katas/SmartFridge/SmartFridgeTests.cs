@@ -74,6 +74,6 @@ public class SmartFridgeTests
             .Put(Tomato(expires: Tomorrow))
             .Put(Lettuce(expires: Tomorrow))
             .Display()
-            .Should().Be("Tomato: 0 day(s) remaining\nLettuce: 0 day(s) remaining");
+            .Should().Be(ATomato.ExpiringInDays(0).And(ALettuce).ExpiringInDays(0));
     }
 }

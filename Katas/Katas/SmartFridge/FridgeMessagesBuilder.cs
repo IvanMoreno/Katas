@@ -8,6 +8,8 @@ public static class FridgeMessagesBuilder
         return $"{product}: {days} day(s) remaining";
     }
 
+    public static string And(this string first, string second) => $"{first}\n{second}";
+
     public static string ALettuce => Supermarket.Lettuce(new DateTime()).Name;
     public static string ATomato => Supermarket.Tomato(new DateTime()).Name;
 }
