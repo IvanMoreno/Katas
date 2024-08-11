@@ -8,14 +8,13 @@ public class Fridge
 {
     readonly DateTime today;
     IEnumerable<Item> AllStored => allEvents.OfType<Item>();
-    readonly List<OpenedFridge> openings;
+    List<OpenedFridge> Openings => allEvents.OfType<OpenedFridge>().ToList();
     readonly IEnumerable<Event> allEvents;
 
     Fridge(DateTime today, IEnumerable<Item> allStored, List<OpenedFridge> openings)
     {
         this.today = today;
-        this.openings = openings;
-        allEvents = allStored.Select(x => x as Event);
+        allEvents = allStored.Select(x => x as Event).Concat(openings.Select(x => x as Event));
     }
 
     public string Display()
@@ -33,7 +32,7 @@ public class Fridge
         => (item.ExpirationDate - today - DegradationByAirExposure(item)).Days - 1;
 
     TimeSpan DegradationByAirExposure(Item item)
-        => openings.Aggregate(Zero,
+        => Openings.Aggregate(Zero,
             (totalDegradation, opening) => totalDegradation + HowMuchDegrades(item, opening));
 
     static TimeSpan HowMuchDegrades(Item anItem, OpenedFridge at)
@@ -43,13 +42,13 @@ public class Fridge
         => anItem.Opened ? FromHours(5) : FromHours(1);
 
     public Fridge Put(Item item)
-        => new(today, AllStored.Append(item with { AdditionDate = today }).ToList(), openings);
+        => new(today, AllStored.Append(item with { AdditionDate = today }).ToList(), Openings);
 
     public Fridge OpenDoor()
-        => new(today, AllStored, openings.Append(new OpenedFridge(today)).ToList());
+        => new(today, AllStored, Openings.Append(new OpenedFridge(today)).ToList());
 
     public Fridge Pass(TimeSpan howMuchTime)
-        => new(today + howMuchTime, AllStored, openings);
+        => new(today + howMuchTime, AllStored, Openings);
 
     public static Fridge At(DateTime today)
         => new(today, Empty<Item>().ToList(), Empty<OpenedFridge>().ToList());
