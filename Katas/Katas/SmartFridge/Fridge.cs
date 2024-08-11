@@ -9,12 +9,14 @@ public class Fridge
     readonly DateTime today;
     readonly List<Item> allStored;
     readonly List<DateTime> openings;
+    readonly IEnumerable<Event> allEvents;
 
     Fridge(DateTime today, List<Item> allStored, List<DateTime> openings)
     {
         this.today = today;
         this.allStored = allStored;
         this.openings = openings;
+        this.allEvents = allStored.Select(x => x as Event);
     }
 
     public string Display()
