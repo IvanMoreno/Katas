@@ -15,16 +15,14 @@ public class Fridge
         this.allEvents = allEvents;
     }
 
-    public string Display()
-        => Join('\n', allEvents.OfType<Item>().OrderByDescending(IsExpired).Select(LineFor));
+    public string Display() => Join('\n', AllItems());
+    IEnumerable<string> AllItems() => allEvents.OfType<Item>().OrderByDescending(IsExpired).Select(LineFor);
+    bool IsExpired(Item item) => DaysUntilExpiration(item) < 0;
 
     string LineFor(Item item)
         => IsExpired(item)
             ? $"EXPIRED: {item.Name}"
             : $"{item.Name}: {DaysUntilExpiration(item)} day(s) remaining";
-
-    bool IsExpired(Item item)
-        => DaysUntilExpiration(item) < 0;
 
     int DaysUntilExpiration(Item item)
         => (item.ExpirationDate - today - DegradationByAirExposure(item)).Days - 1;
