@@ -41,7 +41,7 @@ public class Fridge
     {
         if (!openings.Any()) return FromHours(0);
 
-        return openings.Aggregate(Zero, (current, opening) => current + (openings.First() >= item.AdditionDate ? FromHours(1) : FromHours(0)));
+        return openings.Aggregate(Zero, (current, opening) => current + (opening >= item.AdditionDate ? FromHours(1) : FromHours(0)));
     }
 
     public Fridge Put(Item item)
