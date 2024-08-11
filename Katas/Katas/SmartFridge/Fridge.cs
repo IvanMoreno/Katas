@@ -17,6 +17,12 @@ public class Fridge
         allEvents = allStored.Select(x => x as Event).Concat(openings.Select(x => x as Event));
     }
 
+    Fridge(DateTime today, IEnumerable<Event> allEvents)
+    {
+        this.today = today;
+        this.allEvents = allEvents;
+    }
+
     public string Display()
         => Join('\n', AllStored.OrderByDescending(IsExpired).Select(LineFor));
 
@@ -42,14 +48,14 @@ public class Fridge
         => anItem.Opened ? FromHours(5) : FromHours(1);
 
     public Fridge Put(Item item)
-        => new(today, AllStored.Append(item with { AdditionDate = today }).ToList(), Openings);
+        => new(today, allEvents.Append(item with { AdditionDate = today }));
 
     public Fridge OpenDoor()
-        => new(today, AllStored, Openings.Append(new OpenedFridge(today)).ToList());
+        => new(today, allEvents.Append(new OpenedFridge(today)));
 
     public Fridge Pass(TimeSpan howMuchTime)
-        => new(today + howMuchTime, AllStored, Openings);
+        => new(today + howMuchTime, allEvents);
 
     public static Fridge At(DateTime today)
-        => new(today, Empty<Item>().ToList(), Empty<OpenedFridge>().ToList());
+        => new(today, Empty<Event>());
 }
