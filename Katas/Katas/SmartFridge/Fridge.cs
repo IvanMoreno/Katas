@@ -46,8 +46,7 @@ public class Fridge
 
     public Fridge Put(Item item)
     {
-        allStored.Add(item with { AdditionDate = today });
-        return this;
+        return new (today, allStored.Append(item with{AdditionDate = today}).ToList(), openings);
     }
 
     public Fridge OpenDoor()
