@@ -104,6 +104,16 @@ public class SmartFridgeTests
             .Should().Be(ATomato.Expired());
     }
 
+    [Test]
+    public void PassTime()
+    {
+        Fridge.At(Today)
+            .Put(Tomato(expires: Tomorrow))
+            .Pass(OneHour)
+            .Display()
+            .Should().Be(ATomato.Expired());
+    }
+    
     [Test, Ignore("Test before the pass time method")]
     public void OpeningAFridge_BeforePuttingItem_DoesNotDegradeIt()
     {
@@ -114,4 +124,5 @@ public class SmartFridgeTests
             .Display()
             .Should().NotBe(ATomato.Expired());
     }
+    
 }
