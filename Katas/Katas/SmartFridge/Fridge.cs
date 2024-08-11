@@ -18,9 +18,7 @@ public class Fridge
     }
 
     public string Display()
-    {
-        return Join('\n', allStored.OrderByDescending(IsExpired).Select(LineFor));
-    }
+        => Join('\n', allStored.OrderByDescending(IsExpired).Select(LineFor));
 
     string LineFor(Item item)
     {
@@ -30,37 +28,27 @@ public class Fridge
         return $"{item.Name}: {DaysUntilExpiration(item)} day(s) remaining";
     }
 
-    bool IsExpired(Item item) => DaysUntilExpiration(item) < 0;
+    bool IsExpired(Item item)
+        => DaysUntilExpiration(item) < 0;
 
     int DaysUntilExpiration(Item item)
-    {
-        return (item.ExpirationDate - today - DegradationByAirExposure(item)).Days - 1;
-    }
+        => (item.ExpirationDate - today - DegradationByAirExposure(item)).Days - 1;
 
     TimeSpan DegradationByAirExposure(Item item)
-    {
-        if (!openings.Any()) return FromHours(0);
-
-        return openings.Aggregate(Zero, (current, opening) => current + (opening >= item.AdditionDate ? FromHours(1) : FromHours(0)));
-    }
+        => openings.Any()
+            ? openings.Aggregate(Zero,
+                (current, opening) => current + (opening >= item.AdditionDate ? FromHours(1) : FromHours(0)))
+            : FromHours(0);
 
     public Fridge Put(Item item)
-    {
-        return new (today, allStored.Append(item with{AdditionDate = today}).ToList(), openings);
-    }
+        => new(today, allStored.Append(item with { AdditionDate = today }).ToList(), openings);
 
     public Fridge OpenDoor()
-    {
-        return new(today, allStored, openings.Append(today).ToList());
-    }
+        => new(today, allStored, openings.Append(today).ToList());
 
     public Fridge Pass(TimeSpan howMuchTime)
-    {
-        return new(today + howMuchTime, allStored, openings);
-    }
+        => new(today + howMuchTime, allStored, openings);
 
     public static Fridge At(DateTime today)
-    {
-        return new Fridge(today, Empty<Item>().ToList(), Empty<DateTime>().ToList());
-    }
+        => new(today, Empty<Item>().ToList(), Empty<DateTime>().ToList());
 }
