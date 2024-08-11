@@ -1,4 +1,5 @@
 using static System.String;
+using static System.TimeSpan;
 
 namespace Katas.SmartFridge;
 
@@ -26,7 +27,12 @@ public class Fridge
     bool IsExpired(Item item) => DaysUntilExpiration(item) < 0;
     int DaysUntilExpiration(Item item)
     {
-        return (item.ExpirationDate - today - (wasOpen ? TimeSpan.FromHours(1) : TimeSpan.FromHours(0))).Days - 1;
+        return (item.ExpirationDate - today - DegradationByAirExposure(item)).Days - 1;
+    }
+
+    TimeSpan DegradationByAirExposure(Item item)
+    {
+        return wasOpen ? FromHours(1) : FromHours(0);
     }
 
     public Fridge Put(Item item)
