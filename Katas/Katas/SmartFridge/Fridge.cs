@@ -14,24 +14,25 @@ public class Fridge
         this.today = today;
         this.allEvents = allEvents;
     }
-
+    
+    public Fridge Put(Item item) => new(today, allEvents.Append(item with { AdditionDate = today }));
+    public Fridge OpenDoor() => new(today, allEvents.Append(new OpenedFridge(today)));
+    public Fridge Pass(TimeSpan howMuchTime) => new(today + howMuchTime, allEvents);
+    
     public string Display() => Join('\n', AllItems());
     IEnumerable<string> AllItems() => allEvents.OfType<Item>().OrderByDescending(IsExpired).Select(LineFor);
     bool IsExpired(Item item) => DaysUntilExpiration(item) < 0;
+    int DaysUntilExpiration(Item item) => ExpirationOf(item).Days - 1;
+    TimeSpan ExpirationOf(Item item) => item.ExpirationDate - today - AirExposureDegradation(item);
+    TimeSpan AirExposureDegradation(Item item) => OpeningsAfter(item) * DegradationTimeFor(item);
+    int OpeningsAfter(Item item) => Openings().Count(x => x.When >= item.AdditionDate);
+    IEnumerable<OpenedFridge> Openings() => allEvents.OfType<OpenedFridge>();
+    static TimeSpan DegradationTimeFor(Item anItem) => anItem.Opened ? FromHours(5) : FromHours(1);
 
     string LineFor(Item item)
         => IsExpired(item)
             ? $"EXPIRED: {item.Name}"
             : $"{item.Name}: {DaysUntilExpiration(item)} day(s) remaining";
-
-    int DaysUntilExpiration(Item item)
-        => (item.ExpirationDate - today - DegradationByAirExposure(item)).Days - 1;
-
-    TimeSpan DegradationByAirExposure(Item item)=> OpeningsAfter(item) * DegradationOf(item);
-    int OpeningsAfter(Item item) => allEvents.OfType<OpenedFridge>().Count(x => x.When >= item.AdditionDate);
-    static TimeSpan DegradationOf(Item anItem) => anItem.Opened ? FromHours(5) : FromHours(1);
-    public Fridge Put(Item item) => new(today, allEvents.Append(item with { AdditionDate = today }));
-    public Fridge OpenDoor() => new(today, allEvents.Append(new OpenedFridge(today)));
-    public Fridge Pass(TimeSpan howMuchTime) => new(today + howMuchTime, allEvents);
+    
     public static Fridge At(DateTime today) => new(today, Empty<Event>());
 }
