@@ -23,7 +23,9 @@ public class Fridge
     IEnumerable<string> AllItems() => allEvents.OfType<Item>().OrderByDescending(IsExpired).Select(LineFor);
     bool IsExpired(Item item) => DaysUntilExpiration(item) < 0;
     int DaysUntilExpiration(Item item) => ExpirationOf(item).Days - 1;
-    TimeSpan ExpirationOf(Item item) => item.ExpirationDate - firstDay - AirExposureDegradation(item);
+    TimeSpan ExpirationOf(Item item) => item.ExpirationDate - Today() - AirExposureDegradation(item);
+    DateTime Today() => TimePassages().Aggregate(firstDay, (current, timePassage) => current + timePassage.HowMuch);
+    IEnumerable<PassTime> TimePassages() => allEvents.OfType<PassTime>();
     TimeSpan AirExposureDegradation(Item item) => OpeningsAfter(item) * DegradationTimeFor(item);
     int OpeningsAfter(Item item) => Openings().Count(x => x.When >= item.AdditionDate);
     IEnumerable<OpenedFridge> Openings() => allEvents.OfType<OpenedFridge>();
