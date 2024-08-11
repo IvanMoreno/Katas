@@ -14,7 +14,7 @@ public class Fridge
         return Join('\n', allStored.Select(LineFor));
     }
 
-    string LineFor(Item? item)
+    string LineFor(Item item)
     {
         if (IsExpired(item))
             return "EXPIRED: Lettuce";
