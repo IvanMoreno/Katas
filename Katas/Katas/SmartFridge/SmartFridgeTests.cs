@@ -146,4 +146,18 @@ public class SmartFridgeTests
             .Display()
             .Should().Be(ALettuce.Expired());
     }
+
+    [Test]
+    public void EachOpening_HasItsOwnDate()
+    {
+        Fridge.At(Today)
+            .OpenDoor()
+            .Pass(OneHour)
+            .Put(Lettuce(expires: Tomorrow + OneHour))
+            .OpenDoor()
+            .OpenDoor()
+            .Display()
+            .Should().Be(ALettuce.Expired());
+
+    }
 }
