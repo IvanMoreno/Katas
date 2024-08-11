@@ -21,12 +21,9 @@ public class Fridge
         => Join('\n', allStored.OrderByDescending(IsExpired).Select(LineFor));
 
     string LineFor(Item item)
-    {
-        if (IsExpired(item))
-            return $"EXPIRED: {item.Name}";
-
-        return $"{item.Name}: {DaysUntilExpiration(item)} day(s) remaining";
-    }
+        => IsExpired(item)
+            ? $"EXPIRED: {item.Name}"
+            : $"{item.Name}: {DaysUntilExpiration(item)} day(s) remaining";
 
     bool IsExpired(Item item)
         => DaysUntilExpiration(item) < 0;
@@ -38,10 +35,10 @@ public class Fridge
         => openings.Aggregate(Zero,
             (totalDegradation, opening) => totalDegradation + HowMuchDegrades(item, opening));
 
-    static TimeSpan HowMuchDegrades(Item anItem, DateTime at) 
+    static TimeSpan HowMuchDegrades(Item anItem, DateTime at)
         => at >= anItem.AdditionDate ? DegradationTime(anItem) : FromHours(0);
 
-    static TimeSpan DegradationTime(Item anItem) 
+    static TimeSpan DegradationTime(Item anItem)
         => anItem.Opened ? FromHours(5) : FromHours(1);
 
     public Fridge Put(Item item)
