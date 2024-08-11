@@ -11,7 +11,7 @@ public class Fridge
 
     public string Display()
     {
-        return Join('\n', allStored.Select(LineFor));
+        return Join('\n', allStored.OrderByDescending(IsExpired).Select(LineFor));
     }
 
     string LineFor(Item item)
