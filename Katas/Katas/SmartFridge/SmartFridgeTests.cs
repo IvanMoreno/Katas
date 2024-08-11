@@ -19,6 +19,11 @@ namespace Katas.SmartFridge;
 
 // Dates are an important part of this kata, every operation performed in the fridge must be tracked.
 
+// What I have learn:
+// I left little room for refactoring between steps in this kata, making it more difficult to transition to the
+// fully event-sourced solution. I spent 25% of the kata doing that refactoring,
+// whereas I think I could have spent less by doing that refactoring bit by bit, as the code evolved.
+
 public class SmartFridgeTests
 {
     static DateTime Today => new();
