@@ -50,11 +50,6 @@ public class Fridge
         return this;
     }
 
-    public static Fridge At(DateTime today)
-    {
-        return new Fridge(today, Empty<Item>().ToList(), Empty<DateTime>().ToList());
-    }
-
     public Fridge OpenDoor()
     {
         return new(today, allStored, openings.Append(today).ToList());
@@ -63,5 +58,10 @@ public class Fridge
     public Fridge Pass(TimeSpan howMuchTime)
     {
         return new(today + howMuchTime, allStored, openings);
+    }
+
+    public static Fridge At(DateTime today)
+    {
+        return new Fridge(today, Empty<Item>().ToList(), Empty<DateTime>().ToList());
     }
 }
