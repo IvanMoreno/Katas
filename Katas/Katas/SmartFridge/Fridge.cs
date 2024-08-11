@@ -7,14 +7,14 @@ public class Fridge
 {
     readonly DateTime today;
     readonly List<Item> allStored = new();
-    bool wasOpen = false;
+    DateTime? whenWasOpened = null;
 
     Fridge(DateTime today) => this.today = today;
-    Fridge(DateTime today, List<Item> allStored, bool wasOpen)
+    Fridge(DateTime today, List<Item> allStored, DateTime? whenWasOpened)
     {
         this.today = today;
         this.allStored = allStored;
-        this.wasOpen = wasOpen;
+        this.whenWasOpened = whenWasOpened;
     }
 
     public string Display()
@@ -38,7 +38,7 @@ public class Fridge
 
     TimeSpan DegradationByAirExposure(Item item)
     {
-        return wasOpen ? FromHours(1) : FromHours(0);
+        return whenWasOpened != null ? FromHours(1) : FromHours(0);
     }
 
     public Fridge Put(Item item)
@@ -54,12 +54,12 @@ public class Fridge
 
     public Fridge OpenDoor()
     {
-        wasOpen = true;
+        whenWasOpened = today;
         return this;
     }
 
     public Fridge Pass(TimeSpan howMuchTime)
     {
-        return new(today + howMuchTime, allStored, wasOpen);
+        return new(today + howMuchTime, allStored, whenWasOpened);
     }
 }
