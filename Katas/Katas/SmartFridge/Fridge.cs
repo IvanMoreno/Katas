@@ -15,9 +15,9 @@ public class Fridge
         this.allEvents = allEvents;
     }
     
-    public Fridge Put(Item item) => new(firstDay, allEvents.Append(item with { AdditionDate = firstDay }));
-    public Fridge OpenDoor() => new(firstDay, allEvents.Append(new OpenedFridge(firstDay)));
-    public Fridge Pass(TimeSpan howMuchTime) => new(firstDay + howMuchTime, allEvents);
+    public Fridge Put(Item item) => new(firstDay, allEvents.Append(item with { AdditionDate = Today() }));
+    public Fridge OpenDoor() => new(firstDay, allEvents.Append(new OpenedFridge(Today())));
+    public Fridge Pass(TimeSpan howMuchTime) => new(firstDay, allEvents.Append(new PassTime(howMuchTime)));
     
     public string Display() => Join('\n', AllItems());
     IEnumerable<string> AllItems() => allEvents.OfType<Item>().OrderByDescending(IsExpired).Select(LineFor);
@@ -36,5 +36,5 @@ public class Fridge
             ? $"EXPIRED: {item.Name}"
             : $"{item.Name}: {DaysUntilExpiration(item)} day(s) remaining";
     
-    public static Fridge At(DateTime today) => new(today, Empty<Event>());
+    public static Fridge At(DateTime firstDay) => new(firstDay, Empty<Event>());
 }
