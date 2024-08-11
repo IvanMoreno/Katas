@@ -15,7 +15,7 @@ public class Fridge
     {
         this.today = today;
         this.openings = openings;
-        this.allEvents = allStored.Select(x => x as Event);
+        allEvents = allStored.Select(x => x as Event);
     }
 
     public string Display()
