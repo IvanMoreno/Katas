@@ -26,7 +26,7 @@ public class SmartFridgeTests
     static DateTime NextWeek => Today.AddDays(7);
 
     static TimeSpan OneHour => TimeSpan.FromHours(1);
-    static TimeSpan FiveHours => TimeSpan.FromHours(1);
+    static TimeSpan FiveHours => TimeSpan.FromHours(5);
 
     [Test]
     public void DisplayNoItems_WhenFridgeIsEmpty()
@@ -179,5 +179,11 @@ public class SmartFridgeTests
             .OpenDoor()
             .Display()
             .Should().Be(ALettuce.Expired());
+        
+        Fridge.At(Today)
+            .Put(Lettuce(expires: Tomorrow + FiveHours).Opened())
+            .OpenDoor()
+            .Display()
+            .Should().NotBe(ALettuce.Expired());
     }
 }
