@@ -124,4 +124,15 @@ public class SmartFridgeTests
             .Display()
             .Should().NotBe(ATomato.Expired());
     }
+
+    [Test]
+    public void CompareDoorOpeningDate_WithItemAdditionDate_ToDegradeExpiration()
+    {
+        Fridge.At(Today)
+            .Put(Lettuce(expires: Tomorrow + OneHour))
+            .OpenDoor()
+            .Pass(OneHour)
+            .Display()
+            .Should().Be(ALettuce.Expired());
+    }
 }
