@@ -55,7 +55,7 @@ public class SmartFridgeTests
         Fridge.At(Today)
             .Put(Lettuce(expires: NextWeek))
             .Display()
-            .Should().Be("Lettuce: 6 day(s) remaining");
+            .Should().Be(ALettuce.ExpiringInDays(6));
     }
 
     [Test]
