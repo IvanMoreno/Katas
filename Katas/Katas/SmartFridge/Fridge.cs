@@ -17,7 +17,7 @@ public class Fridge
     string LineFor(Item item)
     {
         if (IsExpired(item))
-            return "EXPIRED: Lettuce";
+            return $"EXPIRED: {item.Name}";
 
         return $"{item.Name}: {DaysUntilExpiration(item)} day(s) remaining";
     }

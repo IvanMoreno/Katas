@@ -65,6 +65,11 @@ public class SmartFridgeTests
             .Put(Lettuce(expires: Today))
             .Display()
             .Should().Be(ALettuce.Expired());
+        
+        Fridge.At(Today)
+            .Put(Tomato(expires: Today))
+            .Display()
+            .Should().Be(ATomato.Expired());
     }
 
     [Test]
