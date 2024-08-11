@@ -1,3 +1,4 @@
+using static System.Linq.Enumerable;
 using static System.String;
 using static System.TimeSpan;
 
@@ -8,8 +9,6 @@ public class Fridge
     readonly DateTime today;
     readonly List<Item> allStored = new();
     List<DateTime> openings = new();
-
-    Fridge(DateTime today) => this.today = today;
 
     Fridge(DateTime today, List<Item> allStored, List<DateTime> openings)
     {
@@ -53,7 +52,7 @@ public class Fridge
 
     public static Fridge At(DateTime today)
     {
-        return new Fridge(today);
+        return new Fridge(today, Empty<Item>().ToList(), Empty<DateTime>().ToList());
     }
 
     public Fridge OpenDoor()
