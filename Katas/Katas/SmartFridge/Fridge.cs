@@ -36,7 +36,7 @@ public class Fridge
 
     TimeSpan DegradationByAirExposure(Item item)
         => openings.Aggregate(Zero,
-            (current, opening) => current + (opening >= item.AdditionDate ? FromHours(1) : FromHours(0)));
+            (totalDegradation, opening) => totalDegradation + (opening >= item.AdditionDate ? FromHours(1) : FromHours(0)));
 
     public Fridge Put(Item item)
         => new(today, allStored.Append(item with { AdditionDate = today }).ToList(), openings);
