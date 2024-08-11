@@ -8,10 +8,10 @@ public class Fridge
 {
     readonly DateTime today;
     IEnumerable<Item> AllStored => allEvents.OfType<Item>();
-    List<OpenedFridge> Openings => allEvents.OfType<OpenedFridge>().ToList();
+    IEnumerable<OpenedFridge> Openings => allEvents.OfType<OpenedFridge>();
     readonly IEnumerable<Event> allEvents;
 
-    Fridge(DateTime today, IEnumerable<Item> allStored, List<OpenedFridge> openings)
+    Fridge(DateTime today, IEnumerable<Item> allStored, IEnumerable<OpenedFridge> openings)
     {
         this.today = today;
         allEvents = allStored.Select(x => x as Event).Concat(openings.Select(x => x as Event));
