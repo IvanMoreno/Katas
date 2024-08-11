@@ -58,8 +58,7 @@ public class Fridge
 
     public Fridge OpenDoor()
     {
-        openings.Add(today);
-        return this;
+        return new(today, allStored, openings.Append(today).ToList());
     }
 
     public Fridge Pass(TimeSpan howMuchTime)
