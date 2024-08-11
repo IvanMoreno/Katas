@@ -7,7 +7,6 @@ namespace Katas.SmartFridge;
 public class Fridge
 {
     readonly DateTime today;
-    IEnumerable<Item> AllStored => allEvents.OfType<Item>();
     IEnumerable<OpenedFridge> Openings => allEvents.OfType<OpenedFridge>();
     readonly IEnumerable<Event> allEvents;
 
@@ -18,7 +17,7 @@ public class Fridge
     }
 
     public string Display()
-        => Join('\n', AllStored.OrderByDescending(IsExpired).Select(LineFor));
+        => Join('\n', allEvents.OfType<Item>().OrderByDescending(IsExpired).Select(LineFor));
 
     string LineFor(Item item)
         => IsExpired(item)
@@ -38,18 +37,9 @@ public class Fridge
     static TimeSpan HowMuchDegrades(Item anItem, OpenedFridge at)
         => at.When >= anItem.AdditionDate ? DegradationTime(anItem) : FromHours(0);
 
-    static TimeSpan DegradationTime(Item anItem)
-        => anItem.Opened ? FromHours(5) : FromHours(1);
-
-    public Fridge Put(Item item)
-        => new(today, allEvents.Append(item with { AdditionDate = today }));
-
-    public Fridge OpenDoor()
-        => new(today, allEvents.Append(new OpenedFridge(today)));
-
-    public Fridge Pass(TimeSpan howMuchTime)
-        => new(today + howMuchTime, allEvents);
-
-    public static Fridge At(DateTime today)
-        => new(today, Empty<Event>());
+    static TimeSpan DegradationTime(Item anItem) => anItem.Opened ? FromHours(5) : FromHours(1);
+    public Fridge Put(Item item) => new(today, allEvents.Append(item with { AdditionDate = today }));
+    public Fridge OpenDoor() => new(today, allEvents.Append(new OpenedFridge(today)));
+    public Fridge Pass(TimeSpan howMuchTime) => new(today + howMuchTime, allEvents);
+    public static Fridge At(DateTime today) => new(today, Empty<Event>());
 }
