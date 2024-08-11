@@ -13,7 +13,7 @@ namespace Katas.SmartFridge;
 //    [x] An expired item will be displayed as 'EXPIRED: item.name'
 //    [x] Expired items are displayed before non expired items
 // [x] Add an item to the fridge
-// [] Opening the fridge degrades all items inside the fridge
+// [x] Opening the fridge degrades all items inside the fridge
 //    [] If the item is opened, it is degraded by 5 hours
 //    [] If the item is closed, it is degraded by 1 hour
 
@@ -132,6 +132,17 @@ public class SmartFridgeTests
             .Put(Lettuce(expires: Tomorrow + OneHour))
             .OpenDoor()
             .Pass(OneHour)
+            .Display()
+            .Should().Be(ALettuce.Expired());
+    }
+
+    [Test]
+    public void OpeningDoorTwice_DegradesItemsTwice()
+    {
+        Fridge.At(Today)
+            .Put(Lettuce(expires: Tomorrow + OneHour))
+            .OpenDoor()
+            .OpenDoor()
             .Display()
             .Should().Be(ALettuce.Expired());
     }
