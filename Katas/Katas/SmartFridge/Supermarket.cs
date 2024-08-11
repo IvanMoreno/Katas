@@ -1,3 +1,5 @@
+using static Katas.SmartFridge.Supermarket;
+
 namespace Katas.SmartFridge;
 
 public static class FridgeMessagesBuilder
@@ -8,8 +10,8 @@ public static class FridgeMessagesBuilder
         return $"{product}: {days} day(s) remaining";
     }
 
-    public static string ALettuce => "Lettuce";
-    public static string ATomato => "Tomato";
+    public static string ALettuce => Lettuce(new DateTime()).Name;
+    public static string ATomato => Tomato(new DateTime()).Name;
 }
 
 public static class Supermarket
