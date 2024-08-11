@@ -7,7 +7,6 @@ namespace Katas.SmartFridge;
 public class Fridge
 {
     readonly DateTime today;
-    IEnumerable<OpenedFridge> Openings => allEvents.OfType<OpenedFridge>();
     readonly IEnumerable<Event> allEvents;
 
     Fridge(DateTime today, IEnumerable<Event> allEvents)
@@ -31,7 +30,7 @@ public class Fridge
         => (item.ExpirationDate - today - DegradationByAirExposure(item)).Days - 1;
 
     TimeSpan DegradationByAirExposure(Item item)=> OpeningsAfter(item) * DegradationOf(item);
-    int OpeningsAfter(Item item) => Openings.Count(x => x.When >= item.AdditionDate);
+    int OpeningsAfter(Item item) => allEvents.OfType<OpenedFridge>().Count(x => x.When >= item.AdditionDate);
     static TimeSpan DegradationOf(Item anItem) => anItem.Opened ? FromHours(5) : FromHours(1);
     public Fridge Put(Item item) => new(today, allEvents.Append(item with { AdditionDate = today }));
     public Fridge OpenDoor() => new(today, allEvents.Append(new OpenedFridge(today)));
