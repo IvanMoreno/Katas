@@ -11,6 +11,23 @@ public class ShoppingCartTests
         ShoppingCartasaf.Empty().See().TotalProducts.Should().Be(0);
         ShoppingCartasaf.Empty().See().TotalPrice.Should().Be(0);
     }
+
+    [Test]
+    public void ProductPrice_IsItsCost_WhenApplyNoRevenue_NorTaxes()
+    {
+        new Product(cost: 1).FinalPrice.Should().Be(1);
+    }
+}
+
+public class Product
+{
+    readonly int cost;
+    public int FinalPrice => cost;
+
+    public Product(int cost)
+    {
+        this.cost = cost;
+    }
 }
 
 public class ShoppingCartasaf
