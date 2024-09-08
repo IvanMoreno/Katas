@@ -24,7 +24,8 @@ public class Product
 {
     readonly int cost;
     readonly int revenuePercentage;
-    public int FinalPrice => cost + cost * (revenuePercentage / 100);
+    public int FinalPrice => PricePerUnit;
+    int PricePerUnit => cost + cost * (revenuePercentage / 100);
 
     public Product(int cost, int revenuePercentage = 0)
     {
