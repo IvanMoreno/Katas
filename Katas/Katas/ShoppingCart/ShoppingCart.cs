@@ -25,7 +25,7 @@ public class ShoppingCart
     {
         public IEnumerable<Product> Products { get; init; }
         public int TotalProducts => Products.Count();
-        public int TotalPrice { get; set; }
+        public float TotalPrice => Products.Sum(x => x.FinalPrice);
 
         public override bool Equals(object? obj)
         {

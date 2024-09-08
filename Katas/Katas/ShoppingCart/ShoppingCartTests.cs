@@ -18,11 +18,18 @@ public class ShoppingCartTests
         ShoppingCart.Empty()
             .Add(new Product(cost: 10))
             .See().TotalProducts.Should().Be(1);
-        
+
         ShoppingCart.Empty()
             .Add(new Product(cost: 10))
-            .See().Should().Be(new ShoppingCart.Receipt(){Products = new[]{new Product(cost:10)}});
+            .See().Should().Be(new ShoppingCart.Receipt() { Products = new[] { new Product(cost: 10) } });
+    }
 
+    [Test]
+    public void ReceiptIncludesProductTotalPrice()
+    {
+        new ShoppingCart.Receipt() { Products = new[] { new Product(cost: 10) } }
+            .TotalPrice
+            .Should().Be(10);
     }
 
     [Test]
@@ -50,7 +57,7 @@ public class ShoppingCartTests
         Product.RoundLastTwo(0.6789f).Should().Be(0.68f);
         Product.RoundLastTwo(0.671f).Should().Be(0.68f);
     }
-    
+
     [Test]
     public void RoundUp_PricePerUnit()
     {
