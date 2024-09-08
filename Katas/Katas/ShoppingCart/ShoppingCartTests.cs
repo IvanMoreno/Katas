@@ -23,6 +23,12 @@ public class ShoppingCartTests
     {
         new Product(cost: 1, revenuePercentage: 100).FinalPrice.Should().Be(2);
     }
+
+    [Test]
+    public void Round_TwoDecimals()
+    {
+        Product.RoundLastTwo(0.6789f).Should().Be(0.68f);
+    }
 }
 
 public class Product
@@ -36,6 +42,11 @@ public class Product
     {
         this.cost = cost;
         this.revenuePercentage = revenuePercentage;
+    }
+
+    public static float RoundLastTwo(float toBeRounded)
+    {
+        return (float)Math.Round(toBeRounded, 2);
     }
 }
 
