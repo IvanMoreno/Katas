@@ -13,9 +13,14 @@ public class ShoppingCartTests
     }
 
     [Test]
-    public void ProductPrice_IsItsCost_WhenApplyNoRevenue_NorTaxes()
+    public void FinalPrice_IsItsCost_WhenApplyNoRevenue_NorTaxes()
     {
         new Product(cost: 1).FinalPrice.Should().Be(1);
+    }
+
+    [Test]
+    public void FinalPrice_WithoutTaxes_IsJustPricePerUnit()
+    {
         new Product(cost: 1, revenuePercentage: 100).FinalPrice.Should().Be(2);
     }
 }
