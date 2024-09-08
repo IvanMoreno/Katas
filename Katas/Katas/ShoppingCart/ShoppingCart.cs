@@ -37,4 +37,9 @@ public class ShoppingCart
         public Discount Discount { get; init; } = new(0);
         public virtual bool Equals(Receipt? other) => other.Products.SequenceEqual(Products) && other.Discount.Equals(Discount);
     }
+
+    public ShoppingCart ApplyCoupon(string coupon)
+    {
+        return this;
+    }
 }

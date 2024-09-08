@@ -29,6 +29,14 @@ public class ShoppingCartTests
     }
 
     [Test]
+    public void ApplyInvalidCoupon()
+    {
+        ShoppingCart.Empty()
+            .ApplyCoupon("sfdvsdvfdf")
+            .See().Should().Be(CashMachine.PrintFor());
+    }
+
+    [Test]
     public void ReceiptIncludesProductTotalPrice()
     {
         new ShoppingCart.Receipt() { Products = new[] { new Product(cost: 10) } }
