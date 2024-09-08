@@ -9,7 +9,7 @@ public class ShoppingCart
         this.addedProducts = addedProducts;
     }
 
-    public Snapshot See()
+    public Receipt See()
     {
         return new(){Products =  addedProducts};
     }
@@ -21,7 +21,7 @@ public class ShoppingCart
 
     public static ShoppingCart Empty() => new(Enumerable.Empty<Product>());
 
-    public struct Snapshot
+    public struct Receipt
     {
         public IEnumerable<Product> Products { get; init; }
         public int TotalProducts => Products.Count();
@@ -29,7 +29,7 @@ public class ShoppingCart
 
         public override bool Equals(object? obj)
         {
-            return obj is Snapshot snapshot && snapshot.Products.SequenceEqual(Products);
+            return obj is Receipt snapshot && snapshot.Products.SequenceEqual(Products);
         }
     }
 }

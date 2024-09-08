@@ -21,7 +21,7 @@ public class ShoppingCartTests
         
         ShoppingCart.Empty()
             .Add(new Product(cost: 10))
-            .See().Should().Be(new ShoppingCart.Snapshot(){Products = new[]{new Product(cost:10)}});
+            .See().Should().Be(new ShoppingCart.Receipt(){Products = new[]{new Product(cost:10)}});
 
     }
 
