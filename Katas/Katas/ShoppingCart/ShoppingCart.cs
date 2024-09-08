@@ -38,6 +38,11 @@ public class ShoppingCart
 
         public virtual bool Equals(Receipt? other) =>
             other.Products.SequenceEqual(Products) && other.Discount.Equals(Discount);
+
+        public int QuantityOf(Product aProduct)
+        {
+            return Products.Count(x => x.Equals(aProduct));
+        }
     }
 
     public ShoppingCart ApplyCoupon(string coupon)
