@@ -52,6 +52,6 @@ public class ShoppingCart
         if (coupon == "PROMO_5")
             return new Discount(5);
         
-        return new Discount(0);
+        return Discount.None;
     }
 }

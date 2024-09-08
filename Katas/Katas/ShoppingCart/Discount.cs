@@ -13,4 +13,6 @@ public struct Discount
     {
         return price - percentage / 100f * price;
     }
+
+    public static Discount None => new Discount(0);
 }
