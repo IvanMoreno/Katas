@@ -5,9 +5,9 @@ namespace Katas.ShoppingCart;
 public class ShoppingCartTests
 {
     [Test]
-    public void EmptyShoppingCart_HasNoItems()
+    public void EmptyShoppingCart_HasNoProducts()
     {
-        new ShoppingCartasaf().See().Items.Should().BeEmpty();
+        new ShoppingCartasaf().See().Products.Should().BeEmpty();
     }
 }
 
@@ -21,5 +21,5 @@ public class ShoppingCartasaf
 
 public struct asfdasas
 {
-    public IEnumerable<string> Items => new List<string>();
+    public IEnumerable<string> Products => new List<string>();
 }
