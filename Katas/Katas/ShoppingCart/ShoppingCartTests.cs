@@ -25,9 +25,10 @@ public class ShoppingCartTests
     }
 
     [Test]
-    public void Round_TwoDecimals()
+    public void RoundUp_TwoDecimals()
     {
         Product.RoundLastTwo(0.6789f).Should().Be(0.68f);
+        Product.RoundLastTwo(0.671f).Should().Be(0.68f);
     }
 }
 
@@ -46,7 +47,8 @@ public class Product
 
     public static float RoundLastTwo(float toBeRounded)
     {
-        return (float)Math.Round(toBeRounded, 2);
+        double multiplier = Math.Pow(10, Convert.ToDouble(2));
+        return (float)(Math.Ceiling(toBeRounded * multiplier) / multiplier);
     }
 }
 
