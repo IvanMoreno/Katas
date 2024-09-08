@@ -17,10 +17,6 @@ public class ShoppingCartTests
     {
         ShoppingCart.Empty()
             .Add(new Product(cost: 10))
-            .See().TotalProducts.Should().Be(1);
-
-        ShoppingCart.Empty()
-            .Add(new Product(cost: 10))
             .See().Should().Be(new ShoppingCart.Receipt() { Products = new[] { new Product(cost: 10) } });
     }
 
@@ -30,6 +26,14 @@ public class ShoppingCartTests
         new ShoppingCart.Receipt() { Products = new[] { new Product(cost: 10) } }
             .TotalPrice
             .Should().Be(10);
+    }
+    
+    [Test]
+    public void ReceiptIncludesProductTotalProduct()
+    {
+        new ShoppingCart.Receipt() { Products = new[] { new Product(cost: 10) } }
+            .TotalProducts
+            .Should().Be(1);
     }
 
     [Test]
