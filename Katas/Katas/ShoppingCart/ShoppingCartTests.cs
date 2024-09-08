@@ -35,6 +35,17 @@ public class ShoppingCartTests
             .TotalProducts
             .Should().Be(1);
     }
+    
+    [Test]
+    public void ReceiptAppliesDiscount()
+    {
+    }
+    
+    [Test]
+    public void DiscountCanBeApplied()
+    {
+        new Discount(percentage: 15).ApplyIn(100).Should().Be(85);
+    }
 
     [Test]
     public void CompareProducts()
