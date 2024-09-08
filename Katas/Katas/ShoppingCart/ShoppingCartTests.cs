@@ -30,13 +30,19 @@ public class ShoppingCartTests
         Product.RoundLastTwo(0.6789f).Should().Be(0.68f);
         Product.RoundLastTwo(0.671f).Should().Be(0.68f);
     }
+    
+    [Test]
+    public void RoundUp_PricePerUnit()
+    {
+        new Product(cost: 1.55f, revenuePercentage: 15).FinalPrice.Should().Be(1.79f);
+    }
 }
 
 public class Product
 {
     readonly float cost;
     readonly float revenuePercentage;
-    public float FinalPrice => PricePerUnit;
+    public float FinalPrice => RoundLastTwo(PricePerUnit);
     float PricePerUnit => cost + cost * (revenuePercentage / 100);
 
     public Product(float cost, int revenuePercentage = 0)
