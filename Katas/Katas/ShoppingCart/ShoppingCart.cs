@@ -21,7 +21,7 @@ public class ShoppingCart
 
     public static ShoppingCart Empty() => new(Enumerable.Empty<Product>());
 
-    public struct Receipt
+    public record Receipt
     {
         public IEnumerable<Product> Products { get; init; }
         public int TotalProducts => Products.Count();
@@ -32,9 +32,6 @@ public class ShoppingCart
         float PriceBeforeDiscount => Products.Sum(x => x.FinalPrice);
 
         public Discount Discount { get; init; }
-        public override bool Equals(object? obj)
-        {
-            return obj is Receipt snapshot && snapshot.Products.SequenceEqual(Products);
-        }
+        public virtual bool Equals(Receipt? other) => other.Products.SequenceEqual(Products);
     }
 }
