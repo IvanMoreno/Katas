@@ -1,27 +1,27 @@
 using FluentAssertions;
 
-namespace Katas.ShoppingCart;
+namespace Katas.ShoppingCartasdfasdf;
 
 public class ShoppingCartTests
 {
     [Test]
     public void EmptyShoppingCart_HasNoProducts()
     {
-        ShoppingCartasaf.Empty().See().Products.Should().BeEmpty();
-        ShoppingCartasaf.Empty().See().TotalProducts.Should().Be(0);
-        ShoppingCartasaf.Empty().See().TotalPrice.Should().Be(0);
+        ShoppingCart.Empty().See().Products.Should().BeEmpty();
+        ShoppingCart.Empty().See().TotalProducts.Should().Be(0);
+        ShoppingCart.Empty().See().TotalPrice.Should().Be(0);
     }
 
     [Test]
     public void AddProduct()
     {
-        ShoppingCartasaf.Empty()
+        ShoppingCart.Empty()
             .Add(new Product(cost: 10))
             .See().TotalProducts.Should().Be(1);
         
-        ShoppingCartasaf.Empty()
+        ShoppingCart.Empty()
             .Add(new Product(cost: 10))
-            .See().Should().Be(new ShoppingCartasaf.Snapshot(){Products = new[]{new Product(cost:10)}});
+            .See().Should().Be(new ShoppingCart.Snapshot(){Products = new[]{new Product(cost:10)}});
 
     }
 

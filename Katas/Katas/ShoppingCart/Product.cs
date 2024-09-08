@@ -1,4 +1,4 @@
-namespace Katas.ShoppingCart;
+namespace Katas.ShoppingCartasdfasdf;
 
 public record Product
 {

@@ -1,10 +1,10 @@
-namespace Katas.ShoppingCart;
+namespace Katas.ShoppingCartasdfasdf;
 
-public class ShoppingCartasaf
+public class ShoppingCart
 {
     readonly IEnumerable<Product> addedProducts;
 
-    public ShoppingCartasaf(IEnumerable<Product> addedProducts)
+    public ShoppingCart(IEnumerable<Product> addedProducts)
     {
         this.addedProducts = addedProducts;
     }
@@ -14,12 +14,12 @@ public class ShoppingCartasaf
         return new(){Products =  addedProducts};
     }
 
-    public ShoppingCartasaf Add(Product product)
+    public ShoppingCart Add(Product product)
     {
         return new(addedProducts.Append(product));
     }
 
-    public static ShoppingCartasaf Empty() => new(Enumerable.Empty<Product>());
+    public static ShoppingCart Empty() => new(Enumerable.Empty<Product>());
 
     public struct Snapshot
     {
