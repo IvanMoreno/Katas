@@ -9,6 +9,7 @@ public class ShoppingCartTests
     {
         new ShoppingCartasaf().See().Products.Should().BeEmpty();
         new ShoppingCartasaf().See().TotalProducts.Should().Be(0);
+        new ShoppingCartasaf().See().TotalPrice.Should().Be(0);
     }
 }
 
@@ -24,4 +25,5 @@ public struct asfdasas
 {
     public IEnumerable<string> Products => new List<string>();
     public int TotalProducts { get; set; }
+    public int TotalPrice { get; set; }
 }
