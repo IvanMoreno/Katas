@@ -1,4 +1,5 @@
 using FluentAssertions;
+using static Katas.ShoppingCartasdfasdf.Supermarket;
 
 namespace Katas.ShoppingCartasdfasdf;
 
@@ -16,8 +17,8 @@ public class ShoppingCartTests
     public void AddProduct()
     {
         ShoppingCart.Empty()
-            .Add(new Product(cost: 10))
-            .See().Should().Be(CashMachine.PrintFor(new Product(cost: 10)));
+            .Add(AProduct)
+            .See().Should().Be(CashMachine.PrintFor(AProduct));
     }
 
     [Test]
@@ -53,26 +54,23 @@ public class ShoppingCartTests
     [Test]
     public void ProductQuantity()
     {
-        var sameProduct = new Product(5);
-
-        CashMachine.PrintFor(sameProduct)
-            .QuantityOf(sameProduct)
+        CashMachine.PrintFor(AProduct)
+            .QuantityOf(AProduct)
             .Should().Be(1);
 
-        CashMachine.PrintFor(sameProduct, sameProduct)
-            .QuantityOf(sameProduct)
+        CashMachine.PrintFor(AProduct, AProduct)
+            .QuantityOf(AProduct)
             .Should().Be(2);
 
-        var otherProduct = new Product(1);
-        CashMachine.PrintFor(sameProduct, otherProduct)
-            .QuantityOf(sameProduct)
+        CashMachine.PrintFor(AProduct, AnotherProduct)
+            .QuantityOf(AProduct)
             .Should().Be(1);
     }
 
     [Test]
     public void ReceiptIncludesProductTotalPrice()
     {
-        new ShoppingCart.Receipt() { Products = new[] { new Product(cost: 10) } }
+        CashMachine.PrintFor(ProductWithRaw(cost:10))
             .TotalPrice
             .Should().Be(10);
     }
@@ -80,7 +78,7 @@ public class ShoppingCartTests
     [Test]
     public void ReceiptIncludesProductTotalProduct()
     {
-        new ShoppingCart.Receipt() { Products = new[] { new Product(cost: 10) } }
+        CashMachine.PrintFor(AProduct)
             .TotalProducts
             .Should().Be(1);
     }
@@ -88,7 +86,7 @@ public class ShoppingCartTests
     [Test]
     public void ReceiptAppliesDiscount()
     {
-        CashMachine.PrintFor(new Product(cost: 8))
+        CashMachine.PrintFor(ProductWithRaw(cost: 8))
             .With(new Discount(50))
             .TotalPrice
             .Should().Be(8 / 2);
@@ -103,20 +101,20 @@ public class ShoppingCartTests
     [Test]
     public void CompareProducts()
     {
-        new Product(cost: 1).Should().Be(new Product(cost: 1));
-        new Product(cost: 1).Should().NotBe(new Product(cost: 2));
+        ProductWithRaw(cost: 1).Should().Be(ProductWithRaw(cost: 1));
+        ProductWithRaw(cost: 1).Should().NotBe(ProductWithRaw(cost: 2));
     }
 
     [Test]
     public void FinalPrice_IsItsCost_WhenApplyNoRevenue_NorTaxes()
     {
-        new Product(cost: 1).FinalPrice.Should().Be(1);
+        ProductWithRaw(cost: 1).FinalPrice.Should().Be(1);
     }
 
     [Test]
     public void FinalPrice_WithoutTaxes_IsJustPricePerUnit()
     {
-        new Product(cost: 1, revenuePercentage: 100).FinalPrice.Should().Be(2);
+        CreateProduct(cost: 1, revenuePercentage: 100).FinalPrice.Should().Be(2);
     }
 
     [Test]
@@ -129,7 +127,7 @@ public class ShoppingCartTests
     [Test]
     public void RoundUp_PricePerUnit()
     {
-        new Product(cost: 1.55f, revenuePercentage: 15).FinalPrice.Should().Be(1.79f);
+        CreateProduct(cost: 1.55f, revenuePercentage: 15).FinalPrice.Should().Be(1.79f);
     }
 }
 
@@ -146,4 +144,13 @@ public static class CashMachine
     {
         return receipt with { Discount = discount };
     }
+}
+
+public static class Supermarket
+{
+    public static Product AProduct => new Product(cost: 10);
+    public static Product AnotherProduct => new Product(cost: 5);
+    public static Product ProductWithRaw(float cost) => new Product(cost);
+    public static Product CreateProduct(float cost, int revenuePercentage) 
+        => new Product(cost, revenuePercentage);
 }
