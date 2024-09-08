@@ -27,12 +27,12 @@ public class ShoppingCartTests
 
 public class Product
 {
-    readonly int cost;
-    readonly int revenuePercentage;
-    public int FinalPrice => PricePerUnit;
-    int PricePerUnit => cost + cost * (revenuePercentage / 100);
+    readonly float cost;
+    readonly float revenuePercentage;
+    public float FinalPrice => PricePerUnit;
+    float PricePerUnit => cost + cost * (revenuePercentage / 100);
 
-    public Product(int cost, int revenuePercentage = 0)
+    public Product(float cost, int revenuePercentage = 0)
     {
         this.cost = cost;
         this.revenuePercentage = revenuePercentage;
