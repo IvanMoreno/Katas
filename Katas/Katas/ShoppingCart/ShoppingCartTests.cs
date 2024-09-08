@@ -17,7 +17,7 @@ public class ShoppingCartTests
     {
         ShoppingCart.Empty()
             .Add(new Product(cost: 10))
-            .See().Should().Be(new ShoppingCart.Receipt() { Products = new[] { new Product(cost: 10) } });
+            .See().Should().Be(CashMachine.PrintFor(new Product(cost: 10)));
     }
 
     [Test]
@@ -27,7 +27,7 @@ public class ShoppingCartTests
             .TotalPrice
             .Should().Be(10);
     }
-    
+
     [Test]
     public void ReceiptIncludesProductTotalProduct()
     {
@@ -66,5 +66,13 @@ public class ShoppingCartTests
     public void RoundUp_PricePerUnit()
     {
         new Product(cost: 1.55f, revenuePercentage: 15).FinalPrice.Should().Be(1.79f);
+    }
+}
+
+public static class CashMachine
+{
+    public static ShoppingCart.Receipt PrintFor(params Product[] products)
+    {
+        return new ShoppingCart.Receipt() { Products = products };
     }
 }
