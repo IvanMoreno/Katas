@@ -18,6 +18,11 @@ public class ShoppingCartTests
         ShoppingCartasaf.Empty()
             .Add(new Product(cost: 10))
             .See().TotalProducts.Should().Be(1);
+        
+        ShoppingCartasaf.Empty()
+            .Add(new Product(cost: 10))
+            .See().Should().Be(new ShoppingCartasaf.Snapshot(){Products = new[]{new Product(cost:10)}});
+
     }
 
     [Test]

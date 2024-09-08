@@ -26,5 +26,10 @@ public class ShoppingCartasaf
         public IEnumerable<Product> Products { get; init; }
         public int TotalProducts => Products.Count();
         public int TotalPrice { get; set; }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is Snapshot snapshot && snapshot.Products.SequenceEqual(Products);
+        }
     }
 }
