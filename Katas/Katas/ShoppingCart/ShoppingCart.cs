@@ -13,7 +13,7 @@ public class ShoppingCart
 
     public Receipt See()
     {
-        return new(){Products =  addedProducts, Discount = appliedDiscount};
+        return new() { Products = addedProducts, Discount = appliedDiscount };
     }
 
     public ShoppingCart Add(Product product)
@@ -32,14 +32,26 @@ public class ShoppingCart
     {
         public IEnumerable<Product> Products { get; init; }
         public int TotalProducts => Products.Count();
-        public float TotalPrice =>Discount.ApplyIn(PriceBeforeDiscount);
+        public float TotalPrice => Discount.ApplyIn(PriceBeforeDiscount);
         float PriceBeforeDiscount => Products.Sum(x => x.FinalPrice);
         public Discount Discount { get; init; } = new(0);
-        public virtual bool Equals(Receipt? other) => other.Products.SequenceEqual(Products) && other.Discount.Equals(Discount);
+
+        public virtual bool Equals(Receipt? other) =>
+            other.Products.SequenceEqual(Products) && other.Discount.Equals(Discount);
     }
 
     public ShoppingCart ApplyCoupon(string coupon)
     {
-        return this;
+        return new ShoppingCart(addedProducts, Redeem(coupon));
+    }
+
+    Discount Redeem(string coupon)
+    {
+        if (coupon == "PROMO_10")
+            return new Discount(10);
+        if (coupon == "PROMO_5")
+            return new Discount(5);
+        
+        return new Discount(0);
     }
 }

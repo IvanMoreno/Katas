@@ -35,6 +35,21 @@ public class ShoppingCartTests
             .ApplyCoupon("sfdvsdvfdf")
             .See().Should().Be(CashMachine.PrintFor());
     }
+    
+    [Test]
+    public void ApplyValidCoupon()
+    {
+        ShoppingCart.Empty()
+            .ApplyCoupon("PROMO_10")
+            .See().Should().Be(
+                CashMachine.PrintFor().With(new Discount(10)));
+        
+        ShoppingCart.Empty()
+            .ApplyCoupon("PROMO_5")
+            .See().Should().Be(
+                CashMachine.PrintFor().With(new Discount(5)));
+    }
+
 
     [Test]
     public void ReceiptIncludesProductTotalPrice()
