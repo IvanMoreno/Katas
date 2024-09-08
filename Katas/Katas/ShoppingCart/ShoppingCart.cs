@@ -3,23 +3,30 @@ namespace Katas.ShoppingCartasdfasdf;
 public class ShoppingCart
 {
     readonly IEnumerable<Product> addedProducts;
+    readonly Discount appliedDiscount;
 
-    public ShoppingCart(IEnumerable<Product> addedProducts)
+    public ShoppingCart(IEnumerable<Product> addedProducts, Discount appliedDiscount)
     {
         this.addedProducts = addedProducts;
+        this.appliedDiscount = appliedDiscount;
     }
 
     public Receipt See()
     {
-        return new(){Products =  addedProducts};
+        return new(){Products =  addedProducts, Discount = appliedDiscount};
     }
 
     public ShoppingCart Add(Product product)
     {
-        return new(addedProducts.Append(product));
+        return new(addedProducts.Append(product), appliedDiscount);
     }
 
-    public static ShoppingCart Empty() => new(Enumerable.Empty<Product>());
+    public static ShoppingCart Empty() => new(Enumerable.Empty<Product>(), new Discount(0));
+
+    public ShoppingCart ApplyDiscount(int percentage)
+    {
+        return new(addedProducts, new Discount(percentage));
+    }
 
     public record Receipt
     {
@@ -28,6 +35,6 @@ public class ShoppingCart
         public float TotalPrice =>Discount.ApplyIn(PriceBeforeDiscount);
         float PriceBeforeDiscount => Products.Sum(x => x.FinalPrice);
         public Discount Discount { get; init; } = new(0);
-        public virtual bool Equals(Receipt? other) => other.Products.SequenceEqual(Products);
+        public virtual bool Equals(Receipt? other) => other.Products.SequenceEqual(Products) && other.Discount.Equals(Discount);
     }
 }

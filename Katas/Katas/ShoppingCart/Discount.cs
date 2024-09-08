@@ -1,6 +1,6 @@
 namespace Katas.ShoppingCartasdfasdf;
 
-public class Discount
+public struct Discount
 {
     readonly int percentage;
 

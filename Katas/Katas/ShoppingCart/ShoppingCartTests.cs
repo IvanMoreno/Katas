@@ -21,6 +21,14 @@ public class ShoppingCartTests
     }
 
     [Test]
+    public void ApplyDiscountOf10()
+    {
+        ShoppingCart.Empty()
+            .ApplyDiscount(10)
+            .See().Should().Be(CashMachine.PrintFor().With(new Discount(10)));
+    }
+
+    [Test]
     public void ReceiptIncludesProductTotalPrice()
     {
         new ShoppingCart.Receipt() { Products = new[] { new Product(cost: 10) } }
