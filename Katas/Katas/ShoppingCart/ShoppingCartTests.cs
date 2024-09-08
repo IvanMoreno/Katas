@@ -16,17 +16,20 @@ public class ShoppingCartTests
     public void ProductPrice_IsItsCost_WhenApplyNoRevenue_NorTaxes()
     {
         new Product(cost: 1).FinalPrice.Should().Be(1);
+        new Product(cost: 1, revenuePercentage: 100).FinalPrice.Should().Be(2);
     }
 }
 
 public class Product
 {
     readonly int cost;
-    public int FinalPrice => cost;
+    readonly int revenuePercentage;
+    public int FinalPrice => cost + cost * (revenuePercentage / 100);
 
-    public Product(int cost)
+    public Product(int cost, int revenuePercentage = 0)
     {
         this.cost = cost;
+        this.revenuePercentage = revenuePercentage;
     }
 }
 
