@@ -25,8 +25,13 @@ public class ShoppingCart
     {
         public IEnumerable<Product> Products { get; init; }
         public int TotalProducts => Products.Count();
-        public float TotalPrice => Products.Sum(x => x.FinalPrice);
+        public float TotalPrice => Discount is null 
+            ? PriceBeforeDiscount 
+            : Discount.ApplyIn(PriceBeforeDiscount);
 
+        float PriceBeforeDiscount => Products.Sum(x => x.FinalPrice);
+
+        public Discount Discount { get; init; }
         public override bool Equals(object? obj)
         {
             return obj is Receipt snapshot && snapshot.Products.SequenceEqual(Products);

@@ -35,12 +35,16 @@ public class ShoppingCartTests
             .TotalProducts
             .Should().Be(1);
     }
-    
+
     [Test]
     public void ReceiptAppliesDiscount()
     {
+        CashMachine.PrintFor(new Product(cost: 8))
+            .With(new Discount(50))
+            .TotalPrice
+            .Should().Be(8 / 2);
     }
-    
+
     [Test]
     public void DiscountCanBeApplied()
     {
@@ -85,5 +89,12 @@ public static class CashMachine
     public static ShoppingCart.Receipt PrintFor(params Product[] products)
     {
         return new ShoppingCart.Receipt() { Products = products };
+    }
+
+    public static ShoppingCart.Receipt With(
+        this ShoppingCart.Receipt receipt,
+        Discount discount)
+    {
+        return receipt with { Discount = discount };
     }
 }
