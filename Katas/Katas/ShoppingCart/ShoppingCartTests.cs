@@ -21,6 +21,13 @@ public class ShoppingCartTests
     }
 
     [Test]
+    public void CompareProducts()
+    {
+        new Product(cost: 1).Should().Be(new Product(cost: 1));
+        new Product(cost: 1).Should().NotBe(new Product(cost: 2));
+    }
+
+    [Test]
     public void FinalPrice_IsItsCost_WhenApplyNoRevenue_NorTaxes()
     {
         new Product(cost: 1).FinalPrice.Should().Be(1);

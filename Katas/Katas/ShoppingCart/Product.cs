@@ -1,6 +1,6 @@
 namespace Katas.ShoppingCart;
 
-public class Product
+public record Product
 {
     readonly float cost;
     readonly float revenuePercentage;
