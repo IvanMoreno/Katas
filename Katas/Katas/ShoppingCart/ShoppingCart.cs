@@ -25,13 +25,9 @@ public class ShoppingCart
     {
         public IEnumerable<Product> Products { get; init; }
         public int TotalProducts => Products.Count();
-        public float TotalPrice => Discount is null 
-            ? PriceBeforeDiscount 
-            : Discount.ApplyIn(PriceBeforeDiscount);
-
+        public float TotalPrice =>Discount.ApplyIn(PriceBeforeDiscount);
         float PriceBeforeDiscount => Products.Sum(x => x.FinalPrice);
-
-        public Discount Discount { get; init; }
+        public Discount Discount { get; init; } = new(0);
         public virtual bool Equals(Receipt? other) => other.Products.SequenceEqual(Products);
     }
 }
