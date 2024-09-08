@@ -7,14 +7,16 @@ public class ShoppingCartTests
     [Test]
     public void EmptyShoppingCart_HasNoProducts()
     {
-        new ShoppingCartasaf().See().Products.Should().BeEmpty();
-        new ShoppingCartasaf().See().TotalProducts.Should().Be(0);
-        new ShoppingCartasaf().See().TotalPrice.Should().Be(0);
+        ShoppingCartasaf.Empty().See().Products.Should().BeEmpty();
+        ShoppingCartasaf.Empty().See().TotalProducts.Should().Be(0);
+        ShoppingCartasaf.Empty().See().TotalPrice.Should().Be(0);
     }
 }
 
 public class ShoppingCartasaf
 {
+    public static ShoppingCartasaf Empty() => new();
+
     public Snapshot See()
     {
         return new();
