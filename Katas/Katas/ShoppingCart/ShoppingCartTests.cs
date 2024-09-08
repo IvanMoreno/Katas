@@ -15,15 +15,15 @@ public class ShoppingCartTests
 
 public class ShoppingCartasaf
 {
-    public asfdasas See()
+    public Snapshot See()
     {
         return new();
     }
-}
 
-public struct asfdasas
-{
-    public IEnumerable<string> Products => new List<string>();
-    public int TotalProducts { get; set; }
-    public int TotalPrice { get; set; }
+    public struct Snapshot
+    {
+        public IEnumerable<string> Products => new List<string>();
+        public int TotalProducts { get; set; }
+        public int TotalPrice { get; set; }
+    }
 }
