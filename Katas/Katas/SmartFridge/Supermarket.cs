@@ -2,17 +2,17 @@ namespace Katas.SmartFridge;
 
 public static class Supermarket
 {
-    public static Item Tomato(DateTime expires)
+    public static AddedItem Tomato(DateTime expires)
     {
-        return new Item("Tomato", expires);
+        return new AddedItem("Tomato", expires);
     }
 
-    public static Item Lettuce(DateTime expires)
+    public static AddedItem Lettuce(DateTime expires)
     {
-        return new Item("Lettuce", expires);
+        return new AddedItem("Lettuce", expires);
     }
 
-    public static Item Opened(this Item item)
+    public static AddedItem Opened(this AddedItem item)
     {
         return item with { Opened = true };
     }
