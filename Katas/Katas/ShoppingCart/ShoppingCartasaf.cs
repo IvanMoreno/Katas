@@ -2,17 +2,29 @@ namespace Katas.ShoppingCart;
 
 public class ShoppingCartasaf
 {
-    public static ShoppingCartasaf Empty() => new();
+    readonly IEnumerable<Product> addedProducts;
+
+    public ShoppingCartasaf(IEnumerable<Product> addedProducts)
+    {
+        this.addedProducts = addedProducts;
+    }
 
     public Snapshot See()
     {
-        return new();
+        return new(){Products =  addedProducts};
     }
+
+    public ShoppingCartasaf Add(Product product)
+    {
+        return new(addedProducts.Append(product));
+    }
+
+    public static ShoppingCartasaf Empty() => new(Enumerable.Empty<Product>());
 
     public struct Snapshot
     {
-        public IEnumerable<string> Products => new List<string>();
-        public int TotalProducts { get; set; }
+        public IEnumerable<Product> Products { get; init; }
+        public int TotalProducts => Products.Count();
         public int TotalPrice { get; set; }
     }
 }

@@ -13,6 +13,14 @@ public class ShoppingCartTests
     }
 
     [Test]
+    public void AddProduct()
+    {
+        ShoppingCartasaf.Empty()
+            .Add(new Product(cost: 10))
+            .See().TotalProducts.Should().Be(1);
+    }
+
+    [Test]
     public void FinalPrice_IsItsCost_WhenApplyNoRevenue_NorTaxes()
     {
         new Product(cost: 1).FinalPrice.Should().Be(1);
