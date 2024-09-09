@@ -65,12 +65,16 @@ public class ShoppingCartTests
         CashMachine.PrintFor(AProduct, AnotherProduct)
             .QuantityOf(AProduct)
             .Should().Be(1);
+
+        CashMachine.PrintFor(CreateProduct(cost: 5, name: "Other"), CreateProduct(cost: 5, name: "AProduct"))
+            .QuantityOf(CreateProduct(cost: 5, name: "Other"))
+            .Should().Be(1);
     }
 
     [Test]
     public void ReceiptIncludesProductTotalPrice()
     {
-        CashMachine.PrintFor(ProductWithRaw(cost:10))
+        CashMachine.PrintFor(ProductWithRaw(cost: 10))
             .TotalPrice
             .Should().Be(10);
     }
@@ -148,9 +152,10 @@ public static class CashMachine
 
 public static class Supermarket
 {
-    public static Product AProduct => new Product(cost: 10);
-    public static Product AnotherProduct => new Product(cost: 5);
-    public static Product ProductWithRaw(float cost) => new Product(cost);
-    public static Product CreateProduct(float cost, int revenuePercentage) 
-        => new Product(cost, revenuePercentage);
+    public static Product AProduct => CreateProduct(cost: 10);
+    public static Product AnotherProduct => CreateProduct(cost: 5);
+    public static Product ProductWithRaw(float cost) => CreateProduct(cost);
+
+    public static Product CreateProduct(float cost, int revenuePercentage = 0, string name = "TestProduct")
+        => new Product(name, cost, revenuePercentage);
 }

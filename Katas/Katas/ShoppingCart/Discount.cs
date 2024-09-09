@@ -6,6 +6,11 @@ public struct Discount
 
     public Discount(int percentage)
     {
+        if (percentage < 0)
+            throw new ArgumentException();
+        if (percentage > 100)
+            throw new ArgumentException();
+        
         this.percentage = percentage;
     }
 
