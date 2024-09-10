@@ -2,22 +2,20 @@ namespace Katas.ShoppingCartasdfasdf;
 
 public struct Discount
 {
-    readonly int percentage;
+    readonly Percentage discount;
 
-    public Discount(int percentage)
+    public Discount(int discount)
     {
-        if (percentage < 0)
+        if (discount < 0)
             throw new ArgumentException();
-        if (percentage > 100)
+        if (discount > 100)
             throw new ArgumentException();
         
-        this.percentage = percentage;
+        this.discount = discount;
     }
 
-    public float ApplyIn(float price)
-    {
-        return price - percentage / 100f * price;
-    }
+    public float ApplyIn(float price) 
+        => price - discount.Of(price);
 
     public static Discount None => new Discount(0);
 }

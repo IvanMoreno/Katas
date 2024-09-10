@@ -99,7 +99,7 @@ public class ShoppingCartTests
     [Test]
     public void DiscountCanBeApplied()
     {
-        new Discount(percentage: 15).ApplyIn(100).Should().Be(85);
+        new Discount(discount: 15).ApplyIn(100).Should().Be(85);
     }
 
     [Test]
