@@ -1,23 +1,33 @@
 namespace Katas.ShoppingCartasdfasdf;
 
+public readonly struct Percentage
+{
+    readonly int part;
+    Percentage(int part) => this.part = part;
+
+    public float Of(float whole) => whole * (part / 100f);
+
+    public static implicit operator Percentage(int part) => new(part);
+}
+
 public record Product
 {
     readonly string name;
     readonly float cost;
-    readonly float revenuePercentage;
+    readonly Percentage revenue;
     public float FinalPrice => RoundLastTwo(PricePerUnit);
-    float PricePerUnit => cost + cost * (revenuePercentage / 100);
+    float PricePerUnit => cost + revenue.Of(cost);
 
-    public Product(string name, float cost, int revenuePercentage)
+    public Product(string name, float cost, int revenue)
     {
         if (cost <= 0)
             throw new ArgumentException();
-        if (revenuePercentage < 0)
+        if (revenue < 0)
             throw new ArgumentException();
         
         this.name = name;
         this.cost = cost;
-        this.revenuePercentage = revenuePercentage;
+        this.revenue = revenue;
     }
 
     public static float RoundLastTwo(float toBeRounded)
