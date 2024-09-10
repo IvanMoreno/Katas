@@ -5,11 +5,11 @@ public record Product
     readonly string name;
     readonly float cost;
     readonly Percentage revenue;
-    readonly Percentage vat;
-    public float FinalPrice => RoundLastTwo(PricePerUnit) + vat.Of(RoundLastTwo(PricePerUnit));
-    float PricePerUnit => cost + revenue.Of(cost);
+    readonly Percentage tax;
+    public float FinalPrice => PricePerUnit + tax.Of(PricePerUnit);
+    float PricePerUnit => RoundLastTwo(cost + revenue.Of(cost));
 
-    public Product(string name, float cost, Percentage revenue, Percentage vat)
+    public Product(string name, float cost, Percentage revenue, Percentage tax)
     {
         if (cost <= 0)
             throw new ArgumentException();
@@ -17,7 +17,7 @@ public record Product
         this.name = name;
         this.cost = cost;
         this.revenue = revenue;
-        this.vat = vat;
+        this.tax = tax;
     }
 
     public static float RoundLastTwo(float toBeRounded)
