@@ -133,6 +133,12 @@ public class ShoppingCartTests
     {
         CreateProduct(cost: 1.55f, revenuePercentage: 15).FinalPrice.Should().Be(1.79f);
     }
+
+    [Test]
+    public void ApplyVAT_ToProduct()
+    {
+        CreateProduct(cost: 1, vat: 100).FinalPrice.Should().Be(2);
+    }
 }
 
 public static class CashMachine
@@ -156,6 +162,6 @@ public static class Supermarket
     public static Product AnotherProduct => CreateProduct(cost: 5);
     public static Product ProductWithRaw(float cost) => CreateProduct(cost);
 
-    public static Product CreateProduct(float cost, int revenuePercentage = 0, string name = "TestProduct")
-        => new Product(name, cost, revenuePercentage);
+    public static Product CreateProduct(float cost, int revenuePercentage = 0, int vat = 0, string name = "TestProduct")
+        => new Product(name, cost, revenuePercentage, vat);
 }
