@@ -17,8 +17,3 @@ public class StackTests
         new MyStack().Length.Should().Be(0);
     }
 }
-
-public class MyStack
-{
-    public int Length { get; set; } = 0;
-}
