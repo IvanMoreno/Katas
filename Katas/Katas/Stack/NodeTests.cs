@@ -37,6 +37,6 @@ public class NodeTests
     {
         StringNode("Father")
             .FatherOf(StringNode("Child"))
-            .Child.Value.Should().Be("Child");
+            .Child!.Value.Should().Be("Child");
     }
 }
