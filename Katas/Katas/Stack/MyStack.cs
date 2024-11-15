@@ -8,4 +8,9 @@ public class MyStack
     {
         Length++;
     }
+
+    public static MyStack Empty()
+    {
+        return new MyStack();
+    }
 }
