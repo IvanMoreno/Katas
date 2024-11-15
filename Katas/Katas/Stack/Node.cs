@@ -3,7 +3,7 @@ namespace Katas.Stack;
 public class Node<T>
 {
     public readonly T Value;
-    public Node<T> Child { get; set; }
+    public Node<T> Child { get; private set; }
     public bool HasChild => Child != null;
 
     Node(T value) => Value = value;
