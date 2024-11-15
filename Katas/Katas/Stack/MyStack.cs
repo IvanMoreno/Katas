@@ -6,10 +6,7 @@ public class MyStack<T>
     public int Length => elements.Count;
     public bool IsEmpty => Length == 0;
 
-    public void Push(T element)
-    {
-        elements.Add(element);
-    }
+    public void Push(T element) => elements.Add(element);
 
     public T Pop()
     {
