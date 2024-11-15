@@ -1,6 +1,6 @@
 namespace Katas.Stack;
 
-public class Node<T>
+public record Node<T>
 {
     public readonly T Value;
     public Node<T>? Child { get; private set; }
