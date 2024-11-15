@@ -23,8 +23,19 @@ public class StackTests
         var sut = MyStack<int>.Empty();
 
         sut.Push(1321);
-
+        
         sut.Length.Should().Be(1);
+    }
+
+    [Test]
+    public void AccumulateElements()
+    {
+        var sut = MyStack<int>.Empty();
+
+        sut.Push(1321);
+        sut.Push(432);
+        
+        sut.Length.Should().Be(2);
     }
 
     [Test]
