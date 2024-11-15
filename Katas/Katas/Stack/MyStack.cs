@@ -20,5 +20,10 @@ public class MyStack<T>
         return result;
     }
 
+    public T Peek()
+    {
+        return Pop();
+    }
+
     public static MyStack<T> Empty() => new();
 }
