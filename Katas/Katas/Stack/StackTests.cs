@@ -1,3 +1,5 @@
+using FluentAssertions;
+
 namespace Katas.Stack;
 
 // https://www.codurance.com/katas/stack
@@ -9,5 +11,14 @@ namespace Katas.Stack;
 
 public class StackTests
 {
-    
+    [Test]
+    public void IsEmpty_ByDefault()
+    {
+        new MyStack().Length.Should().Be(0);
+    }
+}
+
+public class MyStack
+{
+    public int Length { get; set; } = 0;
 }
