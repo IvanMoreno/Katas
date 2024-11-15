@@ -16,4 +16,10 @@ public class NodeTests
     {
         Node<int>.From(12).Value.Should().Be(12);
     }
+
+    [Test]
+    public void HasNoChild_ByDefault()
+    {
+        Node<int>.From(432).HasChild.Should().BeFalse();
+    }
 }
