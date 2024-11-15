@@ -14,8 +14,5 @@ public class MyStack<T>
         Length = 0;
     }
 
-    public static MyStack<T> Empty()
-    {
-        return new MyStack<T>();
-    }
+    public static MyStack<T> Empty() => new();
 }
