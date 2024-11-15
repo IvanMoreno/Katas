@@ -73,4 +73,17 @@ public class StackTests
 
         sut.Peek().Should().Be("Head");
     }
+
+    [Test]
+    public void Peeking_DoesNotRemove_LastPush()
+    {
+        var sut = MyStack<string>.Empty();
+        
+        sut.Push("Tail");
+        sut.Push("Head");
+
+        sut.Peek().Should().Be("Head");
+        sut.Peek().Should().Be("Head");
+        sut.Length.Should().Be(2);
+    }
 }

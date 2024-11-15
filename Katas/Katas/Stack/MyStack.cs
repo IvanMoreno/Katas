@@ -22,7 +22,7 @@ public class MyStack<T>
 
     public T Peek()
     {
-        return Pop();
+        return elements.Last();
     }
 
     public static MyStack<T> Empty() => new();
