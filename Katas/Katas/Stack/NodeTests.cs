@@ -45,5 +45,6 @@ public class NodeTests
     {
         StringNode("No Children").ChildrenCount.Should().Be(0);
         IntNode(0).FatherOf(IntNode(1)).ChildrenCount.Should().Be(1);
+        IntNode(0).FatherOf(IntNode(1).FatherOf(IntNode(2))).ChildrenCount.Should().Be(2);
     }
 }
