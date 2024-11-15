@@ -5,9 +5,9 @@ public class MyStack<T>
     public int Length { get; set; } = 0;
     List<T> elements = new();
 
-    public void Push(T i)
+    public void Push(T element)
     {
-        elements.Add(i);
+        elements.Add(element);
         Length++;
     }
 
