@@ -33,8 +33,11 @@ public class StackTests
         var sut = MyStack<int>.Empty();
         
         sut.Push(321);
-        sut.Pop();
+        sut.Push(123);
 
+        sut.Pop();
+        sut.Length.Should().Be(1);
+        sut.Pop();
         sut.Length.Should().Be(0);
     }
 
@@ -47,7 +50,6 @@ public class StackTests
         sut.Push("Head");
         
         sut.Pop().Should().Be("Head");
-        sut.Length.Should().Be(1);
         sut.Pop().Should().Be("Tail");
     }
 }
