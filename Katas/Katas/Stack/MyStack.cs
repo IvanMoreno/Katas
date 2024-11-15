@@ -4,7 +4,7 @@ public class MyStack<T>
 {
     readonly List<T> elements = new();
     Node<T>? head;
-    public int Length => elements.Count;
+    public int Length => 1 + head?.ChildrenCount ?? 0;
     public bool IsEmpty => Length == 0;
 
     public void Push(T element)
@@ -17,10 +17,10 @@ public class MyStack<T>
     {
         if (IsEmpty)
             throw new InvalidOperationException();
-        
-        var result = elements.Last();
-        elements.RemoveAt(Length - 1);
-        return result;
+
+        var newResult = head!.Value;
+        head = head.Child;
+        return newResult;
     }
 
     public T Peek()
