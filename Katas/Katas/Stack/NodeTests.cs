@@ -26,6 +26,8 @@ public class NodeTests
     [Test]
     public void AttachChild()
     {
-        Node<string>.From("Father").FatherOf(Node<string>.From("Child")).HasChild.Should().BeTrue();
+        Node<string>.From("Father")
+            .FatherOf(Node<string>.From("Child"))
+            .HasChild.Should().BeTrue();
     }
 }
