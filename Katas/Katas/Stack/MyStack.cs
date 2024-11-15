@@ -2,7 +2,7 @@ namespace Katas.Stack;
 
 public class MyStack<T>
 {
-    List<T> elements = new();
+    readonly List<T> elements = new();
     public int Length => elements.Count;
 
     public void Push(T element)
