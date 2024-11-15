@@ -13,6 +13,9 @@ public class MyStack<T>
 
     public T Pop()
     {
+        if (Length == 0)
+            throw new InvalidOperationException();
+        
         Length = 0;
         return elements.Last();
     }
