@@ -2,13 +2,12 @@ namespace Katas.Stack;
 
 public class MyStack<T>
 {
-    public int Length { get; set; } = 0;
     List<T> elements = new();
+    public int Length => elements.Count;
 
     public void Push(T element)
     {
         elements.Add(element);
-        Length++;
     }
 
     public T Pop()
@@ -16,9 +15,8 @@ public class MyStack<T>
         if (Length == 0)
             throw new InvalidOperationException();
         
-        Length--;
         var result = elements.Last();
-        elements.RemoveAt(Length);
+        elements.RemoveAt(Length - 1);
         return result;
     }
 
