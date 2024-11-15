@@ -13,7 +13,7 @@ public class MyStack<T>
 
     public T Pop()
     {
-        if (Length == 0)
+        if (IsEmpty)
             throw new InvalidOperationException();
         
         var result = elements.Last();
@@ -23,7 +23,7 @@ public class MyStack<T>
 
     public T Peek()
     {
-        if (Length == 0)
+        if (IsEmpty)
             throw new InvalidOperationException();
         
         return elements.Last();
