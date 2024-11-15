@@ -39,4 +39,10 @@ public class NodeTests
             .FatherOf(StringNode("Child"))
             .Child!.Value.Should().Be("Child");
     }
+
+    [Test]
+    public void CountChildren()
+    {
+        StringNode("No Children").ChildrenCount.Should().Be(0);
+    }
 }
