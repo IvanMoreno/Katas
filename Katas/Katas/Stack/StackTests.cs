@@ -37,4 +37,15 @@ public class StackTests
 
         sut.Length.Should().Be(0);
     }
+
+    [Test]
+    public void PopReturns_LastPushedElement()
+    {
+        var sut = MyStack<string>.Empty();
+        
+        sut.Push("Tail");
+        sut.Push("Head");
+        
+        sut.Pop().Should().Be("Head");
+    }
 }
