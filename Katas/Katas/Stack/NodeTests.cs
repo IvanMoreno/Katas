@@ -31,4 +31,12 @@ public class NodeTests
             .FatherOf(StringNode("Child"))
             .HasChild.Should().BeTrue();
     }
+
+    [Test]
+    public void RetrieveChild()
+    {
+        StringNode("Father")
+            .FatherOf(StringNode("Child"))
+            .Child.Value.Should().Be("Child");
+    }
 }
