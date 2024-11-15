@@ -7,7 +7,7 @@ namespace Katas.Stack;
 // My approach: create my own type Node that can store values and child nodes.
 // [x] Retrieve value from Node
 // [x] Retrieve child from Node
-// [] Children count
+// [x] Children count
 // [x] HasChild
 
 public class NodeTests
