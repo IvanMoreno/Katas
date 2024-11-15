@@ -26,4 +26,15 @@ public class StackTests
 
         sut.Length.Should().Be(1);
     }
+
+    [Test]
+    public void PopElement_DecreasesLength()
+    {
+        var sut = MyStack.Empty();
+        
+        sut.Push(321);
+        sut.Pop();
+
+        sut.Length.Should().Be(0);
+    }
 }

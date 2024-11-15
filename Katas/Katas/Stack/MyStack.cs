@@ -9,6 +9,11 @@ public class MyStack
         Length++;
     }
 
+    public void Pop()
+    {
+        Length = 0;
+    }
+
     public static MyStack Empty()
     {
         return new MyStack();
