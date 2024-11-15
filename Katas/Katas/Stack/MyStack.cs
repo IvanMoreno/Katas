@@ -2,15 +2,14 @@ namespace Katas.Stack;
 
 public class MyStack<T>
 {
-    readonly List<T> elements = new();
     Node<T>? head;
     public int Length => 1 + head?.ChildrenCount ?? 0;
     public bool IsEmpty => Length == 0;
 
     public void Push(T element)
-    {
-        head = head == null ? Node<T>.From(element) : Node<T>.From(element).FatherOf(head);
-    }
+        => head = head == null
+            ? Node<T>.From(element)
+            : Node<T>.From(element).FatherOf(head);
 
     public T Pop()
     {
