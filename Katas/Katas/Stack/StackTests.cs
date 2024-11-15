@@ -47,5 +47,6 @@ public class StackTests
         sut.Push("Head");
         
         sut.Pop().Should().Be("Head");
+        sut.Length.Should().Be(1);
     }
 }

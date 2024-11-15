@@ -16,7 +16,7 @@ public class MyStack<T>
         if (Length == 0)
             throw new InvalidOperationException();
         
-        Length = 0;
+        Length--;
         return elements.Last();
     }
 
