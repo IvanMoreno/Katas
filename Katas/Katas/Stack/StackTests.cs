@@ -7,7 +7,7 @@ namespace Katas.Stack;
 // [x] Pop - Remove an element from the top of the stack, returning it
 // [] Empty check - Check if the stack is empty or not
 // [x] Size - Count of the elements in the stack
-// [] Peek - Check the top of the stack without popping
+// [x] Peek - Check the top of the stack without popping
 
 public class StackTests
 {
