@@ -17,7 +17,9 @@ public class MyStack<T>
             throw new InvalidOperationException();
         
         Length--;
-        return elements.Last();
+        var result = elements.Last();
+        elements.RemoveAt(Length);
+        return result;
     }
 
     public static MyStack<T> Empty() => new();
