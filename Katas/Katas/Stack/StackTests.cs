@@ -15,6 +15,7 @@ public class StackTests
     public void IsEmpty_ByDefault()
     {
         MyStack<int>.Empty().Length.Should().Be(0);
+        MyStack<int>.Empty().IsEmpty.Should().BeTrue();
     }
 
     [Test]

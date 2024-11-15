@@ -4,6 +4,7 @@ public class MyStack<T>
 {
     readonly List<T> elements = new();
     public int Length => elements.Count;
+    public bool IsEmpty => true;
 
     public void Push(T element)
     {
