@@ -16,6 +16,27 @@ namespace Katas.Stack;
 // [] Children count
 // [] HasChild
 
+public class NodeTests
+{
+    [Test]
+    public void StoreValue()
+    {
+        Node<int>.From(12).Value.Should().Be(12);
+    }
+}
+
+public class Node<T>
+{
+    public readonly T Value;
+
+    Node(T value) => Value = value;
+
+    public static Node<T> From(T value)
+    {
+        return new(value);
+    }
+}
+
 public class StackTests
 {
     [Test]
