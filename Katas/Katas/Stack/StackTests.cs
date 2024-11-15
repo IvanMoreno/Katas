@@ -16,4 +16,14 @@ public class StackTests
     {
         new MyStack().Length.Should().Be(0);
     }
+
+    [Test]
+    public void PushElement_IncreasesLength()
+    {
+        var sut = new MyStack();
+
+        sut.Push(1321);
+
+        sut.Length.Should().Be(1);
+    }
 }
