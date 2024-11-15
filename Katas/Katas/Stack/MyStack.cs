@@ -22,6 +22,9 @@ public class MyStack<T>
 
     public T Peek()
     {
+        if (Length == 0)
+            throw new InvalidOperationException();
+        
         return elements.Last();
     }
 
