@@ -27,8 +27,8 @@ public class MyStack<T>
     {
         if (IsEmpty)
             throw new InvalidOperationException();
-        
-        return elements.Last();
+
+        return head!.Value;
     }
 
     public static MyStack<T> Empty() => new();
