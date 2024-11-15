@@ -10,7 +10,6 @@ public class MyStack<T>
     public void Push(T element)
     {
         head = head == null ? Node<T>.From(element) : Node<T>.From(element).FatherOf(head);
-        elements.Add(element);
     }
 
     public T Pop()
