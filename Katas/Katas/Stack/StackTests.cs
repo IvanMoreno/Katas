@@ -19,12 +19,22 @@ public class StackTests
     }
 
     [Test]
+    public void IsNotEmpty_AfterPushingElement()
+    {
+        var sut = MyStack<bool>.Empty();
+        
+        sut.Push(true);
+
+        sut.IsEmpty.Should().BeFalse();
+    }
+
+    [Test]
     public void PushElement_IncreasesLength()
     {
         var sut = MyStack<int>.Empty();
 
         sut.Push(1321);
-        
+
         sut.Length.Should().Be(1);
     }
 
@@ -35,7 +45,7 @@ public class StackTests
 
         sut.Push(1321);
         sut.Push(432);
-        
+
         sut.Length.Should().Be(2);
     }
 
@@ -43,7 +53,7 @@ public class StackTests
     public void PopElement_DecreasesLength()
     {
         var sut = MyStack<int>.Empty();
-        
+
         sut.Push(321);
         sut.Push(123);
 
@@ -57,10 +67,10 @@ public class StackTests
     public void PopReturns_LastPushedElement()
     {
         var sut = MyStack<string>.Empty();
-        
+
         sut.Push("Tail");
         sut.Push("Head");
-        
+
         sut.Pop().Should().Be("Head");
         sut.Pop().Should().Be("Tail");
     }
@@ -69,7 +79,7 @@ public class StackTests
     public void PeekLastPushedElement()
     {
         var sut = MyStack<string>.Empty();
-        
+
         sut.Push("Head");
 
         sut.Peek().Should().Be("Head");
@@ -79,7 +89,7 @@ public class StackTests
     public void Peeking_DoesNotRemove_LastPush()
     {
         var sut = MyStack<string>.Empty();
-        
+
         sut.Push("Tail");
         sut.Push("Head");
 
