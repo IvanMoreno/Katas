@@ -14,13 +14,13 @@ public class StackTests
     [Test]
     public void IsEmpty_ByDefault()
     {
-        MyStack.Empty().Length.Should().Be(0);
+        MyStack<int>.Empty().Length.Should().Be(0);
     }
 
     [Test]
     public void PushElement_IncreasesLength()
     {
-        var sut = MyStack.Empty();
+        var sut = MyStack<int>.Empty();
 
         sut.Push(1321);
 
@@ -30,7 +30,7 @@ public class StackTests
     [Test]
     public void PopElement_DecreasesLength()
     {
-        var sut = MyStack.Empty();
+        var sut = MyStack<int>.Empty();
         
         sut.Push(321);
         sut.Pop();

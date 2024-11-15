@@ -1,10 +1,10 @@
 namespace Katas.Stack;
 
-public class MyStack
+public class MyStack<T>
 {
     public int Length { get; set; } = 0;
 
-    public void Push(int i)
+    public void Push(T i)
     {
         Length++;
     }
@@ -14,8 +14,8 @@ public class MyStack
         Length = 0;
     }
 
-    public static MyStack Empty()
+    public static MyStack<T> Empty()
     {
-        return new MyStack();
+        return new MyStack<T>();
     }
 }
