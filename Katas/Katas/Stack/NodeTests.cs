@@ -7,7 +7,7 @@ namespace Katas.Stack;
 // [x] Retrieve value from Node
 // [] Retrieve child from Node
 // [] Children count
-// [] HasChild
+// [x] HasChild
 
 public class NodeTests
 {
