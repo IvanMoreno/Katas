@@ -22,4 +22,10 @@ public class NodeTests
     {
         Node<int>.From(432).HasChild.Should().BeFalse();
     }
+
+    [Test]
+    public void AttachChild()
+    {
+        Node<string>.From("Father").FatherOf(Node<string>.From("Child")).HasChild.Should().BeTrue();
+    }
 }
