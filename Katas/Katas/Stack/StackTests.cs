@@ -9,6 +9,13 @@ namespace Katas.Stack;
 // [x] Size - Count of the elements in the stack
 // [x] Peek - Check the top of the stack without popping
 
+// Extra: Now without using any kind of collections
+// My approach: create my own type Node that can store values and child nodes.
+// [] Retrieve value from Node
+// [] Retrieve child from Node
+// [] Children count
+// [] HasChild
+
 public class StackTests
 {
     [Test]
