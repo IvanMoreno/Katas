@@ -37,8 +37,10 @@ public class MarsRover
             y += 1;
         else if (orientation == East)
             x += 1;
-        else
+        else if (orientation == South)
             y -= 1;
+        else
+            x -= 1;
     }
 
     static string Rotate(string command, string currentOrientation)

@@ -83,4 +83,10 @@ public class MarsRoverTests
     {
         MarsRover.LandedAt(1,1).Execute("RRM").Should().Be("1:0:S");
     }
+
+    [Test]
+    public void MoveToTheWest()
+    {
+        MarsRover.LandedAt(1, 1).Execute("LM").Should().Be("0:1:W");
+    }
 }
