@@ -44,9 +44,6 @@ public class MarsRover
     {
         y = plateau.NextY(y, compass.NextY);
         x = plateau.NextX(x, compass.NextX);
-
-        if (y > 10)
-            y = 0;
     }
 
     public static MarsRover LandedAt(int x, int y)
