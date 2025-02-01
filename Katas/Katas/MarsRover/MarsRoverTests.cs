@@ -65,4 +65,10 @@ public class MarsRoverTests
 
         sut.Execute("M").Should().Be("1:0:E");
     }
+
+    [Test]
+    public void MixMovementAndRotationCommands()
+    {
+        new MarsRover().Execute("RM").Should().Be("1:0:E");
+    }
 }

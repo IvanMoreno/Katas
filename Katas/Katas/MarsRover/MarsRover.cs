@@ -16,18 +16,22 @@ public class MarsRover
 
     public string Execute(string command)
     {
-        if (command.Contains(MoveCommand))
-            if (orientation == North)
-                y += command.Length;
-            else
-                x += command.Length;       
-        else
+        foreach (var instruction in command)
         {
-            foreach (var instruction in command)
+            if (instruction.ToString().Equals(MoveCommand))
+            {
+                if (orientation == North)
+                    y += 1;
+                else
+                    x += 1;    
+            }
+            else
             {
                 orientation = Rotate(instruction.ToString(), orientation);
             }
         }
+        
+        
         
         return $"{x}:{y}:{orientation}";
     }
