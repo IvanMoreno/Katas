@@ -1,4 +1,5 @@
 using FluentAssertions;
+using static Katas.MarsRoverKata.Commands;
 using static Katas.MarsRoverKata.MarsRover;
 
 namespace Katas.MarsRoverKata;
@@ -87,7 +88,7 @@ public class MarsRoverTests
     [Test]
     public void MoveToTheWest()
     {
-        MarsRover.LandedAt(1, 1).Execute("LM").Should().Be("0:1:W");
+        MarsRover.LandedAt(1, 1).Execute(TurnLeft().ThenMove()).Should().Be("0:1:W");
     }
 
     [Test]
@@ -111,6 +112,6 @@ public class MarsRoverTests
     public void TurnAroundWhenReachesEdge()
     {
         var sut = new MarsRover();
-        sut.Execute("MMMMMMMMMMM").Should().Be("0:0:N");
+        sut.Execute(Move(times:11)).Should().Be("0:0:N");
     }
 }
