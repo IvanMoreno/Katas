@@ -62,4 +62,9 @@ public class MarsRover
             East => North
         };
     }
+
+    public static MarsRover LandedAt(int x, int y)
+    {
+        return new MarsRover { x = x, y = y };
+    }
 }

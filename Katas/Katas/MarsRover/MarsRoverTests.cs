@@ -71,4 +71,16 @@ public class MarsRoverTests
     {
         new MarsRover().Execute("RM").Should().Be("1:0:E");
     }
+
+    [Test]
+    public void LandRoverAtDifferentPosition()
+    {
+        MarsRover.LandedAt(4, 4).Execute(MoveCommand).Should().Be("4:5:N");
+    }
+
+    [Test, Ignore("")]
+    public void MoveToTheSouth()
+    {
+        new MarsRover().Execute("RRM").Should().Be("0:-1:S");
+    }
 }
