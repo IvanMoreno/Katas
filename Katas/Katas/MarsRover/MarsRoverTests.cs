@@ -93,7 +93,7 @@ public class MarsRoverTests
     [Test]
     public void KnowNextMovementDirection()
     {
-        var sut = new Compass();
+        var sut = Compass.FacingNorth();
         sut.NextX.Should().Be(0);
         sut.NextY.Should().Be(1);
     }

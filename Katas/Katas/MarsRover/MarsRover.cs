@@ -8,7 +8,7 @@ public class MarsRover
     
     int x;
     int y;
-    readonly Compass compass = new();
+    readonly Compass compass = Compass.FacingNorth();
 
     public string Execute(string command)
     {
