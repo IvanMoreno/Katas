@@ -1,4 +1,5 @@
 using FluentAssertions;
+using static Katas.MarsRoverKata.MarsRover;
 
 namespace Katas.MarsRoverKata;
 
@@ -10,8 +11,6 @@ namespace Katas.MarsRoverKata;
 
 public class MarsRoverTests
 {
-    const string MoveCommand = "M";
-
     [Test]
     public void MoveForward()
     {

@@ -6,13 +6,16 @@ public class MarsRover
     const string South = "S";
     const string West = "W";
     const string North = "N";
+
+    public const string MoveCommand = "M";
+    const string RotateRightCommand = "R";
     
     int y;
     string orientation = North;
 
     public string Execute(string command)
     {
-        if (command.Contains("M"))
+        if (command.Contains(MoveCommand))
             y += command.Length;
         else
         {
@@ -27,7 +30,7 @@ public class MarsRover
 
     static string Rotate(string command, string currentOrientation)
     {
-        if (command == "R")
+        if (command == RotateRightCommand)
         {
             return currentOrientation switch
             {
