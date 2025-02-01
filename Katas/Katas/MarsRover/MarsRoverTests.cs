@@ -10,16 +10,18 @@ namespace Katas.MarsRoverKata;
 
 public class MarsRoverTests
 {
+    const string MoveCommand = "M";
+
     [Test]
     public void MoveForward()
     {
-        new MarsRover().Execute("M").Should().Be("0:1:N");
+        new MarsRover().Execute(MoveCommand).Should().Be("0:1:N");
     }
 
     [Test]
     public void MoveForwardTwice()
     {
-        new MarsRover().Execute("MM").Should().Be("0:2:N");
+        new MarsRover().Execute(MoveCommand + MoveCommand).Should().Be("0:2:N");
     }
 
     [Test]
@@ -27,8 +29,8 @@ public class MarsRoverTests
     {
         var sut = new MarsRover();
 
-        sut.Execute("M");
+        sut.Execute(MoveCommand);
         
-        sut.Execute("M").Should().Be("0:2:N");
+        sut.Execute(MoveCommand).Should().Be("0:2:N");
     }
 }
