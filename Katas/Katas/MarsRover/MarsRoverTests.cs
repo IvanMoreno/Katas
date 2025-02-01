@@ -95,8 +95,8 @@ public class MarsRoverTests
     public void KnowNextMovementDirection()
     {
         var sut = Compass.FacingNorth();
-        sut.NextX.Should().Be(0);
-        sut.NextY.Should().Be(1);
+        sut.DirectionX.Should().Be(0);
+        sut.DirectionY.Should().Be(1);
     }
 
     [Test]
@@ -104,8 +104,8 @@ public class MarsRoverTests
     {
         var sut = Compass.FacingNorth();
         sut.RotateRight();
-        sut.NextX.Should().Be(1);
-        sut.NextY.Should().Be(0);
+        sut.DirectionX.Should().Be(1);
+        sut.DirectionY.Should().Be(0);
     }
 
     [Test]

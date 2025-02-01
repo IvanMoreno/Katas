@@ -42,8 +42,8 @@ public class MarsRover
 
     void Move()
     {
-        y = plateau.NextY(y, compass.NextY);
-        x = plateau.NextX(x, compass.NextX);
+        y = plateau.NextY(y, compass.DirectionY);
+        x = plateau.NextX(x, compass.DirectionX);
     }
 
     public static MarsRover LandedAt(int x, int y)
