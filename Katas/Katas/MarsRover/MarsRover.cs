@@ -10,13 +10,17 @@ public class MarsRover
     public const string MoveCommand = "M";
     const string RotateRightCommand = "R";
     
+    int x;
     int y;
     string orientation = North;
 
     public string Execute(string command)
     {
         if (command.Contains(MoveCommand))
-            y += command.Length;
+            if (orientation == North)
+                y += command.Length;
+            else
+                x += command.Length;       
         else
         {
             foreach (var instruction in command)
@@ -25,7 +29,7 @@ public class MarsRover
             }
         }
         
-        return $"0:{y}:{orientation}";
+        return $"{x}:{y}:{orientation}";
     }
 
     static string Rotate(string command, string currentOrientation)

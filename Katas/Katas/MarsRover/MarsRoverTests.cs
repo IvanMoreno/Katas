@@ -55,4 +55,14 @@ public class MarsRoverTests
 
         sut.Execute("L").Should().Be("0:0:S");
     }
+
+    [Test]
+    public void MoveTowardsFacingDirection()
+    {
+        var sut = new MarsRover();
+
+        sut.Execute("R");
+
+        sut.Execute("M").Should().Be("1:0:E");
+    }
 }
