@@ -7,27 +7,24 @@ public class Plateau
 
     public int NextX(int from, int towards)
     {
-        var nextPosition = from + towards;
-        
-        if (nextPosition > sizeX)
-            return 0;
-        
-        if (nextPosition < 0)
-            return 10;
-        
-        return nextPosition;
+        return Clamp(from, towards, sizeX);
     }
 
     public int NextY(int from, int towards)
     {
+        return Clamp(from, towards, sizeY);
+    }
+
+    int Clamp(int from, int towards, int edgePosition)
+    {
         var nextPosition = from + towards;
-        
-        if (nextPosition > sizeY)
+
+        if (nextPosition > edgePosition)
             return 0;
-        
+
         if (nextPosition < 0)
             return 10;
-        
+
         return nextPosition;
     }
 
