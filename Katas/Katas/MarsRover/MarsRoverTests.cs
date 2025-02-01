@@ -3,7 +3,7 @@ using static Katas.MarsRoverKata.MarsRover;
 
 namespace Katas.MarsRoverKata;
 
-// [] Mover Rover hacia la dirección a la que mira
+// [x] Mover Rover hacia la dirección a la que mira
 // [x] Girar Rover
 // [] Dar la vuelta a la cuadrícula
 // [] Detectar obstáculo

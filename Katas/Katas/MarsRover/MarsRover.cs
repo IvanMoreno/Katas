@@ -16,19 +16,28 @@ public class MarsRover
 
     public string Execute(string command)
     {
+        InterpretCommand(command);
+        return $"{x}:{y}:{orientation}";
+    }
+
+    void InterpretCommand(string command)
+    {
         foreach (var instruction in command)
         {
-            if (instruction.ToString().Equals(MoveCommand))
-            {
-                Move();
-            }
-            else
-            {
-                orientation = Rotate(instruction.ToString(), orientation);
-            }
+            InterpretCommandInstruction(instruction.ToString());
         }
-        
-        return $"{x}:{y}:{orientation}";
+    }
+
+    void InterpretCommandInstruction(string instruction)
+    {
+        if (instruction.Equals(MoveCommand))
+        {
+            Move();
+        }
+        else
+        {
+            orientation = Rotate(instruction, orientation);
+        }
     }
 
     void Move()
@@ -52,7 +61,8 @@ public class MarsRover
                 North => East,
                 East => South,
                 South => West,
-                West => North
+                West => North,
+                _ => throw new ArgumentOutOfRangeException(nameof(currentOrientation), currentOrientation, null)
             };
         }
 
@@ -61,7 +71,8 @@ public class MarsRover
             North => West,
             West => South,
             South => East,
-            East => North
+            East => North,
+            _ => throw new ArgumentOutOfRangeException(nameof(currentOrientation), currentOrientation, null)
         };
     }
 
