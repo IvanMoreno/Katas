@@ -9,6 +9,7 @@ public class MarsRover
 
     public const string MoveCommand = "M";
     const string RotateRightCommand = "R";
+    const string RotateLeftCommand = "L";
     
     int x;
     int y;
@@ -36,9 +37,32 @@ public class MarsRover
         }
         else
         {
-            orientation = Rotate(instruction, orientation);
+            if (instruction.Equals(RotateRightCommand))
+                orientation = RotateRight();
+            else
+                orientation = RotateLeft();
         }
     }
+
+    string RotateRight() =>
+        orientation switch
+        {
+            North => East,
+            East => South,
+            South => West,
+            West => North,
+            _ => throw new ArgumentOutOfRangeException(nameof(orientation), orientation, null)
+        };
+
+    string RotateLeft() =>
+        orientation switch
+        {
+            North => West,
+            West => South,
+            South => East,
+            East => North,
+            _ => throw new ArgumentOutOfRangeException(nameof(orientation), orientation, null)
+        };
 
     void Move()
     {
