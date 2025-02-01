@@ -11,14 +11,21 @@ public class MarsRover
             y += command.Length;
         else
         {
-            if (command == "R")
-                orientation = "E";
-            else if (command.Length == 1)
-                orientation = "W";
-            else if (command.Length == 2)
-                orientation = "S";
+            orientation = Rotate(command);
         }
         
         return $"0:{y}:{orientation}";
+    }
+
+    static string Rotate(string command)
+    {
+        if (command == "R")
+            return "E";
+        else if (command.Length == 1)
+            return "W";
+        else if (command.Length == 2)
+            return "S";
+
+        return "";
     }
 }
