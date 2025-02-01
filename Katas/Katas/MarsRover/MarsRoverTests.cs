@@ -21,4 +21,14 @@ public class MarsRoverTests
     {
         new MarsRover().Execute("MM").Should().Be("0:2:N");
     }
+
+    [Test]
+    public void KeepPositionStateBetweenMovementCommands()
+    {
+        var sut = new MarsRover();
+
+        sut.Execute("M");
+        
+        sut.Execute("M").Should().Be("0:2:N");
+    }
 }
