@@ -33,4 +33,10 @@ public class MarsRoverTests
         
         sut.Execute(MoveCommand).Should().Be("0:2:N");
     }
+
+    [Test]
+    public void Rotate()
+    {
+        new MarsRover().Execute("R").Should().Be("0:0:E");
+    }
 }

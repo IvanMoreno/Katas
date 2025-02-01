@@ -6,7 +6,11 @@ public class MarsRover
     
     public string Execute(string command)
     {
-        y += command.Length;
-        return $"0:{y}:N";
+        var orientation = "N";
+        if (command.Contains("M"))
+            y += command.Length;
+        else
+            orientation = "E";
+        return $"0:{y}:{orientation}";
     }
 }
