@@ -41,4 +41,14 @@ public class MarsRoverTests
         new MarsRover().Execute("L").Should().Be("0:0:W");
         new MarsRover().Execute("LL").Should().Be("0:0:S");
     }
+
+    [Test]
+    public void KeepOrientationStateBetweenCommands()
+    {
+        var sut = new MarsRover();
+
+        sut.Execute("L");
+
+        sut.Execute("L").Should().Be("0:0:S");
+    }
 }

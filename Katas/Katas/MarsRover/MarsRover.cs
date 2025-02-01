@@ -3,10 +3,10 @@ namespace Katas.MarsRoverKata;
 public class MarsRover
 {
     int y;
-    
+    string orientation = "N";
+
     public string Execute(string command)
     {
-        var orientation = "N";
         if (command.Contains("M"))
             y += command.Length;
         else
