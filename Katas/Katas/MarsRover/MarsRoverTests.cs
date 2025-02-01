@@ -119,6 +119,7 @@ public class MarsRoverTests
     public void TurnAroundWhenReachingNegativeEdge()
     {
         new MarsRover().Execute(TurnLeft().ThenMove()).Should().Be("10:0:W");
+        new MarsRover().Execute(TurnLeft(2).ThenMove()).Should().Be("0:10:S");
     }
 
     [Test]
