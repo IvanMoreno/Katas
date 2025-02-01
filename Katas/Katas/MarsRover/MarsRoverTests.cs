@@ -95,5 +95,6 @@ public class MarsRoverTests
     {
         var sut = new Compass();
         sut.NextX.Should().Be(0);
+        sut.NextY.Should().Be(1);
     }
 }

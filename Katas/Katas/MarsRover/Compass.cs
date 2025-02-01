@@ -9,6 +9,7 @@ public class Compass
 
     public string Orientation { get; private set; }= North;
     public int NextX { get; set; }
+    public int NextY { get; set; } = 1;
 
     public void RotateRight() =>
         Orientation = Orientation switch
