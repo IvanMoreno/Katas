@@ -23,6 +23,17 @@ public static class Commands
 
         return result;
     }
+    
+    public static string TurnRight(int times = 1)
+    {
+        var result = "";
+        for (int i = 0; i < times; i++)
+        {
+            result += "R";
+        }
+
+        return result;
+    }
 
     public static string ThenMove(this string previousCommand, int times = 1)
     {

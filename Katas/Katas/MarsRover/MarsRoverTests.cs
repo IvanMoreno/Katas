@@ -111,8 +111,8 @@ public class MarsRoverTests
     [Test]
     public void TurnAroundWhenReachingPositiveEdge()
     {
-        var sut = new MarsRover();
-        sut.Execute(Move(times:11)).Should().Be("0:0:N");
+        new MarsRover().Execute(Move(times:11)).Should().Be("0:0:N");
+        new MarsRover().Execute(TurnRight().ThenMove(times:11)).Should().Be("0:0:E");
     }
 
     [Test]
