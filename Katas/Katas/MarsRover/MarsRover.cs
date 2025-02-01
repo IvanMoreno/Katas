@@ -28,8 +28,6 @@ public class MarsRover
             }
         }
         
-        
-        
         return $"{x}:{y}:{orientation}";
     }
 
@@ -37,8 +35,10 @@ public class MarsRover
     {
         if (orientation == North)
             y += 1;
-        else
+        else if (orientation == East)
             x += 1;
+        else
+            y -= 1;
     }
 
     static string Rotate(string command, string currentOrientation)
