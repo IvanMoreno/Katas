@@ -9,6 +9,10 @@ public class Plateau
 
     public int NextX(int from, int towards)
     {
-        return 1;
+        var nextPosition = from + towards;
+        if (nextPosition > 10)
+            return 0;
+        
+        return nextPosition;
     }
 }

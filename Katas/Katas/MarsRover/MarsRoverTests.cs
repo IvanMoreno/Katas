@@ -119,5 +119,6 @@ public class MarsRoverTests
     public void TurnAroundPlateau()
     {
         Plateau.A10x10().NextX(from: 0, towards: 1).Should().Be(1);
+        Plateau.A10x10().NextX(from: 10, towards: 1).Should().Be(0);
     }
 }
