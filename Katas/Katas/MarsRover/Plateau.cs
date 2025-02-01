@@ -2,11 +2,14 @@ namespace Katas.MarsRoverKata;
 
 public class Plateau
 {
+    int sizeX;
+    int sizeY;
+
     public int NextX(int from, int towards)
     {
         var nextPosition = from + towards;
         
-        if (nextPosition > 10)
+        if (nextPosition > sizeX)
             return 0;
         
         if (nextPosition < 0)
@@ -19,7 +22,7 @@ public class Plateau
     {
         var nextPosition = from + towards;
         
-        if (nextPosition > 10)
+        if (nextPosition > sizeY)
             return 0;
         
         if (nextPosition < 0)
@@ -30,6 +33,6 @@ public class Plateau
 
     public static Plateau A10x10()
     {
-        return new Plateau();
+        return new Plateau(){sizeX = 10, sizeY = 10};
     }
 }
