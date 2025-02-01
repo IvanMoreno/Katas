@@ -12,8 +12,8 @@ public class Compass
 
     public string Orientation { get; private set; }
 
-    public int NextX { get; set; }
-    public int NextY { get; set; } = 1;
+    public int NextX => Orientation.Equals(East) ? 1 : Orientation.Equals(East) ? -1 : 0;
+    public int NextY => Orientation.Equals(North) ? 1 : Orientation.Equals(South) ? -1 : 0;
 
     public void RotateRight() =>
         Orientation = Orientation switch

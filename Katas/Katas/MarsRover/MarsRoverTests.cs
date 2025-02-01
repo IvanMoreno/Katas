@@ -97,4 +97,13 @@ public class MarsRoverTests
         sut.NextX.Should().Be(0);
         sut.NextY.Should().Be(1);
     }
+
+    [Test]
+    public void OrientationAffectsNextStep()
+    {
+        var sut = Compass.FacingNorth();
+        sut.RotateRight();
+        sut.NextX.Should().Be(1);
+        sut.NextY.Should().Be(0);
+    }
 }
