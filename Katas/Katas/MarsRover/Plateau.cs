@@ -17,6 +17,11 @@ public class Plateau
 
     int Clamp(int from, int towards, int edgePosition)
     {
+        if (Math.Abs(towards) > 1)
+            throw new ArgumentException("Direction cannot be greater than 1, must be normalized");
+        if (towards == 0)
+            throw new ArgumentException("Direction cannot be 0");
+        
         var nextPosition = from + towards;
 
         if (nextPosition > edgePosition)
