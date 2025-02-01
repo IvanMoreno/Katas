@@ -9,6 +9,7 @@ public class MarsRover
     int x;
     int y;
     readonly Compass compass = Compass.FacingNorth();
+    readonly Plateau plateau = Plateau.A10x10();
 
     public string Execute(string command)
     {
@@ -51,5 +52,18 @@ public class MarsRover
     public static MarsRover LandedAt(int x, int y)
     {
         return new MarsRover { x = x, y = y };
+    }
+}
+
+public class Plateau
+{
+    public static Plateau A10x10()
+    {
+        return new Plateau();
+    }
+
+    public int NextX(int from, int towards)
+    {
+        return 1;
     }
 }

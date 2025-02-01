@@ -114,4 +114,10 @@ public class MarsRoverTests
         var sut = new MarsRover();
         sut.Execute(Move(times:11)).Should().Be("0:0:N");
     }
+
+    [Test]
+    public void TurnAroundPlateau()
+    {
+        Plateau.A10x10().NextX(from: 0, towards: 1).Should().Be(1);
+    }
 }
