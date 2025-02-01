@@ -2,8 +2,13 @@ namespace Katas.MarsRoverKata;
 
 public class MarsRover
 {
+    const string East = "E";
+    const string South = "S";
+    const string West = "W";
+    const string North = "N";
+    
     int y;
-    string orientation = "N";
+    string orientation = North;
 
     public string Execute(string command)
     {
@@ -26,19 +31,19 @@ public class MarsRover
         {
             return currentOrientation switch
             {
-                "N" => "E",
-                "E" => "S",
-                "S" => "W",
-                "W" => "N"
+                North => East,
+                East => South,
+                South => West,
+                West => North
             };
         }
 
         return currentOrientation switch
         {
-            "N" => "W",
-            "W" => "S",
-            "S" => "E",
-            "E" => "N"
+            North => West,
+            West => South,
+            South => East,
+            East => North
         };
     }
 }
