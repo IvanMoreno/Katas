@@ -8,6 +8,7 @@ public class Compass
     public const string North = "N";
 
     public string Orientation { get; private set; }= North;
+    public int NextX { get; set; }
 
     public void RotateRight() =>
         Orientation = Orientation switch

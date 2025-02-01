@@ -89,4 +89,11 @@ public class MarsRoverTests
     {
         MarsRover.LandedAt(1, 1).Execute("LM").Should().Be("0:1:W");
     }
+
+    [Test]
+    public void KnowNextMovementDirection()
+    {
+        var sut = new Compass();
+        sut.NextX.Should().Be(0);
+    }
 }
