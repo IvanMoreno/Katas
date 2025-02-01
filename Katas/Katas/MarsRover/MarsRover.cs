@@ -76,30 +76,6 @@ public class MarsRover
             x -= 1;
     }
 
-    static string Rotate(string command, string currentOrientation)
-    {
-        if (command == RotateRightCommand)
-        {
-            return currentOrientation switch
-            {
-                North => East,
-                East => South,
-                South => West,
-                West => North,
-                _ => throw new ArgumentOutOfRangeException(nameof(currentOrientation), currentOrientation, null)
-            };
-        }
-
-        return currentOrientation switch
-        {
-            North => West,
-            West => South,
-            South => East,
-            East => North,
-            _ => throw new ArgumentOutOfRangeException(nameof(currentOrientation), currentOrientation, null)
-        };
-    }
-
     public static MarsRover LandedAt(int x, int y)
     {
         return new MarsRover { x = x, y = y };
