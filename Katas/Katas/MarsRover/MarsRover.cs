@@ -5,7 +5,7 @@ public class MarsRover
     public const string MoveCommand = "M";
     const string RotateRightCommand = "R";
     const string RotateLeftCommand = "L";
-    
+
     int x;
     int y;
     readonly Compass compass = Compass.FacingNorth();
@@ -41,14 +41,8 @@ public class MarsRover
 
     void Move()
     {
-        if (compass.Orientation == Compass.North)
-            y += 1;
-        else if (compass.Orientation == Compass.East)
-            x += 1;
-        else if (compass.Orientation == Compass.South)
-            y -= 1;
-        else
-            x -= 1;
+        y += compass.NextY;
+        x += compass.NextX;
     }
 
     public static MarsRover LandedAt(int x, int y)
