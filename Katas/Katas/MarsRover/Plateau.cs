@@ -12,6 +12,8 @@ public class Plateau
         var nextPosition = from + towards;
         if (nextPosition > 10)
             return 0;
+        if (nextPosition < 0)
+            return 10;
         
         return nextPosition;
     }
