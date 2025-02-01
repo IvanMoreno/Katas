@@ -20,10 +20,7 @@ public class MarsRover
         {
             if (instruction.ToString().Equals(MoveCommand))
             {
-                if (orientation == North)
-                    y += 1;
-                else
-                    x += 1;    
+                Move();
             }
             else
             {
@@ -34,6 +31,14 @@ public class MarsRover
         
         
         return $"{x}:{y}:{orientation}";
+    }
+
+    void Move()
+    {
+        if (orientation == North)
+            y += 1;
+        else
+            x += 1;
     }
 
     static string Rotate(string command, string currentOrientation)
