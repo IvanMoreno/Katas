@@ -106,4 +106,11 @@ public class MarsRoverTests
         sut.NextX.Should().Be(1);
         sut.NextY.Should().Be(0);
     }
+
+    [Test]
+    public void TurnAroundWhenReachesEdge()
+    {
+        var sut = new MarsRover();
+        sut.Execute("MMMMMMMMMMM").Should().Be("0:0:N");
+    }
 }
