@@ -40,6 +40,11 @@ public class MarsRoverTests
         new MarsRover().Execute("R").Should().Be("0:0:E");
         new MarsRover().Execute("L").Should().Be("0:0:W");
         new MarsRover().Execute("LL").Should().Be("0:0:S");
+        new MarsRover().Execute("LLL").Should().Be("0:0:E");
+        new MarsRover().Execute("LLLL").Should().Be("0:0:N");
+        new MarsRover().Execute("RR").Should().Be("0:0:S");
+        new MarsRover().Execute("RRR").Should().Be("0:0:W");
+        new MarsRover().Execute("RRRR").Should().Be("0:0:N");
     }
 
     [Test]

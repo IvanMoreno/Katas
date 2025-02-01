@@ -27,13 +27,18 @@ public class MarsRover
             return currentOrientation switch
             {
                 "N" => "E",
+                "E" => "S",
+                "S" => "W",
+                "W" => "N"
             };
         }
 
         return currentOrientation switch
         {
             "N" => "W",
-            "W" => "S"
+            "W" => "S",
+            "S" => "E",
+            "E" => "N"
         };
     }
 }
