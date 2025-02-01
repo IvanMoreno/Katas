@@ -15,4 +15,10 @@ public class MarsRoverTests
     {
         new MarsRover().Execute("M").Should().Be("0:1:N");
     }
+
+    [Test]
+    public void MoveForwardTwice()
+    {
+        new MarsRover().Execute("MM").Should().Be("0:2:N");
+    }
 }
