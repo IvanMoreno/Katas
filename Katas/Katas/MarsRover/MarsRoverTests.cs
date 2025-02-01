@@ -16,12 +16,3 @@ public class MarsRoverTests
         new MarsRover().Execute("M").Should().Be("0:1:N");
     }
 }
-
-public class MarsRover
-
-{
-    public string Execute(string command)
-    {
-        return "0:1:N";
-    }
-}
