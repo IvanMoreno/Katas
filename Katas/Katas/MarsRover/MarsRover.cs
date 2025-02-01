@@ -43,7 +43,7 @@ public class MarsRover
     void Move()
     {
         y += compass.NextY;
-        x += compass.NextX;
+        x = plateau.NextX(x, compass.NextX);
 
         if (y > 10)
             y = 0;
