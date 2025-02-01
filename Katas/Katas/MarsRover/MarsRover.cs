@@ -2,23 +2,18 @@ namespace Katas.MarsRoverKata;
 
 public class MarsRover
 {
-    const string East = "E";
-    const string South = "S";
-    const string West = "W";
-    const string North = "N";
-
     public const string MoveCommand = "M";
     const string RotateRightCommand = "R";
     const string RotateLeftCommand = "L";
     
     int x;
     int y;
-    string orientation = North;
+    readonly Compass compass = new();
 
     public string Execute(string command)
     {
         InterpretCommand(command);
-        return $"{x}:{y}:{orientation}";
+        return $"{x}:{y}:{compass.Orientation}";
     }
 
     void InterpretCommand(string command)
@@ -38,39 +33,19 @@ public class MarsRover
         else
         {
             if (instruction.Equals(RotateRightCommand))
-                orientation = RotateRight();
+                compass.RotateRight();
             else
-                orientation = RotateLeft();
+                compass.RotateLeft();
         }
     }
 
-    string RotateRight() =>
-        orientation switch
-        {
-            North => East,
-            East => South,
-            South => West,
-            West => North,
-            _ => throw new ArgumentOutOfRangeException(nameof(orientation), orientation, null)
-        };
-
-    string RotateLeft() =>
-        orientation switch
-        {
-            North => West,
-            West => South,
-            South => East,
-            East => North,
-            _ => throw new ArgumentOutOfRangeException(nameof(orientation), orientation, null)
-        };
-
     void Move()
     {
-        if (orientation == North)
+        if (compass.Orientation == Compass.North)
             y += 1;
-        else if (orientation == East)
+        else if (compass.Orientation == Compass.East)
             x += 1;
-        else if (orientation == South)
+        else if (compass.Orientation == Compass.South)
             y -= 1;
         else
             x -= 1;
