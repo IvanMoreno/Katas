@@ -13,8 +13,10 @@ public class MarsRover
         {
             if (command == "R")
                 orientation = "E";
-            else
+            else if (command.Length == 1)
                 orientation = "W";
+            else if (command.Length == 2)
+                orientation = "S";
         }
         
         return $"0:{y}:{orientation}";
