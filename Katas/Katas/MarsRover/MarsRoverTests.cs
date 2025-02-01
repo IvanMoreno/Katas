@@ -38,5 +38,6 @@ public class MarsRoverTests
     public void Rotate()
     {
         new MarsRover().Execute("R").Should().Be("0:0:E");
+        new MarsRover().Execute("L").Should().Be("0:0:W");
     }
 }

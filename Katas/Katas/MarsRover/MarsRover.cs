@@ -10,7 +10,13 @@ public class MarsRover
         if (command.Contains("M"))
             y += command.Length;
         else
-            orientation = "E";
+        {
+            if (command == "R")
+                orientation = "E";
+            else
+                orientation = "W";
+        }
+        
         return $"0:{y}:{orientation}";
     }
 }
