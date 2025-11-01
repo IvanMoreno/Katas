@@ -1,4 +1,4 @@
-public readonly struct Divisors(Dictionary<NaturalNumber, FizzBuzzWord> divisorToWord)
+public readonly struct Divisors(Dictionary<NaturalNumber, Word> divisorToWord)
 {
     public bool ExistsDivisorFor(NaturalNumber number)
     {
@@ -11,7 +11,7 @@ public readonly struct Divisors(Dictionary<NaturalNumber, FizzBuzzWord> divisorT
         return false;
     }
 
-    public FizzBuzzWord WordOfDivisorOf(NaturalNumber number)
+    public Word WordOfDivisorOf(NaturalNumber number)
     {
         if (!ExistsDivisorFor(number))
             throw new ArgumentException("Number not divisible");
@@ -25,9 +25,9 @@ public readonly struct Divisors(Dictionary<NaturalNumber, FizzBuzzWord> divisorT
         throw new Exception();
     }
 
-    public static Divisors FizzBuzz() => new(new Dictionary<NaturalNumber, FizzBuzzWord>()
+    public static Divisors FizzBuzz() => new(new Dictionary<NaturalNumber, Word>()
     {
-        { 3, FizzBuzzWord.Fizz },
-        { 5, FizzBuzzWord.Buzz }
+        { 3, Word.Fizz },
+        { 5, Word.Buzz }
     });
 }

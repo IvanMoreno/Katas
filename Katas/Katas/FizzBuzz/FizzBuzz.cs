@@ -2,7 +2,7 @@ public class FizzBuzz
 {
     readonly Divisors divisors = Divisors.FizzBuzz();
 
-    public FizzBuzzWord Translate(NaturalNumber number)
+    public Word Translate(NaturalNumber number)
     {
         if (!divisors.ExistsDivisorFor(number))
             return number.ToString();
