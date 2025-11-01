@@ -1,7 +1,8 @@
 public class FizzBuzz
 {
     readonly Divisors divisors;
-
+    readonly Func<string, Word, string> wordsCombination = (acc, word) => acc + word;
+    
     FizzBuzz(Divisors divisors)
     {
         this.divisors = divisors;
@@ -12,7 +13,7 @@ public class FizzBuzz
         if (!divisors.ExistsDivisorFor(number))
             return number.ToString();
 
-        return divisors.DivisorWords(number).Aggregate(string.Empty, (acc, word) => acc + word);
+        return divisors.DivisorWords(number).Aggregate(string.Empty, wordsCombination);
     }
 
     public static FizzBuzz Classic()
