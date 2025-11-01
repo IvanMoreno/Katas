@@ -7,6 +7,6 @@ public class FizzBuzz
         if (!divisors.ExistsDivisorFor(number))
             return number.ToString();
 
-        return divisors.WordOfDivisorOf(number);
+        return divisors.WordsOfDivisorOf(number).Aggregate(string.Empty, (acc, word) => acc + word);
     }
 }

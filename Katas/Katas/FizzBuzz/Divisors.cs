@@ -25,6 +25,18 @@ public readonly struct Divisors(Dictionary<NaturalNumber, Word> divisorToWord)
         throw new Exception();
     }
 
+    public IEnumerable<Word> WordsOfDivisorOf(NaturalNumber number)
+    {
+        if (!ExistsDivisorFor(number))
+            throw new ArgumentException("Number not divisible");
+                
+        foreach (var (divisor, word) in divisorToWord)
+        {
+            if (number.IsDivisibleBy(divisor))
+                yield return word;
+        }
+    }
+
     public static Divisors FizzBuzz() => new(new Dictionary<NaturalNumber, Word>()
     {
         { 3, Word.Fizz },

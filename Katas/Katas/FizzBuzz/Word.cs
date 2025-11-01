@@ -10,8 +10,12 @@ public readonly struct Word
         this.content = content;
     }
 
+    public override string ToString() => content;
+
     public static implicit operator string(Word word) => word.content;
     public static implicit operator Word(string word) => new(word);
+    public static Word operator+(Word left, Word right) => left.content + right.content;
+    public static Word operator+(string left, Word right) => left + right.content;
 
     public static Word Fizz => "Fizz";
     public static Word Buzz => "Buzz";
