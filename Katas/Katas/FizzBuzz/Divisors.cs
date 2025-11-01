@@ -1,5 +1,15 @@
-public readonly struct Divisors(Dictionary<NaturalNumber, Word> divisorToWord)
+public readonly struct Divisors
 {
+    readonly Dictionary<NaturalNumber, Word> divisorToWord;
+
+    Divisors(Dictionary<NaturalNumber, Word> divisorToWord)
+    {
+        if (!divisorToWord.Any())
+            throw new ArgumentException("Cannot have 0 divisors");
+            
+        this.divisorToWord = divisorToWord;
+    }
+
     public bool ExistsDivisorFor(NaturalNumber number)
     {
         foreach (var (divisor, _) in divisorToWord)
@@ -23,7 +33,7 @@ public readonly struct Divisors(Dictionary<NaturalNumber, Word> divisorToWord)
         }
     }
 
-    public static Divisors FizzBuzz() => new(new Dictionary<NaturalNumber, Word>()
+    public static Divisors FizzBuzz() => new(new Dictionary<NaturalNumber, Word>
     {
         { 3, Word.Fizz },
         { 5, Word.Buzz }
