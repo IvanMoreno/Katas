@@ -1,12 +1,5 @@
-public readonly struct WordsMergeAlgorithm
+public readonly struct WordsMergeAlgorithm(Func<IEnumerable<Word>, Word> wordsMergeAlgorithm)
 {
-    readonly Func<IEnumerable<Word>, Word> wordsMergeAlgorithm;
-
-    public WordsMergeAlgorithm(Func<IEnumerable<Word>, Word> wordsMergeAlgorithm)
-    {
-        this.wordsMergeAlgorithm = wordsMergeAlgorithm;
-    }
-
     public Word Merge(IEnumerable<Word> words) => wordsMergeAlgorithm(words);
 
     public static WordsMergeAlgorithm MergeAllWords() =>
