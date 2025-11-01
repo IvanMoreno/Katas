@@ -10,6 +10,8 @@ public readonly struct NaturalNumber
         this.value = value;
     }
 
+    public bool IsDivisibleBy(int divisor) => value % divisor == 0;
+
     public override string ToString() => value.ToString();
     public static implicit operator int(NaturalNumber number) => number.value;
 }

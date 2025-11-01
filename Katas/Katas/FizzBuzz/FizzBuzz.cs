@@ -2,7 +2,7 @@ public class FizzBuzz
 {
     public FizzBuzzWord Of(NaturalNumber number)
     {
-        if (number % 3 == 0)
+        if (number.IsDivisibleBy(3))
             return FizzBuzzWord.Fizz;
         
         return number.ToString();
