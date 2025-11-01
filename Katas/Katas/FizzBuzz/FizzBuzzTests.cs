@@ -11,14 +11,29 @@ public class FizzbuzzTests
     [Test]
     public void NonMultipleOfThreeOrFiveReturnsSameNumber()
     {
-        new FizzBuzz().Of(1).Should().Be("1");
+        new FizzBuzz().Of(new(1)).Should().Be("1");
     }
 }
 
 public class FizzBuzz   
 {
-    public string Of(int i)
+    public string Of(NaturalNumber i)
     {
         return i.ToString();
     }
+}
+
+public readonly struct NaturalNumber
+{
+    readonly int value;
+
+    public NaturalNumber(int value)
+    {
+        if (value < 0)
+            throw new ArgumentException("Number cannot be negative");
+        
+        this.value = value;
+    }
+
+    public override string ToString() => value.ToString();
 }
