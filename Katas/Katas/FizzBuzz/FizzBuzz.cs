@@ -1,13 +1,19 @@
-public class FizzBuzz   
+public class FizzBuzz
 {
+    readonly Dictionary<NaturalNumber, FizzBuzzWord> divisorToWord = new()
+    {
+        { 3, FizzBuzzWord.Fizz },
+        { 5, FizzBuzzWord.Buzz }
+    };
+
     public FizzBuzzWord Translate(NaturalNumber number)
     {
-        if (number.IsDivisibleBy(3))
-            return FizzBuzzWord.Fizz;
+        foreach (var (divisor, word) in divisorToWord)
+        {
+            if (number.IsDivisibleBy(divisor))
+                return word;
+        }
 
-        if (number.IsDivisibleBy(5))
-            return FizzBuzzWord.Buzz;
-        
         return number.ToString();
     }
 }
