@@ -30,9 +30,10 @@ public class FizzbuzzTests
         new FizzBuzz().Translate(number).Should().Be(Word.Buzz);
     }
 
-    [Test]
-    public void MultipleOfThreeAndFiveReturnsFizzBuzz()
+    [TestCase(15)]
+    [TestCase(30)]
+    public void MultipleOfThreeAndFiveReturnsFizzBuzz(int number)
     {
-        new FizzBuzz().Translate(15).Should().Be(Word.Fizz + Word.Buzz);
+        new FizzBuzz().Translate(number).Should().Be(Word.Fizz + Word.Buzz);
     }
 }
