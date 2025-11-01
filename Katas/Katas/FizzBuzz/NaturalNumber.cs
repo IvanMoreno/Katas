@@ -2,7 +2,7 @@ public readonly struct NaturalNumber
 {
     readonly int value;
 
-    public NaturalNumber(int value)
+    NaturalNumber(int value)
     {
         if (value < 0)
             throw new ArgumentException("Number cannot be negative");
@@ -14,4 +14,5 @@ public readonly struct NaturalNumber
 
     public override string ToString() => value.ToString();
     public static implicit operator int(NaturalNumber number) => number.value;
+    public static implicit operator NaturalNumber(int number) => new(number);
 }
