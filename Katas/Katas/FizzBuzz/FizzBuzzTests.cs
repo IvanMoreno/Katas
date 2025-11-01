@@ -1,7 +1,7 @@
 using FluentAssertions;
 
 // https://www.codurance.com/katas/fizzbuzz
-// [] If the number is a multiple of three, return the string "Fizz".
+// [x] If the number is a multiple of three, return the string "Fizz".
 // [] If the number is a multiple of five, return the string "Buzz".
 // [] If the number is a multiple of both three and five, return the string "FizzBuzz".
 // [x] No negative numbers
@@ -21,5 +21,11 @@ public class FizzbuzzTests
     public void MultipleOfThreeReturnsFizz(int number)
     {
         new FizzBuzz().Of(number).Should().Be(FizzBuzzWord.Fizz);
+    }
+
+    [Test]
+    public void MultipleOfFiveReturnsBuzz()
+    {
+        new FizzBuzz().Of(5).Should().Be((FizzBuzzWord)"Buzz");
     }
 }

@@ -4,6 +4,9 @@ public class FizzBuzz
     {
         if (number.IsDivisibleBy(3))
             return FizzBuzzWord.Fizz;
+
+        if (number.IsDivisibleBy(5))
+            return "Buzz";
         
         return number.ToString();
     }
