@@ -14,10 +14,8 @@ public class FizzBuzz
         if (!divisors.ExistsDivisorFor(number))
             return number.ToString();
 
-        return Merge(divisors.DivisorWords(number));
+        return wordsMergeAlgorithm(divisors.DivisorWords(number));
     }
-
-    Word Merge(IEnumerable<Word> words) => wordsMergeAlgorithm(words);
 
     public static FizzBuzz Classic()
     {
