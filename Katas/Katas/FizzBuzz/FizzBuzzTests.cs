@@ -5,6 +5,7 @@ using FluentAssertions;
 // [x] If the number is a multiple of five, return the string "Buzz".
 // [x] If the number is a multiple of both three and five, return the string "FizzBuzz".
 // [x] No negative numbers
+// [x] One version of the FizzBuzz game in real life adds an extra Fizz or Buzz whenever one of the digits ('3' or '5') appears in the number itself
 
 public class FizzbuzzTests
 {
@@ -35,5 +36,14 @@ public class FizzbuzzTests
     public void MultipleOfThreeAndFiveReturnsFizzBuzz(int number)
     {
         FizzBuzz.Classic().Translate(number).Should().Be(Word.Fizz + Word.Buzz);
+    }
+
+    [Test]
+    public void FizzBuzzVariantRepeatsTheLastWordWhenDivisible()
+    {
+        FizzBuzz.RepeatLastWord().Translate(2).Should().Be((Word)"2");
+        FizzBuzz.RepeatLastWord().Translate(3).Should().Be(Word.Fizz + Word.Fizz);
+        FizzBuzz.RepeatLastWord().Translate(5).Should().Be(Word.Buzz + Word.Buzz);
+        FizzBuzz.RepeatLastWord().Translate(15).Should().Be(Word.Fizz + Word.Buzz + Word.Buzz);
     }
 }
