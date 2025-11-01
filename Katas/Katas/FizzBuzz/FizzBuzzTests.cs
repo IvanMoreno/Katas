@@ -19,6 +19,6 @@ public class FizzBuzz
 {
     public string Of(int i)
     {
-        return "1";
+        return i.ToString();
     }
 }
