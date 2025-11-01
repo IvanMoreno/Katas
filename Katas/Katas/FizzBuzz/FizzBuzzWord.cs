@@ -14,4 +14,5 @@ public readonly struct FizzBuzzWord
     public static implicit operator FizzBuzzWord(string word) => new(word);
 
     public static FizzBuzzWord Fizz => "Fizz";
+    public static FizzBuzzWord Buzz => "Buzz";
 }

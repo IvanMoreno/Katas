@@ -26,6 +26,6 @@ public class FizzbuzzTests
     [Test]
     public void MultipleOfFiveReturnsBuzz()
     {
-        new FizzBuzz().Of(5).Should().Be((FizzBuzzWord)"Buzz");
+        new FizzBuzz().Of(5).Should().Be(FizzBuzzWord.Buzz);
     }
 }

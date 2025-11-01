@@ -6,7 +6,7 @@ public class FizzBuzz
             return FizzBuzzWord.Fizz;
 
         if (number.IsDivisibleBy(5))
-            return "Buzz";
+            return FizzBuzzWord.Buzz;
         
         return number.ToString();
     }
