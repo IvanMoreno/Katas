@@ -17,6 +17,6 @@ public class FizzbuzzTests
     [Test]
     public void MultipleOfThreeReturnsFizz()
     {
-        new FizzBuzz().Of(new(3)).Should().Be((FizzBuzzWord)"Fizz");
+        new FizzBuzz().Of(new(3)).Should().Be(FizzBuzzWord.Fizz);
     }
 }
