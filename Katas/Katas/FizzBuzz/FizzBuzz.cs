@@ -1,6 +1,6 @@
 public class FizzBuzz   
 {
-    public string Of(NaturalNumber number)
+    public FizzBuzzWord Of(NaturalNumber number)
     {
         if (number == 3)
             return "Fizz";

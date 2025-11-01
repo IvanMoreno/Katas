@@ -11,12 +11,12 @@ public class FizzbuzzTests
     [Test]
     public void NonMultipleOfThreeOrFiveReturnsSameNumber()
     {
-        new FizzBuzz().Of(new(1)).Should().Be("1");
+        new FizzBuzz().Of(new(1)).Should().Be((FizzBuzzWord)"1");
     }
 
     [Test]
     public void MultipleOfThreeReturnsFizz()
     {
-        new FizzBuzz().Of(new(3)).Should().Be("Fizz");
+        new FizzBuzz().Of(new(3)).Should().Be((FizzBuzzWord)"Fizz");
     }
 }
