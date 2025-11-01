@@ -1,6 +1,6 @@
 public class FizzBuzz   
 {
-    public FizzBuzzWord Of(NaturalNumber number)
+    public FizzBuzzWord Translate(NaturalNumber number)
     {
         if (number.IsDivisibleBy(3))
             return FizzBuzzWord.Fizz;
