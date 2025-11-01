@@ -1,7 +1,7 @@
 public class FizzBuzz   
 {
-    public string Of(NaturalNumber i)
+    public string Of(NaturalNumber number)
     {
-        return i.ToString();
+        return number.ToString();
     }
 }
