@@ -25,7 +25,7 @@ public readonly struct Divisors(Dictionary<NaturalNumber, Word> divisorToWord)
         throw new Exception();
     }
 
-    public IEnumerable<Word> WordsOfDivisorOf(NaturalNumber number)
+    public IEnumerable<Word> DivisorWords(NaturalNumber number)
     {
         if (!ExistsDivisorFor(number))
             throw new ArgumentException("Number not divisible");
