@@ -9,4 +9,9 @@ public class FizzBuzz
 
         return divisors.DivisorWords(number).Aggregate(string.Empty, (acc, word) => acc + word);
     }
+
+    public static FizzBuzz Classic()
+    {
+        return new FizzBuzz();
+    }
 }

@@ -11,7 +11,7 @@ public class FizzbuzzTests
     [Test]
     public void NonMultipleOfThreeOrFiveReturnsSameNumber()
     {
-        new FizzBuzz().Translate(1).Should().Be((Word)"1");
+        FizzBuzz.Classic().Translate(1).Should().Be((Word)"1");
     }
 
     [TestCase(3)]
@@ -20,20 +20,20 @@ public class FizzbuzzTests
     [TestCase(12)]
     public void MultipleOfThreeReturnsFizz(int number)
     {
-        new FizzBuzz().Translate(number).Should().Be(Word.Fizz);
+        FizzBuzz.Classic().Translate(number).Should().Be(Word.Fizz);
     }
 
     [TestCase(5)]
     [TestCase(10)]
     public void MultipleOfFiveReturnsBuzz(int number)
     {
-        new FizzBuzz().Translate(number).Should().Be(Word.Buzz);
+        FizzBuzz.Classic().Translate(number).Should().Be(Word.Buzz);
     }
 
     [TestCase(15)]
     [TestCase(30)]
     public void MultipleOfThreeAndFiveReturnsFizzBuzz(int number)
     {
-        new FizzBuzz().Translate(number).Should().Be(Word.Fizz + Word.Buzz);
+        FizzBuzz.Classic().Translate(number).Should().Be(Word.Fizz + Word.Buzz);
     }
 }
