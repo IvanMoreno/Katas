@@ -14,9 +14,12 @@ public class FizzbuzzTests
         new FizzBuzz().Of(new(1)).Should().Be((FizzBuzzWord)"1");
     }
 
-    [Test]
-    public void MultipleOfThreeReturnsFizz()
+    [TestCase(3)]
+    [TestCase(6)]
+    [TestCase(9)]
+    [TestCase(12)]
+    public void MultipleOfThreeReturnsFizz(int number)
     {
-        new FizzBuzz().Of(new(3)).Should().Be(FizzBuzzWord.Fizz);
+        new FizzBuzz().Of(new(number)).Should().Be(FizzBuzzWord.Fizz);
     }
 }
