@@ -1,6 +1,11 @@
 public class FizzBuzz
 {
-    readonly Divisors divisors = Divisors.FizzBuzz();
+    readonly Divisors divisors;
+
+    FizzBuzz(Divisors divisors)
+    {
+        this.divisors = divisors;
+    }
 
     public Word Translate(NaturalNumber number)
     {
@@ -12,6 +17,6 @@ public class FizzBuzz
 
     public static FizzBuzz Classic()
     {
-        return new FizzBuzz();
+        return new FizzBuzz(Divisors.FizzBuzz());
     }
 }
