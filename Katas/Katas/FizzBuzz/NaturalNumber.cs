@@ -11,4 +11,5 @@ public readonly struct NaturalNumber
     }
 
     public override string ToString() => value.ToString();
+    public static implicit operator int(NaturalNumber number) => number.value;
 }
