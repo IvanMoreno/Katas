@@ -23,9 +23,10 @@ public class FizzbuzzTests
         new FizzBuzz().Of(number).Should().Be(FizzBuzzWord.Fizz);
     }
 
-    [Test]
-    public void MultipleOfFiveReturnsBuzz()
+    [TestCase(5)]
+    [TestCase(10)]
+    public void MultipleOfFiveReturnsBuzz(int number)
     {
-        new FizzBuzz().Of(5).Should().Be(FizzBuzzWord.Buzz);
+        new FizzBuzz().Of(number).Should().Be(FizzBuzzWord.Buzz);
     }
 }
