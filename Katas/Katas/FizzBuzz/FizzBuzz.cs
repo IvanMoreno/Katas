@@ -1,12 +1,12 @@
 public class FizzBuzz
 {
     readonly Divisors divisors;
-    readonly Func<IEnumerable<Word>, Word> wordsMergeAlgorithm;
+    readonly WordsMergeAlgorithm wordsMerging;
     
-    FizzBuzz(Divisors divisors, Func<IEnumerable<Word>, Word> wordsMergeAlgorithm)
+    FizzBuzz(Divisors divisors, WordsMergeAlgorithm wordsMerging)
     {
         this.divisors = divisors;
-        this.wordsMergeAlgorithm = wordsMergeAlgorithm;
+        this.wordsMerging = wordsMerging;
     }
 
     public Word Translate(NaturalNumber number)
@@ -14,16 +14,9 @@ public class FizzBuzz
         if (!divisors.ExistsDivisorFor(number))
             return number.ToString();
 
-        return wordsMergeAlgorithm(divisors.DivisorWords(number));
+        return wordsMerging.Merge(divisors.DivisorWords(number));
     }
 
-    public static FizzBuzz Classic()
-    {
-        return new FizzBuzz(Divisors.FizzBuzz(), words => words.Aggregate(string.Empty, (acc, word) => acc + word));
-    }
-
-    public static FizzBuzz RepeatLastWord()
-    {
-        return new FizzBuzz(Divisors.FizzBuzz(), words => words.Aggregate(string.Empty, (acc, word) => acc + word) + words.Last());
-    }
+    public static FizzBuzz Classic() => new(Divisors.FizzBuzz(), WordsMergeAlgorithm.MergeAllWords());
+    public static FizzBuzz RepeatLastWord() => new(Divisors.FizzBuzz(), WordsMergeAlgorithm.MergeAndRepeatLastWord());
 }
