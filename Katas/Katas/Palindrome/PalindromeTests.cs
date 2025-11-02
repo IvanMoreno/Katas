@@ -15,11 +15,11 @@ public class PalindromeTests
     [Test]
     public void SingleLetterIsAlwaysPalindrome()
     {
-        new PalindromeDetector().IsPalindrome("a").Should().BeTrue();
-        new PalindromeDetector().IsPalindrome("b").Should().BeTrue();
-        new PalindromeDetector().IsPalindrome("c").Should().BeTrue();
-        new PalindromeDetector().IsPalindrome(2).Should().BeTrue();
-        new PalindromeDetector().IsPalindrome(8).Should().BeTrue();
+        PalindromeDetector.WithOrdinalComparison().IsPalindrome("a").Should().BeTrue();
+        PalindromeDetector.WithOrdinalComparison().IsPalindrome("b").Should().BeTrue();
+        PalindromeDetector.WithOrdinalComparison().IsPalindrome("c").Should().BeTrue();
+        PalindromeDetector.WithOrdinalComparison().IsPalindrome(2).Should().BeTrue();
+        PalindromeDetector.WithOrdinalComparison().IsPalindrome(8).Should().BeTrue();
     }
 
     [Test]
@@ -37,19 +37,19 @@ public class PalindromeTests
     [Test]
     public void ReturnFalseWhenWordIsNotPalindrome()
     {
-        new PalindromeDetector().IsPalindrome("ac").Should().BeFalse();
-        new PalindromeDetector().IsPalindrome("be").Should().BeFalse();
+        PalindromeDetector.WithOrdinalComparison().IsPalindrome("ac").Should().BeFalse();
+        PalindromeDetector.WithOrdinalComparison().IsPalindrome("be").Should().BeFalse();
     }
 
     [TestCaseSource(nameof(palindromes))]
     public void ReturnTrueWhenPalindrome(PalindromeCandidate candidate)
     {
-        new PalindromeDetector().IsPalindrome(candidate).Should().BeTrue();
+        PalindromeDetector.WithOrdinalComparison().IsPalindrome(candidate).Should().BeTrue();
     }
 
     [Test]
     public void IgnoreSpacesWhenComparingPalindromes()
     {
-        new PalindromeDetector().IsPalindrome("a ca").Should().BeTrue();
+        PalindromeDetector.WithOrdinalComparison().IsPalindrome("a ca").Should().BeTrue();
     }
 }
