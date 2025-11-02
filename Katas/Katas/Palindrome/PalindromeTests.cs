@@ -4,7 +4,7 @@ using static PalindromeCandidate;
 // https://hackmd.io/@evalverde/B1ITM1-GJe
 // [x] Return true when an input is a palindrome
 // [x] Handle both strings and numbers
-// [] Ignore spaces
+// [x] Ignore spaces
 // [] Ignore punctuation
 // [] Ignore differences in letter case
 
@@ -45,5 +45,11 @@ public class PalindromeTests
     public void ReturnTrueWhenPalindrome(PalindromeCandidate candidate)
     {
         new PalindromeDetector().IsPalindrome(candidate).Should().BeTrue();
+    }
+
+    [Test]
+    public void IgnoreSpacesWhenComparingPalindromes()
+    {
+        new PalindromeDetector().IsPalindrome("a ca").Should().BeTrue();
     }
 }
