@@ -1,4 +1,5 @@
 using FluentAssertions;
+using static PalindromeCandidate;
 
 // https://hackmd.io/@evalverde/B1ITM1-GJe
 // [] Return true when an input is a palindrome
@@ -20,7 +21,7 @@ public class PalindromeTests
     [Test]
     public void ReverseWord()
     {
-        new PalindromeCandidate("ac").Reverse().Should().Be(new PalindromeCandidate("ca"));
+        FromWord("ac").Reverse().Should().Be(FromWord("ca"));
     }
 
     [Test]
