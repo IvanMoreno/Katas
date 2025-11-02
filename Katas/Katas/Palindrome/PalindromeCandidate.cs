@@ -10,7 +10,7 @@ public readonly struct PalindromeCandidate(string word)
     public PalindromeCandidate WithoutSpaces() => word.Replace(" ", "");
     public PalindromeCandidate WithoutPunctuation() => Regex.Replace(word, @"[^\w\d\s]","");
 
-    public bool Compare(PalindromeCandidate other, StringComparison stringComparison)
+    public bool Equals(PalindromeCandidate other, StringComparison stringComparison)
     {
         return string.Compare(word, other, stringComparison) == 0;
     }
