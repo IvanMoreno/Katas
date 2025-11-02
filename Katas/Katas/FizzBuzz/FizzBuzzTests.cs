@@ -7,6 +7,8 @@ using FluentAssertions;
 // [x] No negative numbers
 // [x] One version of the FizzBuzz game in real life adds an extra Fizz or Buzz whenever one of the digits ('3' or '5') appears in the number itself
 
+namespace Katas.FizzBuzz;
+
 public class FizzbuzzTests
 {
     [Test]

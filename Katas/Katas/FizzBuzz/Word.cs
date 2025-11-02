@@ -1,3 +1,5 @@
+namespace Katas.FizzBuzz;
+
 public readonly struct Word
 {
     readonly string content;

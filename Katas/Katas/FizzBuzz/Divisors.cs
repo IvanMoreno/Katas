@@ -1,3 +1,5 @@
+namespace Katas.FizzBuzz;
+
 public readonly struct Divisors
 {
     readonly Dictionary<NaturalNumber, Word> divisorToWord;

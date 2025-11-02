@@ -1,3 +1,5 @@
+namespace Katas.FizzBuzz;
+
 public readonly struct WordsMergeAlgorithm(Func<IEnumerable<Word>, Word> wordsMergeAlgorithm)
 {
     public Word Merge(IEnumerable<Word> words) => wordsMergeAlgorithm(words);

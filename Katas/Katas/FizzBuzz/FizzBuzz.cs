@@ -1,3 +1,5 @@
+namespace Katas.FizzBuzz;
+
 public class FizzBuzz
 {
     readonly Divisors divisors;
