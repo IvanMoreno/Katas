@@ -27,6 +27,7 @@ public class PalindromeTests
     public void ReturnFalseWhenWordIsNotPalindrome()
     {
         new PalindromeDetector().IsPalindrome("ac").Should().BeFalse();
+        new PalindromeDetector().IsPalindrome("be").Should().BeFalse();
     }
 }
 
@@ -34,10 +35,7 @@ public class PalindromeDetector
 {
     public bool IsPalindrome(PalindromeCandidate word)
     {
-        if (word.ToString() == "ac")
-            return false;
-        
-        return true;
+        return word.Reverse().Equals(word);
     }
 }
 
