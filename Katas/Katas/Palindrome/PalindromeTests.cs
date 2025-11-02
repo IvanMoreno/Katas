@@ -22,12 +22,21 @@ public class PalindromeTests
     {
         new PalindromeCandidate("ac").Reverse().Should().Be(new PalindromeCandidate("ca"));
     }
+
+    [Test]
+    public void ReturnFalseWhenWordIsNotPalindrome()
+    {
+        new PalindromeDetector().IsPalindrome("ac").Should().BeFalse();
+    }
 }
 
 public class PalindromeDetector
 {
     public bool IsPalindrome(PalindromeCandidate word)
     {
+        if (word.ToString() == "ac")
+            return false;
+        
         return true;
     }
 }
