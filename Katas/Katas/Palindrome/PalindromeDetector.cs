@@ -1,11 +1,16 @@
 public class PalindromeDetector
 {
     readonly StringComparison stringComparison;
-    PalindromeDetector(StringComparison stringComparison) => this.stringComparison = stringComparison;
+    readonly Func<PalindromeCandidate, PalindromeCandidate> clean;
+    PalindromeDetector(StringComparison stringComparison)
+    {
+        this.stringComparison = stringComparison;
+        clean = word => word.WithoutPunctuation().WithoutSpaces();
+    }
 
     public bool IsPalindrome(PalindromeCandidate word)
     {
-        return Compare(word.WithoutSpaces().WithoutPunctuation(), word.Reverse().WithoutSpaces().WithoutPunctuation());
+        return Compare(clean(word), clean(word.Reverse()));
     }
 
     bool Compare(PalindromeCandidate wordA, PalindromeCandidate wordB)
