@@ -6,7 +6,7 @@ using static PalindromeCandidate;
 // [x] Handle both strings and numbers
 // [x] Ignore spaces
 // [] Ignore punctuation
-// [] Ignore differences in letter case
+// [x] Ignore differences in letter case
 
 public class PalindromeTests
 {
@@ -51,5 +51,11 @@ public class PalindromeTests
     public void IgnoreSpacesWhenComparingPalindromes()
     {
         PalindromeDetector.WithOrdinalComparison().IsPalindrome("a ca").Should().BeTrue();
+    }
+
+    [Test]
+    public void IgnoreCaseWhenComparingPalindromes()
+    {
+        PalindromeDetector.With(StringComparison.OrdinalIgnoreCase).IsPalindrome("A man a plan a canal Panama").Should().BeTrue();
     }
 }

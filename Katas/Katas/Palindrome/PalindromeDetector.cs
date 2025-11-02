@@ -8,10 +8,12 @@ public class PalindromeDetector
         return Compare(word, word.Reverse());
     }
 
-    static bool Compare(PalindromeCandidate wordA, PalindromeCandidate wordB)
+    bool Compare(PalindromeCandidate wordA, PalindromeCandidate wordB)
     {
-        return wordA.WithoutSpaces().Equals(wordB.WithoutSpaces());
+        return string.Compare(wordA.WithoutSpaces(), wordB.WithoutSpaces(), stringComparison) == 0;
     }
 
-    public static PalindromeDetector WithOrdinalComparison() => new(StringComparison.Ordinal);
+    public static PalindromeDetector WithOrdinalComparison() => With(StringComparison.Ordinal);
+
+    public static PalindromeDetector With(StringComparison comparison) => new(comparison);
 }
