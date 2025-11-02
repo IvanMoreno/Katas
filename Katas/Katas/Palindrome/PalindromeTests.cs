@@ -69,7 +69,7 @@ public class PalindromeTests
         FromWord(",!a?.").WithoutPunctuation().Should().Be(FromWord("a"));
     }
 
-    [Test, Ignore("Unimplemented")]
+    [Test]
     public void IgnorePunctuationWhenComparingPalindromes()
     {
         PalindromeDetector.WithOrdinalComparison().IsPalindrome("a ,ca").Should().BeTrue();

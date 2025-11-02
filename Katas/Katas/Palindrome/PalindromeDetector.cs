@@ -10,7 +10,7 @@ public class PalindromeDetector
 
     bool Compare(PalindromeCandidate wordA, PalindromeCandidate wordB)
     {
-        return string.Compare(wordA.WithoutSpaces(), wordB.WithoutSpaces(), stringComparison) == 0;
+        return string.Compare(wordA.WithoutSpaces().WithoutPunctuation(), wordB.WithoutSpaces().WithoutPunctuation(), stringComparison) == 0;
     }
 
     public static PalindromeDetector WithOrdinalComparison() => With(StringComparison.Ordinal);
