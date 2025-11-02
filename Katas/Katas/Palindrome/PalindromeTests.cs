@@ -2,7 +2,7 @@ using FluentAssertions;
 using static PalindromeCandidate;
 
 // https://hackmd.io/@evalverde/B1ITM1-GJe
-// [] Return true when an input is a palindrome
+// [x] Return true when an input is a palindrome
 // [] Handle both strings and numbers
 // [] Ignore spaces
 // [] Ignore punctuation
