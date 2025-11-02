@@ -1,6 +1,6 @@
 using FluentAssertions;
 using static System.StringComparison;
-using static PalindromeCandidate;
+using static Katas.Palindrome.PalindromeCandidate;
 
 // https://hackmd.io/@evalverde/B1ITM1-GJe
 // [x] Return true when an input is a palindrome
@@ -8,6 +8,8 @@ using static PalindromeCandidate;
 // [x] Ignore spaces
 // [x] Ignore punctuation
 // [x] Ignore differences in letter case
+
+namespace Katas.Palindrome;
 
 public class PalindromeTests
 {

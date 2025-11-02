@@ -1,5 +1,7 @@
 using System.Text.RegularExpressions;
 
+namespace Katas.Palindrome;
+
 public readonly struct PalindromeCandidate(string word)
 {
     public static implicit operator PalindromeCandidate(string word) => new(word);

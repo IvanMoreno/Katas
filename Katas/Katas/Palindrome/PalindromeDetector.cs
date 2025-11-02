@@ -1,3 +1,5 @@
+namespace Katas.Palindrome;
+
 public class PalindromeDetector
 {
     readonly StringComparison comparison;
