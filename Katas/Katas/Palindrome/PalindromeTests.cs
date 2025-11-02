@@ -25,6 +25,12 @@ public class PalindromeTests
     }
 
     [Test]
+    public void ReverseNumber()
+    {
+        FromNumber(12).Reverse().Should().Be(FromNumber(21));
+    }
+
+    [Test]
     public void ReturnFalseWhenWordIsNotPalindrome()
     {
         new PalindromeDetector().IsPalindrome("ac").Should().BeFalse();

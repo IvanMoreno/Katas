@@ -7,4 +7,5 @@ public readonly struct PalindromeCandidate(string word)
     public override string ToString() => word;
 
     public static PalindromeCandidate FromWord(string word) => word;
+    public static PalindromeCandidate FromNumber(int number) => number.ToString();
 }
