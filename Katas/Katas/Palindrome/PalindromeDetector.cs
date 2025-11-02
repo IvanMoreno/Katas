@@ -5,15 +5,14 @@ public class PalindromeDetector
 
     public bool IsPalindrome(PalindromeCandidate word)
     {
-        return Compare(word, word.Reverse());
+        return Compare(word.WithoutSpaces().WithoutPunctuation(), word.Reverse().WithoutSpaces().WithoutPunctuation());
     }
 
     bool Compare(PalindromeCandidate wordA, PalindromeCandidate wordB)
     {
-        return string.Compare(wordA.WithoutSpaces().WithoutPunctuation(), wordB.WithoutSpaces().WithoutPunctuation(), stringComparison) == 0;
+        return string.Compare(wordA, wordB, stringComparison) == 0;
     }
 
     public static PalindromeDetector WithOrdinalComparison() => With(StringComparison.Ordinal);
-
     public static PalindromeDetector With(StringComparison comparison) => new(comparison);
 }

@@ -1,11 +1,12 @@
 using FluentAssertions;
+using static System.StringComparison;
 using static PalindromeCandidate;
 
 // https://hackmd.io/@evalverde/B1ITM1-GJe
 // [x] Return true when an input is a palindrome
 // [x] Handle both strings and numbers
 // [x] Ignore spaces
-// [] Ignore punctuation
+// [x] Ignore punctuation
 // [x] Ignore differences in letter case
 
 public class PalindromeTests
@@ -56,7 +57,7 @@ public class PalindromeTests
     [Test]
     public void IgnoreCaseWhenComparingPalindromes()
     {
-        PalindromeDetector.With(StringComparison.OrdinalIgnoreCase).IsPalindrome("A man a plan a canal Panama").Should().BeTrue();
+        PalindromeDetector.With(OrdinalIgnoreCase).IsPalindrome("A man a plan a canal Panama").Should().BeTrue();
     }
 
     [Test]
@@ -73,5 +74,14 @@ public class PalindromeTests
     public void IgnorePunctuationWhenComparingPalindromes()
     {
         PalindromeDetector.WithOrdinalComparison().IsPalindrome("a ,ca").Should().BeTrue();
+    }
+
+    [Test]
+    public void AcceptanceTest()
+    {
+        PalindromeDetector.With(InvariantCultureIgnoreCase).IsPalindrome("abc123321cba").Should().BeTrue();
+        PalindromeDetector.With(InvariantCultureIgnoreCase).IsPalindrome("Madam, in Eden, I'm Adam").Should().BeTrue();
+        PalindromeDetector.With(InvariantCultureIgnoreCase).IsPalindrome("Eva, can I see bees in a cave?").Should().BeTrue();
+        PalindromeDetector.With(InvariantCultureIgnoreCase).IsPalindrome("Palindrome? Not really!").Should().BeFalse();
     }
 }
