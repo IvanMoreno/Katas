@@ -36,4 +36,11 @@ public class PalindromeTests
         new PalindromeDetector().IsPalindrome("ac").Should().BeFalse();
         new PalindromeDetector().IsPalindrome("be").Should().BeFalse();
     }
+
+    [Test]
+    public void ReturnTrueWheWordIsPalindrome()
+    {
+        new PalindromeDetector().IsPalindrome("acaca").Should().BeTrue();
+        new PalindromeDetector().IsPalindrome("ocoloco").Should().BeTrue();
+    }
 }
