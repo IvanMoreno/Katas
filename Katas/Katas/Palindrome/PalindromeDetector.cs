@@ -10,7 +10,7 @@ public class PalindromeDetector
 
     public bool IsPalindrome(PalindromeCandidate word)
     {
-        return Compare(clean(word), clean(word.Reverse()));
+        return Compare(clean(word), clean(word.Reversed()));
     }
 
     bool Compare(PalindromeCandidate wordA, PalindromeCandidate wordB)

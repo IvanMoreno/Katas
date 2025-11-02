@@ -26,13 +26,13 @@ public class PalindromeTests
     [Test]
     public void ReverseWord()
     {
-        FromWord("ac").Reverse().Should().Be(FromWord("ca"));
+        FromWord("ac").Reversed().Should().Be(FromWord("ca"));
     }
 
     [Test]
     public void ReverseNumber()
     {
-        FromNumber(12).Reverse().Should().Be(FromNumber(21));
+        FromNumber(12).Reversed().Should().Be(FromNumber(21));
     }
 
     [Test]
