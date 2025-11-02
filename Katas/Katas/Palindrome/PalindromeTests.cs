@@ -16,6 +16,12 @@ public class PalindromeTests
         new PalindromeDetector().IsPalindrome("b").Should().BeTrue();
         new PalindromeDetector().IsPalindrome("c").Should().BeTrue();
     }
+
+    [Test]
+    public void ReverseWord()
+    {
+        new PalindromeCandidate("ac").Reverse().Should().Be(new PalindromeCandidate("ca"));
+    }
 }
 
 public class PalindromeDetector
@@ -29,4 +35,7 @@ public class PalindromeDetector
 public readonly struct PalindromeCandidate(string word)
 {
     public static implicit operator PalindromeCandidate(string word) => new(word);
+
+    public PalindromeCandidate Reverse() => word.Reverse().Aggregate(string.Empty, (acc, letter) => acc + letter);
+    public override string ToString() => word;
 }
