@@ -8,10 +8,14 @@ public readonly struct PalindromeCandidate(string word)
 
     public PalindromeCandidate Reversed() => word.Reverse().Aggregate(string.Empty, (acc, letter) => acc + letter);
     public PalindromeCandidate WithoutSpaces() => word.Replace(" ", "");
-    public PalindromeCandidate WithoutPunctuation() => Regex.Replace(word, @"[^\w\d\s]",""); 
+    public PalindromeCandidate WithoutPunctuation() => Regex.Replace(word, @"[^\w\d\s]","");
+
+    public bool Compare(PalindromeCandidate other, StringComparison stringComparison)
+    {
+        return string.Compare(word, other, stringComparison) == 0;
+    }
 
     public override string ToString() => word;
-
     public static PalindromeCandidate FromWord(string word) => word;
     public static PalindromeCandidate FromNumber(int number) => number;
 }
