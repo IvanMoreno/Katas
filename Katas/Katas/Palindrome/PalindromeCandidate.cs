@@ -5,6 +5,7 @@ public readonly struct PalindromeCandidate(string word)
     public static implicit operator PalindromeCandidate(int number) => new(number.ToString());
 
     public PalindromeCandidate Reverse() => word.Reverse().Aggregate(string.Empty, (acc, letter) => acc + letter);
+    public PalindromeCandidate WithoutSpaces() => word.Replace(" ", "");
 
     public override string ToString() => word;
 

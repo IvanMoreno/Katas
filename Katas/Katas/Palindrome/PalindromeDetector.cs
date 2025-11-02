@@ -8,9 +8,9 @@ public class PalindromeDetector
         return Compare(word, word.Reverse());
     }
 
-    static bool Compare(string wordA, string wordB)
+    static bool Compare(PalindromeCandidate wordA, PalindromeCandidate wordB)
     {
-        return wordA.Replace(" ", "").Equals(wordB.Replace(" ", ""));
+        return wordA.WithoutSpaces().Equals(wordB.WithoutSpaces());
     }
 
     public static PalindromeDetector WithOrdinalComparison() => new(StringComparison.Ordinal);
