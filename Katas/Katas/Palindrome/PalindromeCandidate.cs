@@ -1,3 +1,5 @@
+using System.Text.RegularExpressions;
+
 public readonly struct PalindromeCandidate(string word)
 {
     public static implicit operator PalindromeCandidate(string word) => new(word);
@@ -6,6 +8,7 @@ public readonly struct PalindromeCandidate(string word)
 
     public PalindromeCandidate Reverse() => word.Reverse().Aggregate(string.Empty, (acc, letter) => acc + letter);
     public PalindromeCandidate WithoutSpaces() => word.Replace(" ", "");
+    public PalindromeCandidate WithoutPunctuation() => Regex.Replace(word, @"[^\w\d\s]",""); 
 
     public override string ToString() => word;
 

@@ -58,4 +58,20 @@ public class PalindromeTests
     {
         PalindromeDetector.With(StringComparison.OrdinalIgnoreCase).IsPalindrome("A man a plan a canal Panama").Should().BeTrue();
     }
+
+    [Test]
+    public void RemovePunctuationFromWord()
+    {
+        FromWord(",").WithoutPunctuation().Should().Be(FromWord(string.Empty));
+        FromWord(",a").WithoutPunctuation().Should().Be(FromWord("a"));
+        FromWord(",a.").WithoutPunctuation().Should().Be(FromWord("a"));
+        FromWord(",a?.").WithoutPunctuation().Should().Be(FromWord("a"));
+        FromWord(",!a?.").WithoutPunctuation().Should().Be(FromWord("a"));
+    }
+
+    [Test, Ignore("Unimplemented")]
+    public void IgnorePunctuationWhenComparingPalindromes()
+    {
+        PalindromeDetector.WithOrdinalComparison().IsPalindrome("a ,ca").Should().BeTrue();
+    }
 }
