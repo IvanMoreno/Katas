@@ -30,19 +30,3 @@ public class PalindromeTests
         new PalindromeDetector().IsPalindrome("be").Should().BeFalse();
     }
 }
-
-public class PalindromeDetector
-{
-    public bool IsPalindrome(PalindromeCandidate word)
-    {
-        return word.Reverse().Equals(word);
-    }
-}
-
-public readonly struct PalindromeCandidate(string word)
-{
-    public static implicit operator PalindromeCandidate(string word) => new(word);
-
-    public PalindromeCandidate Reverse() => word.Reverse().Aggregate(string.Empty, (acc, letter) => acc + letter);
-    public override string ToString() => word;
-}
