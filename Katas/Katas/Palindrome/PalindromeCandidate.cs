@@ -3,7 +3,6 @@ using System.Text.RegularExpressions;
 public readonly struct PalindromeCandidate(string word)
 {
     public static implicit operator PalindromeCandidate(string word) => new(word);
-    public static implicit operator string(PalindromeCandidate candidate) => candidate.ToString();
     public static implicit operator PalindromeCandidate(int number) => new(number.ToString());
 
     public PalindromeCandidate Reversed() => word.Reverse().Aggregate(string.Empty, (acc, letter) => acc + letter);
@@ -12,7 +11,7 @@ public readonly struct PalindromeCandidate(string word)
 
     public bool Equals(PalindromeCandidate other, StringComparison stringComparison)
     {
-        return string.Compare(word, other, stringComparison) == 0;
+        return string.Compare(word, other.ToString(), stringComparison) == 0;
     }
 
     public override string ToString() => word;
