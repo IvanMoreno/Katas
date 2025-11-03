@@ -1,3 +1,5 @@
+namespace Katas.ManhattanDistance;
+
 public readonly struct Point
 {
     readonly int x;

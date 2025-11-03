@@ -1,5 +1,5 @@
 using FluentAssertions;
-using static Point;
+using static Katas.ManhattanDistance.Point;
 
 // https://codingdojo.org/kata/manhattan-distance/
 // Manhattan distance is the distance between two points in a grid (like the grid-like street geography of the New York borough of Manhattan)
@@ -9,6 +9,8 @@ using static Point;
 // The class Point is immutable
 // The class Point has no Getters, no Setters
 // The class Point has no public properties (i.e. the internal state cannot be read from outside the class).
+
+namespace Katas.ManhattanDistance;
 
 public class ManhattanDistanceTests
 {
