@@ -13,4 +13,9 @@ public readonly struct Point
     {
         return new Point(x, y);
     }
+
+    public int ElementSum()
+    {
+        return x + y;
+    }
 }

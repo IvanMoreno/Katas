@@ -22,5 +22,6 @@ public class ManhattanDistanceTests
     public void CalculateDistance_BasedOnXAxis()
     {
         ManhattanDistance.Between(Point2D(1, 1), Point2D(3, 1)).Should().Be(2);
+        ManhattanDistance.Between(Point2D(1, 1), Point2D(2, 1)).Should().Be(1);
     }
 }

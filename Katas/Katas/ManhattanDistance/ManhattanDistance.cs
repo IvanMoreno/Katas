@@ -5,6 +5,6 @@ public class ManhattanDistance
         if (a.Equals(Point.Point2D(1, 1)) && b.Equals(Point.Point2D(3, 1)))
             return 2;
         
-        return 0;
+        return b.ElementSum() - a.ElementSum();
     }
 }
