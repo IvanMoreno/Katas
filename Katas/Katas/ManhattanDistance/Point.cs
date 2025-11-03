@@ -9,13 +9,6 @@ public readonly struct Point
         this.y = y;
     }
 
-    public static Point Point2D(int x, int y)
-    {
-        return new Point(x, y);
-    }
-
-    public int ElementSum()
-    {
-        return x + y;
-    }
+    public int ElementSum() => x + y;
+    public static Point Point2D(int x, int y) => new(x, y);
 }
