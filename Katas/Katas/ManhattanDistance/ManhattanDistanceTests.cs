@@ -18,19 +18,3 @@ public class ManhattanDistanceTests
     }
     
 }
-
-public class ManhattanDistance  
-{
-    public static int Between(Point point, Point point1)
-    {
-        return 0;
-    }
-}
-
-public readonly struct Point
-{
-    public Point(int x, int y)
-    {
-        
-    }
-}
