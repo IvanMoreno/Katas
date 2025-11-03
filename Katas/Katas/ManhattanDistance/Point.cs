@@ -1,7 +1,12 @@
 public readonly struct Point
 {
-    public Point(int x, int y)
+    Point(int x, int y)
     {
         
+    }
+
+    public static Point Point2D(int x, int y)
+    {
+        return new Point(x, y);
     }
 }

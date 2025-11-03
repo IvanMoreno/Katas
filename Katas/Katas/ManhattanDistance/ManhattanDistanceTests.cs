@@ -1,4 +1,5 @@
 using FluentAssertions;
+using static Point;
 
 // https://codingdojo.org/kata/manhattan-distance/
 // Manhattan distance is the distance between two points in a grid (like the grid-like street geography of the New York borough of Manhattan)
@@ -14,7 +15,6 @@ public class ManhattanDistanceTests
     [Test]
     public void DistanceIsZero_BetweenSameTwoPoints()
     {
-        ManhattanDistance.Between(new Point(1, 1), new Point(1, 1)).Should().Be(0);
+        ManhattanDistance.Between(Point2D(1, 1), Point2D(1, 1)).Should().Be(0);
     }
-    
 }
