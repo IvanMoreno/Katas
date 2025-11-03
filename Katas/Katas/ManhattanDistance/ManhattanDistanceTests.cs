@@ -33,4 +33,11 @@ public class ManhattanDistanceTests
         ManhattanDistance.Between(Point2D(1, 1), Point2D(1, 4)).Should().Be(3);
         ManhattanDistance.Between(Point2D(1, 3), Point2D(1, 2)).Should().Be(1);
     }
+
+    [Test]
+    public void CalculateDiagonalDistance()
+    {
+        ManhattanDistance.Between(Point2D(1, 1), Point2D(4, 5)).Should().Be(7);
+        ManhattanDistance.Between(Point2D(8, 10), Point2D(4, 5)).Should().Be(9);
+    }
 }
