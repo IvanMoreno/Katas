@@ -25,4 +25,12 @@ public class ManhattanDistanceTests
         ManhattanDistance.Between(Point2D(1, 1), Point2D(2, 1)).Should().Be(1);
         ManhattanDistance.Between(Point2D(5, 1), Point2D(1, 1)).Should().Be(4);
     }
+
+    [Test]
+    public void CalculateDistance_BasedOnYAxis()
+    {
+        ManhattanDistance.Between(Point2D(1, 1), Point2D(1, 2)).Should().Be(1);
+        ManhattanDistance.Between(Point2D(1, 1), Point2D(1, 4)).Should().Be(3);
+        ManhattanDistance.Between(Point2D(1, 3), Point2D(1, 2)).Should().Be(1);
+    }
 }
