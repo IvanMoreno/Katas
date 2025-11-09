@@ -27,7 +27,7 @@ public class Bowling
 
         foreach (var finishedFrame in frames.Where(x => x.IsOver))
         {
-            finishedFrame.NotifyRoll(pins);
+            finishedFrame.RegisterSubsequentFrameRoll(pins);
         }
         
         frames.First(x => !x.IsOver).Roll(pins);

@@ -24,7 +24,7 @@ public class Frame
         rolls.Add(pins);
     }
 
-    public void NotifyRoll(Pins pins)
+    public void RegisterSubsequentFrameRoll(Pins pins)
     {
         if (RemainingBonusRolls == 0)
             return;
