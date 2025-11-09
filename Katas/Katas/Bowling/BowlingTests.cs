@@ -24,6 +24,15 @@ using FluentAssertions;
 // [10] [10] [10] [10] [10] [10] [10] [10] [10] [10, 10, 10] = 300
 // [5,5] [5,5] [5,5] [5,5] [5,5] [5,5] [5,5] [5,5] [5,5] [5,5,5] = 150
 
+// TODO
+// [] No score when no rolls
+// [] Score after one roll is equal to knocked down pins
+// [] Score after one frame (two rolls) is equal to sum of knocked down pins
+// [] Game is over after finishing all frames
+// [] Doing a spare includes the next roll score to the frame score
+// [] Doing a strike includes the next two roll scores to the frame score
+// [] Scoring a strike/spare in the final round allows additional rolls.
+
 namespace Katas.Bowling;
 
 public class BowlingTests
