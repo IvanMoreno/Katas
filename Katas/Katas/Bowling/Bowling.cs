@@ -24,7 +24,7 @@ public class Bowling
 
         foreach (var finishedFrame in FinishedFrames)
         {
-            finishedFrame.RegisterSubsequentFrameRoll(pins);
+            finishedFrame.BonusRoll(pins);
         }
         
         CurrentFrame.Roll(pins);
