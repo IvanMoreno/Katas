@@ -26,7 +26,7 @@ public class Bowling
 
     public int Score()
     {
-        return score;
+        return frames2.Sum(x => x.Score);
     }
 
     public void Roll(Pins pins)
