@@ -43,16 +43,3 @@ public class BowlingTests
         Bowling.NewGame().Score().Should().Be(0);
     }
 }
-
-public class Bowling
-{
-    public int Score()
-    {
-        return 0;
-    }
-
-    public static Bowling NewGame()
-    {
-        return new Bowling();
-    }
-}
