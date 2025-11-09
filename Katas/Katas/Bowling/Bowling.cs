@@ -4,18 +4,14 @@ namespace Katas.Bowling;
 
 public class Bowling
 {
-    readonly int frames;
     readonly List<Frame> frames2;
     
-    int rollsDone;
     int currentFrame;
 
-    public bool IsOver => rollsDone == frames * 2;
+    public bool IsOver => frames2.All(x => x.IsOver);
 
     Bowling(int frames)
     {
-        this.frames = frames;
-        
         frames2 = new List<Frame>();
         for (var i = 0; i < frames; i++)
         {
@@ -33,8 +29,6 @@ public class Bowling
         if (IsOver)
             throw new InvalidOperationException("Game is Over");
         
-        rollsDone++;
-
         frames2[currentFrame] = frames2[currentFrame].Rolled(pins);
         if (frames2[currentFrame].IsOver)
             currentFrame++;
