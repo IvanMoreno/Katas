@@ -81,4 +81,14 @@ public class BowlingTests
 
         sut.IsOver.Should().BeTrue();
     }
+
+    [Test]
+    public void GameIsNotOverUntilAllFramesAreCompleted()
+    {
+        var sut = Bowling.NewGame(frames: 1);
+        
+        sut.Roll(One);
+
+        sut.IsOver.Should().BeFalse();
+    }
 }
