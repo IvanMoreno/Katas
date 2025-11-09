@@ -1,4 +1,5 @@
 using FluentAssertions;
+using static Katas.Bowling.Pins;
 
 // https://www.codurance.com/katas/bowling
 // A game of bowling is made up of ten "frames". In each frame a player has two rolls of a ball to try to knock down all 10 pins.
@@ -48,7 +49,7 @@ public class BowlingTests
     {
         var sut = Bowling.NewGame();
 
-        sut.Roll(1);
+        sut.Roll(One);
 
         sut.Score().Should().Be(1);
     }
