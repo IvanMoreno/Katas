@@ -42,4 +42,14 @@ public class BowlingTests
     {
         Bowling.NewGame().Score().Should().Be(0);
     }
+
+    [Test]
+    public void AddKnockedDownPinsToScore()
+    {
+        var sut = Bowling.NewGame();
+
+        sut.Roll(1);
+
+        sut.Score().Should().Be(1);
+    }
 }
