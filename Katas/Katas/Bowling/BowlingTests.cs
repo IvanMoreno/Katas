@@ -71,24 +71,40 @@ public class BowlingTests
         Bowling.NewGame().IsOver.Should().BeFalse();
     }
 
-    [Test]
-    public void GameIsOverAfterCompletingNecessaryFrames()
+    [TestCase(1)]
+    [TestCase(2)]
+    [TestCase(3)]
+    public void GameIsOverAfterCompletingNecessaryFrames(int frames)
     {
-        var sut = Bowling.NewGame(frames: 1);
-        
-        sut.Roll(One);
-        sut.Roll(One);
+        var sut = Bowling.NewGame(frames: frames);
+
+        sut.CompleteFrames(frames);
 
         sut.IsOver.Should().BeTrue();
     }
 
-    [Test]
-    public void GameIsNotOverUntilAllFramesAreCompleted()
+    [TestCase(1)]
+    [TestCase(2)]
+    [TestCase(3)]
+    public void GameIsNotOverUntilAllFramesAreCompleted(int frames)
     {
         var sut = Bowling.NewGame(frames: 1);
         
+        sut.CompleteFrames(frames - 1);
         sut.Roll(One);
 
         sut.IsOver.Should().BeFalse();
+    }
+}
+
+public static class BowlingSimulation
+{
+    public static void CompleteFrames(this Bowling bowling, int frames)
+    {
+        for (var i = 0; i < frames; i++)
+        {
+            bowling.Roll(One);
+            bowling.Roll(One);
+        }
     }
 }

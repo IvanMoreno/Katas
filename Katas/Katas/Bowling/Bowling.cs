@@ -2,9 +2,17 @@ namespace Katas.Bowling;
 
 public class Bowling
 {
+    readonly int frames;
+    
     int score;
+    int rollsDone;
 
-    public bool IsOver { get; private set; }
+    public bool IsOver => rollsDone == frames * 2;
+
+    Bowling(int frames)
+    {
+        this.frames = frames;
+    }
 
     public int Score()
     {
@@ -14,13 +22,11 @@ public class Bowling
     public void Roll(Pins pins)
     {
         score += pins;
-        
-        if (score > 1)
-            IsOver = true;
+        rollsDone++;
     }
 
     public static Bowling NewGame(int frames = 10)
     {
-        return new Bowling();
+        return new Bowling(frames);
     }
 }
