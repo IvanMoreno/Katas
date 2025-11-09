@@ -7,6 +7,8 @@ public class Bowling
     readonly IEnumerable<Frame> frames;
     
     public bool IsOver => frames.All(x => x.IsOver);
+    IEnumerable<Frame> FinishedFrames => frames.Where(x => x.IsOver);
+    Frame CurrentFrame => frames.First(x => !x.IsOver);
 
     Bowling(int frames)
     {
@@ -20,12 +22,12 @@ public class Bowling
         if (IsOver)
             throw new InvalidOperationException("Game is Over");
 
-        foreach (var finishedFrame in frames.Where(x => x.IsOver))
+        foreach (var finishedFrame in FinishedFrames)
         {
             finishedFrame.RegisterSubsequentFrameRoll(pins);
         }
         
-        frames.First(x => !x.IsOver).Roll(pins);
+        CurrentFrame.Roll(pins);
     }
 
     public static Bowling NewGame(int frames = 10)
