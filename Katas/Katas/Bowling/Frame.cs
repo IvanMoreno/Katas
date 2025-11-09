@@ -1,24 +1,24 @@
 namespace Katas.Bowling;
 
-public readonly struct Frame
+public class Frame
 {
-    public readonly int AllowedRolls;
-    public readonly int Score;
-    public bool IsOver => AllowedRolls == 0;
+    int allowedRolls;
+    public int Score { get; private set; }
+    public bool IsOver => allowedRolls == 0;
 
-    Frame(int allowedRolls, int score)
+    Frame(int allowedRolls)
     {
-        AllowedRolls = allowedRolls;
-        Score = score;
+        this.allowedRolls = allowedRolls;
     }
 
-    public Frame Rolled(Pins pins)
+    public void Roll(Pins pins)
     {
         if (IsOver)
             throw new InvalidOperationException("Frame is over");
-        
-        return new Frame(AllowedRolls - 1, Score + pins);
+
+        allowedRolls--;
+        Score += pins;
     }
 
-    public static Frame Default() => new(allowedRolls:2, score:0);
+    public static Frame Default() => new(allowedRolls:2);
 }

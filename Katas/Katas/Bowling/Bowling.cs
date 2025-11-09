@@ -1,37 +1,31 @@
-using System.Collections.Immutable;
-
 namespace Katas.Bowling;
 
 public class Bowling
 {
-    readonly List<Frame> frames2;
+    readonly List<Frame> frames;
     
-    int currentFrame;
-
-    public bool IsOver => frames2.All(x => x.IsOver);
+    public bool IsOver => frames.All(x => x.IsOver);
 
     Bowling(int frames)
     {
-        frames2 = new List<Frame>();
+        this.frames = new List<Frame>();
         for (var i = 0; i < frames; i++)
         {
-            frames2.Add(Frame.Default());
+            this.frames.Add(Frame.Default());
         }
     }
 
     public int Score()
     {
-        return frames2.Sum(x => x.Score);
+        return frames.Sum(x => x.Score);
     }
 
     public void Roll(Pins pins)
     {
         if (IsOver)
             throw new InvalidOperationException("Game is Over");
-        
-        frames2[currentFrame] = frames2[currentFrame].Rolled(pins);
-        if (frames2[currentFrame].IsOver)
-            currentFrame++;
+
+        frames.First(x => !x.IsOver).Roll(pins);
     }
 
     public static Bowling NewGame(int frames = 10)
