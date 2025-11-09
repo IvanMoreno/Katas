@@ -31,7 +31,7 @@ using static Katas.Bowling.Pins;
 // [x] Score after one frame (two rolls) is equal to sum of knocked down pins
 // [x] Game is over after finishing all frames
 // [x] Doing a spare includes the next roll score to the frame score
-// [] Doing a strike includes the next two roll scores to the frame score
+// [x] Doing a strike includes the next two roll scores to the frame score
 // [] Scoring a strike/spare in the final round allows additional rolls.
 
 namespace Katas.Bowling;
