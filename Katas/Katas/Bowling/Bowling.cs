@@ -3,7 +3,8 @@ namespace Katas.Bowling;
 public class Bowling
 {
     int score;
-    
+    public bool IsOver { get; set; }
+
     public int Score()
     {
         return score;

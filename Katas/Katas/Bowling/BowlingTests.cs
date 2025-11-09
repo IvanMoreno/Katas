@@ -64,4 +64,10 @@ public class BowlingTests
 
         sut.Score().Should().Be(2);
     }
+
+    [Test]
+    public void GameIsNotOverByDefault()
+    {
+        Bowling.NewGame().IsOver.Should().BeFalse();
+    }
 }
