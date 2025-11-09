@@ -40,14 +40,19 @@ public class BowlingTests
     [Test]
     public void ScoreIsZeroByDefault()
     {
-        new BowlingGame().Score().Should().Be(0);
+        Bowling.NewGame().Score().Should().Be(0);
     }
 }
 
-public class BowlingGame
+public class Bowling
 {
     public int Score()
     {
         return 0;
+    }
+
+    public static Bowling NewGame()
+    {
+        return new Bowling();
     }
 }
