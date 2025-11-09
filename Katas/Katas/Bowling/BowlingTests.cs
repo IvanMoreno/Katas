@@ -96,15 +96,3 @@ public class BowlingTests
         sut.IsOver.Should().BeFalse();
     }
 }
-
-public static class BowlingSimulation
-{
-    public static void CompleteFrames(this Bowling bowling, int frames)
-    {
-        for (var i = 0; i < frames; i++)
-        {
-            bowling.Roll(One);
-            bowling.Roll(One);
-        }
-    }
-}
