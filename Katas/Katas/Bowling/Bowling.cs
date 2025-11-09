@@ -1,18 +1,16 @@
+using static System.Linq.Enumerable;
+
 namespace Katas.Bowling;
 
 public class Bowling
 {
-    readonly List<Frame> frames;
+    readonly IEnumerable<Frame> frames;
     
     public bool IsOver => frames.All(x => x.IsOver);
 
     Bowling(int frames)
     {
-        this.frames = new List<Frame>();
-        for (var i = 0; i < frames; i++)
-        {
-            this.frames.Add(Frame.Default());
-        }
+        this.frames = Range(0, frames).Select(_ => Frame.Default()).ToList();
     }
 
     public int Score()
