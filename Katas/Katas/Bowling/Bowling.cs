@@ -5,17 +5,23 @@ namespace Katas.Bowling;
 public class Bowling
 {
     readonly int frames;
-    readonly IEnumerable<Frame> frames2;
+    readonly List<Frame> frames2;
     
     int score;
     int rollsDone;
+    int currentFrame;
 
     public bool IsOver => rollsDone == frames * 2;
 
     Bowling(int frames)
     {
         this.frames = frames;
-        frames2 = new Frame[frames];
+        
+        frames2 = new List<Frame>();
+        for (var i = 0; i < frames; i++)
+        {
+            frames2.Add(Frame.Default());
+        }
     }
 
     public int Score()
@@ -30,6 +36,10 @@ public class Bowling
         
         score += pins;
         rollsDone++;
+
+        frames2[currentFrame] = frames2[currentFrame].Rolled(pins);
+        if (frames2[currentFrame].IsOver)
+            currentFrame++;
     }
 
     public static Bowling NewGame(int frames = 10)
