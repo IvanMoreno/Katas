@@ -1,8 +1,11 @@
+using System.Collections.Immutable;
+
 namespace Katas.Bowling;
 
 public class Bowling
 {
     readonly int frames;
+    readonly IEnumerable<Frame> frames2;
     
     int score;
     int rollsDone;
@@ -12,6 +15,7 @@ public class Bowling
     Bowling(int frames)
     {
         this.frames = frames;
+        frames2 = new Frame[frames];
     }
 
     public int Score()
