@@ -7,7 +7,6 @@ public class Bowling
     readonly int frames;
     readonly List<Frame> frames2;
     
-    int score;
     int rollsDone;
     int currentFrame;
 
@@ -34,7 +33,6 @@ public class Bowling
         if (IsOver)
             throw new InvalidOperationException("Game is Over");
         
-        score += pins;
         rollsDone++;
 
         frames2[currentFrame] = frames2[currentFrame].Rolled(pins);
