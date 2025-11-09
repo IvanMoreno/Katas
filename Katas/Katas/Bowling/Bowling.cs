@@ -3,7 +3,9 @@ namespace Katas.Bowling;
 public class Bowling
 {
     int score;
-    public bool IsOver { get; set; }
+    bool isOver;
+
+    public bool IsOver => isOver;
 
     public int Score()
     {
@@ -12,10 +14,11 @@ public class Bowling
 
     public void Roll(Pins pins)
     {
+        isOver = true;
         score += pins;
     }
 
-    public static Bowling NewGame()
+    public static Bowling NewGame(int frames = 10)
     {
         return new Bowling();
     }

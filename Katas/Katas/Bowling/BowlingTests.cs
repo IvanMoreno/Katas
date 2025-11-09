@@ -70,4 +70,15 @@ public class BowlingTests
     {
         Bowling.NewGame().IsOver.Should().BeFalse();
     }
+
+    [Test]
+    public void GameIsOverAfterCompletingNecessaryFrames()
+    {
+        var sut = Bowling.NewGame(frames: 1);
+        
+        sut.Roll(One);
+        sut.Roll(One);
+
+        sut.IsOver.Should().BeTrue();
+    }
 }
