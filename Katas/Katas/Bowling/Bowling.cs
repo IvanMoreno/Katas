@@ -13,10 +13,7 @@ public class Bowling
         this.frames = Range(0, frames).Select(_ => Frame.Default()).ToList();
     }
 
-    public int Score()
-    {
-        return frames.Sum(x => x.Score);
-    }
+    public int Score() => frames.Sum(x => x.Score);
 
     public void Roll(Pins pins)
     {
