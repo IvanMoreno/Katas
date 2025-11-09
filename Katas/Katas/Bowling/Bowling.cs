@@ -34,8 +34,5 @@ public class Bowling
         }
     }
 
-    public static Bowling NewGame(int frames = 10)
-    {
-        return new Bowling(frames);
-    }
+    public static Bowling NewGame(int frames = 10) => new(frames);
 }
