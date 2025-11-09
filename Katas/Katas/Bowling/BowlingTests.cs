@@ -165,4 +165,17 @@ public class BowlingTests
 
         sut.Score().Should().Be((10 + 1 + 1) + 1 + 1 + 1);
     }
+
+    [Test]
+    public void StrikeInFinalFrameAllowsMoreRolls()
+    {
+        var sut = Bowling.NewGame(frames: 1);
+        
+        sut.Strike();
+        sut.Roll(One);
+        sut.Roll(One);
+
+        sut.IsOver.Should().BeTrue();
+        sut.Score().Should().Be(10 + 1 + 1);
+    }
 }
