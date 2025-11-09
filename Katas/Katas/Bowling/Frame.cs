@@ -20,5 +20,7 @@ public class Frame
         Score += pins;
     }
 
+    public void NotifyRoll(Pins pins) => Score += pins;
+
     public static Frame Default() => new(allowedRolls:2);
 }

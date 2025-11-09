@@ -25,6 +25,11 @@ public class Bowling
         if (IsOver)
             throw new InvalidOperationException("Game is Over");
 
+        foreach (var finishedFrame in frames.Where(x => x.IsOver))
+        {
+            finishedFrame.NotifyRoll(pins);
+        }
+        
         frames.First(x => !x.IsOver).Roll(pins);
     }
 

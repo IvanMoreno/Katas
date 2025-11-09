@@ -95,4 +95,15 @@ public class BowlingTests
 
         sut.IsOver.Should().BeFalse();
     }
+
+    [Test]
+    public void SpareIncludesNextFrameFirstRollScoreToPreviousFrame()
+    {
+        var sut = Bowling.NewGame();
+
+        sut.Spare();
+        sut.Roll(One);
+
+        sut.Score().Should().Be((10 + 1) + 1);
+    }
 }

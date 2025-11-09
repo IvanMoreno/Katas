@@ -1,3 +1,5 @@
+using static Katas.Bowling.Pins;
+
 namespace Katas.Bowling;
 
 public static class BowlingSimulation
@@ -6,8 +8,14 @@ public static class BowlingSimulation
     {
         for (var i = 0; i < frames; i++)
         {
-            bowling.Roll(Pins.One);
-            bowling.Roll(Pins.One);
+            bowling.Roll(One);
+            bowling.Roll(One);
         }
+    }
+
+    public static void Spare(this Bowling bowling)
+    {
+        bowling.Roll(Five);
+        bowling.Roll(Five);
     }
 }

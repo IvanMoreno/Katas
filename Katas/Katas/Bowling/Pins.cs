@@ -16,4 +16,5 @@ public readonly struct Pins
     public static implicit operator Pins(int pins) => new(pins);
 
     public static Pins One => 1;
+    public static Pins Five => 5;
 }
