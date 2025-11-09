@@ -2,16 +2,16 @@ namespace Katas.Bowling;
 
 public class Bowling
 {
-    int pins;
+    int score;
     
     public int Score()
     {
-        return pins;
+        return score;
     }
 
     public void Roll(Pins pins)
     {
-        this.pins += pins;
+        score += pins;
     }
 
     public static Bowling NewGame()
