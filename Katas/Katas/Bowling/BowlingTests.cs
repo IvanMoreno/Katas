@@ -88,7 +88,7 @@ public class BowlingTests
     [TestCase(3)]
     public void GameIsNotOverUntilAllFramesAreCompleted(int frames)
     {
-        var sut = Bowling.NewGame(frames: 1);
+        var sut = Bowling.NewGame(frames: frames);
         
         sut.CompleteFrames(frames - 1);
         sut.Roll(One);

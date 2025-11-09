@@ -21,6 +21,9 @@ public class Bowling
 
     public void Roll(Pins pins)
     {
+        if (IsOver)
+            throw new InvalidOperationException("Game is Over");
+        
         score += pins;
         rollsDone++;
     }
