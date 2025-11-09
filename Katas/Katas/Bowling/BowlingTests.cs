@@ -144,12 +144,25 @@ public class BowlingTests
     [Test]
     public void StrikeFrameContainsNextTwoRollsScore()
     {
-        var sut = Bowling.NewGame(frames: 2);
+        var sut = Bowling.NewGame();
         
         sut.Strike();
         sut.Roll(One);
         sut.Roll(One);
 
         sut.Score().Should().Be((10 + 1 + 1) + 1 + 1);
+    }
+    
+    [Test]
+    public void StrikeFrameContainsOnlyNextTwoRollsScore()
+    {
+        var sut = Bowling.NewGame();
+        
+        sut.Strike();
+        sut.Roll(One);
+        sut.Roll(One);
+        sut.Roll(One);
+
+        sut.Score().Should().Be((10 + 1 + 1) + 1 + 1 + 1);
     }
 }
