@@ -106,4 +106,16 @@ public class BowlingTests
 
         sut.Score().Should().Be((10 + 1) + 1);
     }
+
+    [Test]
+    public void NonSpareFramesDoNotIncludeNextFrameRollToScore()
+    {
+        var sut = Bowling.NewGame();
+        
+        sut.Roll(One);
+        sut.Roll(One);
+        sut.Roll(One);
+
+        sut.Score().Should().Be(1 + 1 + 1);
+    }
 }
