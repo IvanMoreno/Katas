@@ -37,5 +37,17 @@ namespace Katas.Bowling;
 
 public class BowlingTests
 {
-    
+    [Test]
+    public void ScoreIsZeroByDefault()
+    {
+        new BowlingGame().Score().Should().Be(0);
+    }
+}
+
+public class BowlingGame
+{
+    public int Score()
+    {
+        return 0;
+    }
 }
