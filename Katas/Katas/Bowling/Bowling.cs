@@ -22,12 +22,16 @@ public class Bowling
         if (IsOver)
             throw new InvalidOperationException("Game is Over");
 
+        PropagateBonusRolls(pins);
+        CurrentFrame.Roll(pins);
+    }
+
+    void PropagateBonusRolls(Pins pins)
+    {
         foreach (var finishedFrame in FinishedFrames)
         {
             finishedFrame.BonusRoll(pins);
         }
-        
-        CurrentFrame.Roll(pins);
     }
 
     public static Bowling NewGame(int frames = 10)
