@@ -53,4 +53,15 @@ public class BowlingTests
 
         sut.Score().Should().Be(1);
     }
+
+    [Test]
+    public void ScoreIsSumOfAllRolls()
+    {
+        var sut = Bowling.NewGame();
+        
+        sut.Roll(One);
+        sut.Roll(One);
+
+        sut.Score().Should().Be(2);
+    }
 }

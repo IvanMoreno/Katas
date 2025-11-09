@@ -11,7 +11,7 @@ public class Bowling
 
     public void Roll(Pins pins)
     {
-        this.pins = pins;
+        this.pins += pins;
     }
 
     public static Bowling NewGame()
