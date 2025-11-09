@@ -1,6 +1,28 @@
 using FluentAssertions;
 
 // https://www.codurance.com/katas/bowling
+// A game of bowling is made up of ten "frames". In each frame a player has two rolls of a ball to try to knock down all 10 pins.
+// The number of pins knocked down in a frame is the score for that frame, and the game score is the total of the scores from each frame.
+
+// If a player knocks down all 10 pins with two rolls in a frame, this is a Spare. The score from their next roll is added to the 10 points for the spare.
+// - Spare example - 
+// Frame |        1         |    2
+// Rolls |      6 - 4       | *5* - 3
+// Score | 15 (6 + 4 + *5*) |    8
+
+// If a player knocks down all 10 pins with a single roll, this is a Strike. The frame is over, and the score from their next two rolls is added to the 10 points for the strike.
+// - Strike example - 
+// Frame |        1         |   2
+// Rolls |      10 - -      | 5 - 3
+// Score | 18 (10 + 5 + 3)   |   8
+
+// Note: since the true score for a Strike or Spare is dependent on the next ball or two, if a player scores a Strike or a Spare in the final (10th) frame, then they can roll the additional balls required to finish calculating the score.
+
+// Example Games
+// [9,0] [9,0] [9,0] [9,0] [9,0] [9,0] [9,0] [9,0] [9,0] [9,0] = 90
+// [6,3] [5,2] [8,1] [3,2] [5,1] [5,3] [4,0] [4,3] [2,1] [6,2] = 66
+// [10] [10] [10] [10] [10] [10] [10] [10] [10] [10, 10, 10] = 300
+// [5,5] [5,5] [5,5] [5,5] [5,5] [5,5] [5,5] [5,5] [5,5] [5,5,5] = 150
 
 namespace Katas.Bowling;
 
