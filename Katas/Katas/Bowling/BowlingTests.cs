@@ -140,4 +140,16 @@ public class BowlingTests
 
         sut.IsOver.Should().BeTrue();
     }
+    
+    [Test]
+    public void StrikeFrameContainsNextTwoRollsScore()
+    {
+        var sut = Bowling.NewGame(frames: 2);
+        
+        sut.Strike();
+        sut.Roll(One);
+        sut.Roll(One);
+
+        sut.Score().Should().Be((10 + 1 + 1) + 1 + 1);
+    }
 }

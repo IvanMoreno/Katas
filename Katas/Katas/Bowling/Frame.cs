@@ -3,11 +3,12 @@ namespace Katas.Bowling;
 public class Frame
 {
     readonly int allowedRolls;
-    readonly List<int> playedRolls = new();
+    readonly List<int> rolls = new();
 
-    public int Score => playedRolls.Sum();
-    public bool IsOver => playedRolls.Count == allowedRolls || Score == Pins.All;
-    bool IsSpare => Score == Pins.All;
+    public int Score => rolls.Sum();
+    public bool IsOver => rolls.Count == allowedRolls || Score == Pins.All;
+    bool IsSpare => rolls.Count == allowedRolls && Score == Pins.All;
+    bool IsStrike => rolls.First() == Pins.All;
 
     Frame(int allowedRolls)
     {
@@ -19,15 +20,15 @@ public class Frame
         if (IsOver)
             throw new InvalidOperationException("Frame is over");
 
-        playedRolls.Add(pins);
+        rolls.Add(pins);
     }
 
     public void NotifyRoll(Pins pins)
     {
-        if (!IsSpare)
+        if (!IsSpare && !IsStrike)
             return;
         
-        playedRolls.Add(pins);
+        rolls.Add(pins);
     }
 
     public static Frame Default() => new(allowedRolls:2);
