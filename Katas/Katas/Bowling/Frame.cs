@@ -6,7 +6,7 @@ public class Frame
     readonly List<int> playedRolls = new();
 
     public int Score => playedRolls.Sum();
-    public bool IsOver => playedRolls.Count == allowedRolls;
+    public bool IsOver => playedRolls.Count == allowedRolls || Score == 10;
     bool IsSpare => Score == 10;
 
     Frame(int allowedRolls)

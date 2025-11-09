@@ -130,4 +130,14 @@ public class BowlingTests
 
         sut.Score().Should().Be(1 + 1 + 1);
     }
+
+    [Test]
+    public void StrikeEndsTheFrame()
+    {
+        var sut = Bowling.NewGame(frames: 1);
+
+        sut.Strike();
+
+        sut.IsOver.Should().BeTrue();
+    }
 }

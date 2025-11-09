@@ -18,4 +18,9 @@ public static class BowlingSimulation
         bowling.Roll(Five);
         bowling.Roll(Five);
     }
+    
+    public static void Strike(this Bowling bowling)
+    {
+        bowling.Roll(All);
+    }
 }

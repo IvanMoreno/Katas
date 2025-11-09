@@ -17,4 +17,5 @@ public readonly struct Pins
 
     public static Pins One => 1;
     public static Pins Five => 5;
+    public static Pins All => 10;
 }
