@@ -108,6 +108,18 @@ public class BowlingTests
     }
 
     [Test]
+    public void SpareIncludesOnlyNextFrameFirstRollInItsOwnScore()
+    {
+        var sut = Bowling.NewGame();
+        
+        sut.Spare();
+        sut.Roll(One);
+        sut.Roll(One);
+
+        sut.Score().Should().Be((10 + 1) + 1 + 1);
+    }
+
+    [Test]
     public void NonSpareFramesDoNotIncludeNextFrameRollToScore()
     {
         var sut = Bowling.NewGame();
