@@ -7,7 +7,7 @@ public class Frame
     readonly List<int> rolls = new();
 
     public int Score => rolls.Sum();
-    public bool IsOver => rolls.Count == allowedRolls || IsStrike && !isFinal;
+    public bool IsOver => rolls.Count == (isFinal && IsSpare ? allowedRolls + 1 : allowedRolls) || IsStrike && !isFinal;
     int RemainingBonusRolls => IsStrike || IsSpare ? 2 - rolls.Count + 1 : 0;
     bool IsSpare => rolls.Count == allowedRolls && Score == Pins.All;
     bool IsStrike => rolls.FirstOrDefault() == Pins.All;

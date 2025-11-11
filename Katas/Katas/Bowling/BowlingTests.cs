@@ -175,4 +175,14 @@ public class BowlingTests
 
         sut.IsOver.Should().BeFalse();
     }
+
+    [Test]
+    public void SpareInFinalFrameAllowsMoreRolls()
+    {
+        var sut = Bowling.NewGame(frames: 1);
+        
+        sut.Spare();
+
+        sut.IsOver.Should().BeFalse();
+    }
 }
