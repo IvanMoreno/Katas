@@ -3,7 +3,6 @@ namespace Katas.Bowling;
 public class Frame
 {
     readonly int allowedRolls;
-    readonly bool isFinal;
     readonly List<int> rolls = new();
     readonly Func<Frame, bool> isOver;
     
