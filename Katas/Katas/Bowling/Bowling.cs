@@ -5,14 +5,12 @@ namespace Katas.Bowling;
 public class Bowling
 {
     readonly IEnumerable<Frame> frames;
-    
     public bool IsOver => frames.All(x => x.IsOver);
     IEnumerable<Frame> FinishedFrames => frames.Where(x => x.IsOver);
     Frame CurrentFrame => frames.First(x => !x.IsOver);
-
+    public int Score => frames.Sum(x => x.Score);
+    
     Bowling(IEnumerable<Frame> frames) => this.frames = frames;
-
-    public int Score() => frames.Sum(x => x.Score);
 
     public void Roll(Pins pins)
     {

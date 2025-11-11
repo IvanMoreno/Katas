@@ -17,7 +17,7 @@ public class BowlingTests
     [Test]
     public void ScoreIsZeroByDefault()
     {
-        Bowling.NewGame().Score().Should().Be(0);
+        Bowling.NewGame().Score.Should().Be(0);
     }
 
     [Test]
@@ -27,7 +27,7 @@ public class BowlingTests
 
         sut.Roll(One);
 
-        sut.Score().Should().Be(1);
+        sut.Score.Should().Be(1);
     }
 
     [Test]
@@ -38,7 +38,7 @@ public class BowlingTests
         sut.Roll(One);
         sut.Roll(One);
 
-        sut.Score().Should().Be(2);
+        sut.Score.Should().Be(2);
     }
 
     [Test]
@@ -80,7 +80,7 @@ public class BowlingTests
         sut.Spare();
         sut.Roll(One);
 
-        sut.Score().Should().Be((10 + 1) + 1);
+        sut.Score.Should().Be((10 + 1) + 1);
     }
 
     [Test]
@@ -92,7 +92,7 @@ public class BowlingTests
         sut.Roll(One);
         sut.Roll(One);
 
-        sut.Score().Should().Be((10 + 1) + 1 + 1);
+        sut.Score.Should().Be((10 + 1) + 1 + 1);
     }
     
     [Test]
@@ -104,7 +104,7 @@ public class BowlingTests
         sut.Spare();
         sut.Spare();
 
-        sut.Score().Should().Be((5 + 5 + 5) + (5 + 5 + 5) + (5 + 5));
+        sut.Score.Should().Be((5 + 5 + 5) + (5 + 5 + 5) + (5 + 5));
     }
 
     [Test]
@@ -116,7 +116,7 @@ public class BowlingTests
         sut.Roll(One);
         sut.Roll(One);
 
-        sut.Score().Should().Be(1 + 1 + 1);
+        sut.Score.Should().Be(1 + 1 + 1);
     }
 
     [Test]
@@ -138,7 +138,7 @@ public class BowlingTests
         sut.Roll(One);
         sut.Roll(One);
 
-        sut.Score().Should().Be((10 + 1 + 1) + 1 + 1);
+        sut.Score.Should().Be((10 + 1 + 1) + 1 + 1);
     }
     
     [Test]
@@ -151,7 +151,7 @@ public class BowlingTests
         sut.Roll(One);
         sut.Roll(One);
 
-        sut.Score().Should().Be((10 + 1 + 1) + 1 + 1 + 1);
+        sut.Score.Should().Be((10 + 1 + 1) + 1 + 1 + 1);
     }
 
     [Test]
@@ -184,7 +184,7 @@ public class BowlingTests
         sut.Roll(One);
 
         sut.IsOver.Should().BeTrue();
-        sut.Score().Should().Be(10 + 1 + 1);
+        sut.Score.Should().Be(10 + 1 + 1);
     }
     
     [Test]
@@ -196,7 +196,7 @@ public class BowlingTests
         sut.Roll(One);
 
         sut.IsOver.Should().BeTrue();
-        sut.Score().Should().Be(10 + 1);
+        sut.Score.Should().Be(10 + 1);
     }
 }
 
@@ -216,6 +216,6 @@ public class BowlingAcceptanceTest
             sut.Roll(roll);
         }
 
-        sut.Score().Should().Be(expectedScore);
+        sut.Score.Should().Be(expectedScore);
     }
 }
