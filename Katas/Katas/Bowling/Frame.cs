@@ -31,6 +31,6 @@ public class Frame
         rolls.Add(pins);
     }
 
-    public static Frame Default() => new(frame => frame.rolls.Count == RollsPerFrame || frame.IsStrike);
+    public static Frame Default() => new(frame => frame.rolls.Count >= RollsPerFrame || frame.IsStrike);
     public static Frame Final() => new(frame => frame.rolls.Count >= RollsPerFrame + frame.RemainingBonusRolls);
 }

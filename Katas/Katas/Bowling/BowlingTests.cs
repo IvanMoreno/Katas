@@ -118,6 +118,18 @@ public class BowlingTests
 
         sut.Score().Should().Be((10 + 1) + 1 + 1);
     }
+    
+    [Test]
+    public void AccumulateSpareRolls()
+    {
+        var sut = Bowling.NewGame();
+        
+        sut.Spare();
+        sut.Spare();
+        sut.Spare();
+
+        sut.Score().Should().Be((5 + 5 + 5) + (5 + 5 + 5) + (5 + 5));
+    }
 
     [Test]
     public void NonSpareFramesDoNotIncludeNextFrameRollToScore()
@@ -215,11 +227,13 @@ public class BowlingTests
 public class BowlingAcceptanceTest
 {
     [TestCase("[9,0] [9,0] [9,0] [9,0] [9,0] [9,0] [9,0] [9,0] [9,0] [9,0]", 90)]
+    [TestCase("[6,3] [5,2] [8,1] [3,2] [5,1] [5,3] [4,0] [4,3] [2,1] [6,2]", 66)]
+    [TestCase("[10] [10] [10] [10] [10] [10] [10] [10] [10] [10,10,10]", 300)]
+    [TestCase("[5,5] [5,5] [5,5] [5,5] [5,5] [5,5] [5,5] [5,5] [5,5] [5,5,5]", 150)]
     public void AcceptanceTest(string game, int expectedScore)
     {
         var sut = Bowling.NewGame();
-        var rolls = game.Where(character => int.TryParse(character.ToString(), out _))
-            .Select(character => int.Parse(character.ToString()));
+        var rolls = game.Replace("[", string.Empty).Replace("]", string.Empty).Replace(" ", ",").Split(',').Select(int.Parse);
 
         foreach (var roll in rolls)
         {
