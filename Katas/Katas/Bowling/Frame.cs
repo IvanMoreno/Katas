@@ -2,6 +2,8 @@ namespace Katas.Bowling;
 
 public class Frame
 {
+    const int RollsPerFrame = 2;
+    
     readonly List<int> rolls = new();
     readonly Func<Frame, bool> isOver;
     
@@ -29,6 +31,6 @@ public class Frame
         rolls.Add(pins);
     }
 
-    public static Frame Default() => new(frame => frame.rolls.Count == 2 || frame.IsStrike);
-    public static Frame Final() => new(frame => frame.rolls.Count == 2 + frame.RemainingBonusRolls);
+    public static Frame Default() => new(frame => frame.rolls.Count == RollsPerFrame || frame.IsStrike);
+    public static Frame Final() => new(frame => frame.rolls.Count == RollsPerFrame + frame.RemainingBonusRolls);
 }
