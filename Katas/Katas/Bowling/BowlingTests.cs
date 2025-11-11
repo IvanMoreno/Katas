@@ -211,3 +211,21 @@ public class BowlingTests
         sut.Score().Should().Be(10 + 1);
     }
 }
+
+public class BowlingAcceptanceTest
+{
+    [TestCase("[9,0] [9,0] [9,0] [9,0] [9,0] [9,0] [9,0] [9,0] [9,0] [9,0]", 90)]
+    public void AcceptanceTest(string game, int expectedScore)
+    {
+        var sut = Bowling.NewGame();
+        var rolls = game.Where(character => int.TryParse(character.ToString(), out _))
+            .Select(character => int.Parse(character.ToString()));
+
+        foreach (var roll in rolls)
+        {
+            sut.Roll(roll);
+        }
+
+        sut.Score().Should().Be(expectedScore);
+    }
+}
