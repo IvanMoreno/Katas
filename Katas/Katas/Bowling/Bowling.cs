@@ -10,10 +10,7 @@ public class Bowling
     IEnumerable<Frame> FinishedFrames => frames.Where(x => x.IsOver);
     Frame CurrentFrame => frames.First(x => !x.IsOver);
 
-    Bowling(int frames)
-    {
-        this.frames = Range(0, frames - 1).Select(_ => Frame.Default()).Append(Frame.Final()).ToList();
-    }
+    Bowling(IEnumerable<Frame> frames) => this.frames = frames;
 
     public int Score() => frames.Sum(x => x.Score);
 
@@ -34,5 +31,5 @@ public class Bowling
         }
     }
 
-    public static Bowling NewGame(int frames = 10) => new(frames);
+    public static Bowling NewGame(int frames = 10) => new(Range(0, frames - 1).Select(_ => Frame.Default()).Append(Frame.Final()).ToList());
 }
