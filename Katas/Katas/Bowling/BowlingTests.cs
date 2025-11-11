@@ -134,9 +134,9 @@ public class BowlingTests
     [Test]
     public void StrikeEndsTheFrame()
     {
-        var sut = Bowling.NewGame(frames: 1);
+        var sut = Frame.Default();
 
-        sut.Strike();
+        sut.Roll(All);
 
         sut.IsOver.Should().BeTrue();
     }
