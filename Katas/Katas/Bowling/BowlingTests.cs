@@ -198,4 +198,16 @@ public class BowlingTests
         sut.IsOver.Should().BeTrue();
         sut.Score().Should().Be(10 + 1 + 1);
     }
+    
+    [Test]
+    public void SpareInFinalFrameAllowsOneMoreRoll()
+    {
+        var sut = Bowling.NewGame(frames: 1);
+        
+        sut.Spare();
+        sut.Roll(One);
+
+        sut.IsOver.Should().BeTrue();
+        sut.Score().Should().Be(10 + 1);
+    }
 }
