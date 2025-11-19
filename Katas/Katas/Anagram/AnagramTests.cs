@@ -16,6 +16,8 @@ public class AnagramTests
     [TestCase("aba", "ba", false)]
     [TestCase("aba", "bab", false)]
     [TestCase("abab", "baba", true)]
+    [TestCase("listen", "silent", true)]
+    [TestCase("listen", "silent", true)]
     public void IsAnagram(string wordA, string wordB, bool shouldBeAnagram)
     {
         new Word(wordA).IsAnagramOf(new Word(wordB)).Should().Be(shouldBeAnagram);
