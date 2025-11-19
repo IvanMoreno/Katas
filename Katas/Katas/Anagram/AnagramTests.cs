@@ -16,6 +16,7 @@ public class AnagramTests
     public void IsAnagram()
     {
         "ab".IsAnagramOf("ba").Should().BeTrue();
+        "aba".IsAnagramOf("ba").Should().BeFalse();
     }
 }
 
@@ -23,6 +24,9 @@ public static class Word
 {
     public static bool IsAnagramOf(this string wordA, string wordB)
     {
+        if (wordA.Length != wordB.Length)
+            return false;
+        
         return true;
     }
 }
