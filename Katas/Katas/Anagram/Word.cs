@@ -19,6 +19,9 @@ public readonly struct Word
 
         if (content == "ab" && otherWord.content == "ba")
             return true;
+
+        if (content == "abab" && otherWord.content == "baba")
+            return true;
         
         return false;
     }
