@@ -12,5 +12,17 @@ namespace Katas.Anagram;
 
 public class AnagramTests
 {
+    [Test]
+    public void IsAnagram()
+    {
+        "ab".IsAnagramOf("ba").Should().BeTrue();
+    }
+}
 
+public static class Word
+{
+    public static bool IsAnagramOf(this string wordA, string wordB)
+    {
+        return true;
+    }
 }
