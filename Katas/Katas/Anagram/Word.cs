@@ -1,6 +1,6 @@
 namespace Katas.Anagram;
 
-public readonly struct Word
+public struct Word
 {
     readonly string content;
 
@@ -26,5 +26,5 @@ public readonly struct Word
         return true;
     }
 
-    private int AmountOf(char letter) => content.Count(x => x == letter);
+    int AmountOf(char letter) => content.Count(x => x == letter);
 }
