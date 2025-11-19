@@ -17,12 +17,14 @@ public readonly struct Word
         if (content.Length != otherWord.content.Length)
             return false;
 
-        if (content == "ab" && otherWord.content == "ba")
-            return true;
-
-        if (content == "abab" && otherWord.content == "baba")
-            return true;
+        foreach (var letter in content)
+        {
+            if (!AmountOf(letter).Equals(otherWord.AmountOf(letter)))
+                return false;
+        }
         
-        return false;
+        return true;
     }
+
+    private int AmountOf(char letter) => content.Count(x => x == letter);
 }
