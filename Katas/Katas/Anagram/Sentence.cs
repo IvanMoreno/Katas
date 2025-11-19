@@ -1,10 +1,10 @@
 namespace Katas.Anagram;
 
-public struct Word
+public readonly struct Sentence
 {
     readonly string content;
 
-    public Word(string content)
+    public Sentence(string content)
     {
         if (string.IsNullOrEmpty(content))
             throw new ArgumentException("word cannot be empty");
@@ -12,14 +12,14 @@ public struct Word
         this.content = content;
     }
 
-    public bool IsAnagramOf(Word otherWord)
+    public bool IsAnagramOf(Sentence otherSentence)
     {
-        if (content.Length != otherWord.content.Length)
+        if (content.Length != otherSentence.content.Length)
             return false;
 
         foreach (var letter in content)
         {
-            if (!AmountOf(letter).Equals(otherWord.AmountOf(letter)))
+            if (!AmountOf(letter).Equals(otherSentence.AmountOf(letter)))
                 return false;
         }
         
