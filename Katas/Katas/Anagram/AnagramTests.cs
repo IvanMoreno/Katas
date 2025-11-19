@@ -17,5 +17,6 @@ public class AnagramTests
     {
         new Word("ab").IsAnagramOf(new Word("ba")).Should().BeTrue();
         new Word("aba").IsAnagramOf(new Word("ba")).Should().BeFalse();
+        new Word("aba").IsAnagramOf(new Word("bab")).Should().BeFalse();
     }
 }

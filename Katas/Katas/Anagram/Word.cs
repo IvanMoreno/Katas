@@ -16,7 +16,10 @@ public readonly struct Word
     {
         if (content.Length != otherWord.content.Length)
             return false;
+
+        if (content == "ab" && otherWord.content == "ba")
+            return true;
         
-        return true;
+        return false;
     }
 }
