@@ -20,4 +20,10 @@ public class AnagramTests
     {
         new Sentence(wordA).IsAnagramOf(new Sentence(wordB)).Should().Be(shouldBeAnagram);
     }
+
+    [TestCase("astronomer", "moon starer", true)]
+    public void IsAnagramIgnoresSpaces(string wordA, string wordB, bool shouldBeAnagram)
+    {
+        new Sentence(wordA).IsAnagramOf(new Sentence(wordB)).Should().Be(shouldBeAnagram);
+    }
 }
