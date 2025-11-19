@@ -12,12 +12,12 @@ namespace Katas.Anagram;
 
 public class AnagramTests
 {
-    [Test]
-    public void IsAnagram()
+    [TestCase("ab", "ba", true)]
+    [TestCase("aba", "ba", false)]
+    [TestCase("aba", "bab", false)]
+    [TestCase("abab", "baba", true)]
+    public void IsAnagram(string wordA, string wordB, bool shouldBeAnagram)
     {
-        new Word("ab").IsAnagramOf(new Word("ba")).Should().BeTrue();
-        new Word("aba").IsAnagramOf(new Word("ba")).Should().BeFalse();
-        new Word("aba").IsAnagramOf(new Word("bab")).Should().BeFalse();
-        new Word("abab").IsAnagramOf(new Word("baba")).Should().BeTrue();
+        new Word(wordA).IsAnagramOf(new Word(wordB)).Should().Be(shouldBeAnagram);
     }
 }
