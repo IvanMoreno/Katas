@@ -12,7 +12,12 @@ public readonly struct Sentence
         this.content = content;
     }
 
-    public bool IsAnagramOf(Sentence other) => CountLetters(this).SequenceEqual(other.CountLetters(this));
+    public bool IsAnagramOf(Sentence other) => IsAnagramOfTemp(other);
+    public bool IsAnagramOfTemp(Sentence other) => HasSameLettersThan(other);
+
+    bool HasSameLettersThan(Sentence other) => SortedLetters.SequenceEqual(other.SortedLetters);
+    IEnumerable<char> SortedLetters => content.Replace(" ", string.Empty).OrderBy(x => x);
+
     IEnumerable<int> CountLetters(Sentence of) => of.content.Select(AmountOf);
     int AmountOf(char letter) => content.Trim().Count(x => x == letter);
 }
