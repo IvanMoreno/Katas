@@ -7,7 +7,7 @@ public readonly struct Sentence
 
     public Sentence(string content)
     {
-        if (string.IsNullOrEmpty(content))
+        if (string.IsNullOrWhiteSpace(content))
             throw new ArgumentException("sentence cannot be empty");
         
         this.content = content;
