@@ -14,9 +14,11 @@ public readonly struct Sentence
     }
 
     public bool IsAnagramOf(Sentence other) 
-        => TrimmedContent
-            .Select(AmountOf)
-            .SequenceEqual(TrimmedContent.Select(other.AmountOf));
+        => CountLetters(this).SequenceEqual(other.CountLetters(this));
+
+    IEnumerable<int> CountLetters(Sentence of) {
+        return of.content.Select(AmountOf);
+    }
 
     int AmountOf(char letter) => content.Count(x => x == letter);
 }
