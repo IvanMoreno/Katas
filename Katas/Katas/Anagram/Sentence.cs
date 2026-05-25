@@ -14,9 +14,7 @@ public readonly struct Sentence
 
     public bool IsAnagramOf(Sentence otherSentence)
     {
-        var trimmedContent = content.Trim();
-
-        foreach (var letter in trimmedContent)
+        foreach (var letter in content.Trim())
         {
             if (!AmountOf(letter).Equals(otherSentence.AmountOf(letter)))
                 return false;
