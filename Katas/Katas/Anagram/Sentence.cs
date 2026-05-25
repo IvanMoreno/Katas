@@ -3,6 +3,7 @@ namespace Katas.Anagram;
 public readonly struct Sentence
 {
     readonly string content;
+    string TrimmedContent => content.Trim();
 
     public Sentence(string content)
     {
@@ -12,13 +13,10 @@ public readonly struct Sentence
         this.content = content;
     }
 
-    public bool IsAnagramOf(Sentence otherSentence)
-    {
-        var trimmedContent = content.Trim();
-        return trimmedContent
+    public bool IsAnagramOf(Sentence otherSentence) 
+        => TrimmedContent
             .Select(AmountOf)
-            .SequenceEqual(trimmedContent.Select(otherSentence.AmountOf));
-    }
+            .SequenceEqual(TrimmedContent.Select(otherSentence.AmountOf));
 
     int AmountOf(char letter) => content.Count(x => x == letter);
 }
