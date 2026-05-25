@@ -15,9 +15,6 @@ public readonly struct Sentence
     public bool IsAnagramOf(Sentence otherSentence)
     {
         var trimmedContent = content.Replace(" ", string.Empty);
-        var otherTrimmedContent = otherSentence.content.Replace(" ", string.Empty);
-        if (trimmedContent.Length != otherTrimmedContent.Length)
-            return false;
 
         foreach (var letter in trimmedContent)
         {

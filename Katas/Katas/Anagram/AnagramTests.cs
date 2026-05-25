@@ -4,9 +4,6 @@ namespace Katas.Anagram;
 
 // https://codingdojo.org/kata/Anagram/
 // [x] Detect whether a word is an anagram of another word
-// [] Get all words from a document
-// [] Get all two-word combinations given a set of words
-// [] Generate all two-word anagrams of a word
 
 public class AnagramTests
 {
