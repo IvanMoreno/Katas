@@ -3,6 +3,8 @@ namespace Katas.Anagram;
 public readonly struct Sentence
 {
     readonly string content;
+    IEnumerable<char> SortedLetters => ContentWithoutWhitespaces.OrderBy(x => x);
+    string ContentWithoutWhitespaces => content.Replace(" ", string.Empty);
 
     public Sentence(string content)
     {
@@ -13,5 +15,4 @@ public readonly struct Sentence
     }
 
     public bool IsAnagramOf(Sentence other) => SortedLetters.SequenceEqual(other.SortedLetters);
-    IEnumerable<char> SortedLetters => content.Replace(" ", string.Empty).OrderBy(x => x);
 }
