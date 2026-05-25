@@ -12,7 +12,6 @@ public readonly struct Sentence
         this.content = content;
     }
 
-    public bool IsAnagramOf(Sentence other) => HasSameLettersThan(other);
-    bool HasSameLettersThan(Sentence other) => SortedLetters.SequenceEqual(other.SortedLetters);
+    public bool IsAnagramOf(Sentence other) => SortedLetters.SequenceEqual(other.SortedLetters);
     IEnumerable<char> SortedLetters => content.Replace(" ", string.Empty).OrderBy(x => x);
 }
