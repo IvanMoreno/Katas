@@ -25,3 +25,18 @@ public class AnagramTests
         new Sentence(wordA).IsAnagramOf(new Sentence(wordB)).Should().Be(shouldBeAnagram);
     }
 }
+
+public class RockPaperScissorsTests {
+    [Test]
+    public void RockBeatsScissors() {
+        new Rock().Beats(new Scissors()).Should().BeTrue();
+    }
+}
+
+public class Scissors { }
+
+public class Rock {
+    public bool Beats(Scissors other) {
+        return true;
+    }
+}
