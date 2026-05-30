@@ -1,5 +1,5 @@
 using FluentAssertions;
-using static Katas.RockPaperScissors___2026.Movement;
+using static Katas.RockPaperScissors___2026.Move;
 using static Katas.RockPaperScissors___2026.Outcome;
 
 namespace Katas.RockPaperScissors___2026;
