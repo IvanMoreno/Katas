@@ -6,12 +6,12 @@ namespace Katas.RockPaperScissors2;
 public class RockPaperScissorsTests {
     [Test]
     public void RockBeatsScissors() {
-        Rock().Against(Scissors.Create()).Should().Be(Outcome.Win);
+        Rock().Against(Scissors()).Should().Be(Outcome.Win);
     }
 
     [Test]
     public void ScissorsLoosesAgainstRock() {
-        Scissors.Create().Against(Rock()).Should().Be(Outcome.Lose);
+        Scissors().Against(Rock()).Should().Be(Outcome.Lose);
     }
 
     [Test]

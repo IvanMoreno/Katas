@@ -16,11 +16,11 @@ public class Movement {
     }
     
     public static Movement Rock() {
-        return new Movement(winsAgainst: new Scissors(default), figure: new Rock());
+        return new Movement(winsAgainst: new Scissors(), figure: new Rock());
     }
     
     public static Movement Scissors() {
-        return new Movement(winsAgainst: new Scissors(default), figure: new Scissors(default));
+        return new Movement(winsAgainst: new Scissors(), figure: new Scissors());
     }
 }
 
