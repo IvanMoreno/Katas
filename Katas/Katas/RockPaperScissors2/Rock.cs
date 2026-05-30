@@ -1,8 +1,16 @@
 namespace Katas.RockPaperScissors2;
 
 public class Rock {
+    readonly object winsAgainst;
+    
+    Rock(object winsAgainst) {
+        this.winsAgainst = winsAgainst;
+    }
+
     public Outcome Against(Scissors other) {
-        return Outcome.Win;
+        return winsAgainst.GetType() == other.GetType() ? Outcome.Win 
+            : other.GetType() == GetType() ? Outcome.Tie 
+            : Outcome.Lose;
     }
 
     public Outcome Against(Rock other) {
@@ -10,6 +18,6 @@ public class Rock {
     }
 
     public static Rock Create() {
-        return new Rock();
+        return new Rock(winsAgainst: new Scissors());
     }
 }
