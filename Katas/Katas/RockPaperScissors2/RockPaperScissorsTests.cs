@@ -5,11 +5,11 @@ namespace Katas.RockPaperScissors2;
 public class RockPaperScissorsTests {
     [Test]
     public void RockBeatsScissors() {
-        new Rock().Beats(new Scissors()).Should().BeTrue();
+        Rock.Create().Beats(Scissors.Create()).Should().BeTrue();
     }
 
     [Test]
     public void ScissorsLoosesAgainstRock() {
-        new Scissors().Beats(new Rock()).Should().BeFalse();
+        Scissors.Create().Beats(Rock.Create()).Should().BeFalse();
     }
 }
