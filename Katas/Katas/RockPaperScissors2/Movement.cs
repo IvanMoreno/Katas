@@ -14,15 +14,7 @@ public class Movement {
          : figure.Equals(other.figure) ? Outcome.Tie 
          : Outcome.Lose;
 
-    public static Movement Rock() {
-        return new Movement(winsAgainst: Figure.Scissors, figure: Figure.Rock);
-    }
-    
-    public static Movement Scissors() {
-        return new Movement(winsAgainst: Figure.Paper, figure: Figure.Scissors);
-    }
-    
-    public static Movement Paper() {
-        return new Movement(winsAgainst: Figure.Rock, figure: Figure.Paper);
-    }
+    public static Movement Rock => new(winsAgainst: Figure.Scissors, figure: Figure.Rock);
+    public static Movement Scissors => new(winsAgainst: Figure.Paper, figure: Figure.Scissors);
+    public static Movement Paper => new(winsAgainst: Figure.Rock, figure: Figure.Paper);
 }

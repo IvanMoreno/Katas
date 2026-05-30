@@ -6,39 +6,39 @@ namespace Katas.RockPaperScissors2;
 public class RockPaperScissorsTests {
     [Test]
     public void RockBeatsScissors() {
-        Rock().Against(Scissors()).Should().Be(Outcome.Win);
+        Rock.Against(Scissors).Should().Be(Outcome.Win);
     }
 
     [Test]
     public void ScissorsLoosesAgainstRock() {
-        Scissors().Against(Rock()).Should().Be(Outcome.Lose);
+        Scissors.Against(Rock).Should().Be(Outcome.Lose);
     }
 
     [Test]
     public void ScissorsBeatsPaper() {
-        Scissors().Against(Paper()).Should().Be(Outcome.Win);
+        Scissors.Against(Paper).Should().Be(Outcome.Win);
     }
 
     [Test]
     public void PaperLoosesAgainstScissors() {
-        Paper().Against(Scissors()).Should().Be(Outcome.Lose);
+        Paper.Against(Scissors).Should().Be(Outcome.Lose);
     }
 
     [Test]
     public void PaperBeatsRock() {
-        Paper().Against(Rock()).Should().Be(Outcome.Win);
+        Paper.Against(Rock).Should().Be(Outcome.Win);
     }
 
     [Test]
     public void RockLoosesAgainstPaper() {
-        Rock().Against(Paper()).Should().Be(Outcome.Lose);
+        Rock.Against(Paper).Should().Be(Outcome.Lose);
     }
 
     [Test]
     public void MovementTie() {
-        Rock().Against(Rock()).Should().Be(Outcome.Tie);
-        Scissors().Against(Scissors()).Should().Be(Outcome.Tie);
-        Paper().Against(Paper()).Should().Be(Outcome.Tie);
+        Rock.Against(Rock).Should().Be(Outcome.Tie);
+        Scissors.Against(Scissors).Should().Be(Outcome.Tie);
+        Paper.Against(Paper).Should().Be(Outcome.Tie);
     }
 
     [Test]
