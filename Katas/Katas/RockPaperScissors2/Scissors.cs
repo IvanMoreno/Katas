@@ -1,7 +1,7 @@
 namespace Katas.RockPaperScissors2;
 
 public class Scissors {
-    public bool Beats(Rock other) {
+    public bool Against(Rock other) {
         return false;
     }
 
