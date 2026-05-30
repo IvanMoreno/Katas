@@ -18,7 +18,3 @@ public class RockPaperScissorsTests {
         Rock.Create().Against(Rock.Create()).Should().Be(Outcome.Tie);
     }
 }
-
-public struct Outcome(string value) {
-    public static Outcome Tie => new("Tie");
-}
