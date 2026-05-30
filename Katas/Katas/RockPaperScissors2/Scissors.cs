@@ -1,8 +1,8 @@
 namespace Katas.RockPaperScissors2;
 
 public class Scissors {
-    public bool Against(Rock other) {
-        return false;
+    public Outcome Against(Rock other) {
+        return Outcome.Lose;
     }
 
     public static Scissors Create() {

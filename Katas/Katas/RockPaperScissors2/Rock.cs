@@ -1,8 +1,8 @@
 namespace Katas.RockPaperScissors2;
 
 public class Rock {
-    public bool Against(Scissors other) {
-        return true;
+    public Outcome Against(Scissors other) {
+        return Outcome.Win;
     }
 
     public Outcome Against(Rock other) {
