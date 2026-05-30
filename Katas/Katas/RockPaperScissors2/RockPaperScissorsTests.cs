@@ -17,4 +17,10 @@ public class RockPaperScissorsTests {
     public void RockTiesAgainstItself() {
         Rock.Create().Against(Rock.Create()).Should().Be(Outcome.Tie);
     }
+
+    [Test]
+    public void OutcomeEquality() {
+        Outcome.Win.Should().NotBe(Outcome.Lose);
+        Outcome.Win.Should().Be(Outcome.Win);
+    }
 }
