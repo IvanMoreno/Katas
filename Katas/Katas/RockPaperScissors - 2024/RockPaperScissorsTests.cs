@@ -1,7 +1,7 @@
 using FluentAssertions;
-using static Katas.RockPaperScissors.Move;
+using static Katas.RockPaperScissors___2024.Move;
 
-namespace Katas.RockPaperScissors;
+namespace Katas.RockPaperScissors___2024;
 
 // https://hackmd.io/@evalverde/rock-paper-scissors-kata
 // [x] Rock beats scissors

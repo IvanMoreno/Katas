@@ -1,4 +1,4 @@
-namespace Katas.RockPaperScissors2;
+namespace Katas.RockPaperScissors___2026;
 
 public readonly struct Movement {
     readonly Figure winsAgainst;

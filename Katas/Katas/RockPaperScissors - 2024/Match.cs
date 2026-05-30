@@ -1,4 +1,4 @@
-namespace Katas.RockPaperScissors;
+namespace Katas.RockPaperScissors___2024;
 
 public static class Match
 {

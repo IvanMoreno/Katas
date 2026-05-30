@@ -1,8 +1,8 @@
 using FluentAssertions;
-using static Katas.RockPaperScissors2.Movement;
-using static Katas.RockPaperScissors2.Outcome;
+using static Katas.RockPaperScissors___2026.Movement;
+using static Katas.RockPaperScissors___2026.Outcome;
 
-namespace Katas.RockPaperScissors2;
+namespace Katas.RockPaperScissors___2026;
 
 public class RockPaperScissorsTests {
     [Test]

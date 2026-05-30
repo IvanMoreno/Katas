@@ -1,6 +1,6 @@
-namespace Katas.RockPaperScissors2;
+namespace Katas.RockPaperScissors___2026;
 
-public readonly struct Figure {
+public readonly record struct Figure {
     readonly string shape;
     Figure(string shape) {
         this.shape = shape;
