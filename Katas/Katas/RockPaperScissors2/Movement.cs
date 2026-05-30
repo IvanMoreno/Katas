@@ -23,5 +23,3 @@ public class Movement {
         return new Movement(winsAgainst: new Scissors(), figure: new Scissors());
     }
 }
-
-public class Rock { }
