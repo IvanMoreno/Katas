@@ -2,6 +2,10 @@ namespace Katas.RockPaperScissors2;
 
 public class Movement {
     protected object winsAgainst;
+    
+    public Movement(object winsAgainst) {
+        this.winsAgainst = winsAgainst;
+    }
 
     public Outcome Against(object other) {
         return winsAgainst.GetType() == other.GetType() ? Outcome.Win 
@@ -10,12 +14,8 @@ public class Movement {
     }
 }
 
-public class Rock : Movement {
-    public Rock(object winsAgainst) {
-        this.winsAgainst = winsAgainst;
-    }
-
-    public static Rock Create() {
-        return new Rock(winsAgainst: new Scissors(default));
+public class Rock {
+    public static Movement Create() {
+        return new Movement(winsAgainst: new Scissors(default));
     }
 }
