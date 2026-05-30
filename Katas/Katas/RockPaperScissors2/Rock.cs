@@ -17,5 +17,3 @@ public class Movement {
         return new Movement(winsAgainst: new Scissors(default));
     }
 }
-
-public class Rock { }
