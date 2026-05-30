@@ -1,20 +1,20 @@
 namespace Katas.RockPaperScissors___2026;
 
 public readonly struct Move {
-    readonly Figure winsAgainst;
-    readonly Figure figure;
+    readonly Figure depicted;
+    readonly Figure beats;
 
-    Move(Figure winsAgainst, Figure figure) {
-        this.winsAgainst = winsAgainst;
-        this.figure = figure;
+    Move(Figure beats, Figure depicted) {
+        this.beats = beats;
+        this.depicted = depicted;
     }
 
     public Outcome Against(Move other) 
-        => winsAgainst.Equals(other.figure) ? Outcome.Win 
-         : figure.Equals(other.figure) ? Outcome.Tie 
+        => beats.Equals(other.depicted) ? Outcome.Win 
+         : depicted.Equals(other.depicted) ? Outcome.Tie 
          : Outcome.Lose;
 
-    public static Move Rock => new(winsAgainst: Figure.Scissors, figure: Figure.Rock);
-    public static Move Scissors => new(winsAgainst: Figure.Paper, figure: Figure.Scissors);
-    public static Move Paper => new(winsAgainst: Figure.Rock, figure: Figure.Paper);
+    public static Move Rock => new(beats: Figure.Scissors, depicted: Figure.Rock);
+    public static Move Scissors => new(beats: Figure.Paper, depicted: Figure.Scissors);
+    public static Move Paper => new(beats: Figure.Rock, depicted: Figure.Paper);
 }
