@@ -15,8 +15,9 @@ public class RockPaperScissorsTests {
     }
 
     [Test]
-    public void RockTiesAgainstItself() {
+    public void MovementTie() {
         Rock().Against(Rock()).Should().Be(Outcome.Tie);
+        Scissors().Against(Scissors()).Should().Be(Outcome.Tie);
     }
 
     [Test]

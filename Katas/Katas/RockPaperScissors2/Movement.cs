@@ -19,6 +19,6 @@ public class Movement {
     }
     
     public static Movement Scissors() {
-        return new Movement(winsAgainst: Figure.Scissors, figure: Figure.Scissors);
+        return new Movement(winsAgainst: Figure.Paper, figure: Figure.Scissors);
     }
 }
