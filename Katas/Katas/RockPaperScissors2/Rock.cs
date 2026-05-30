@@ -12,10 +12,10 @@ public class Movement {
             : other.GetType() == GetType() ? Outcome.Tie 
             : Outcome.Lose;
     }
-}
-
-public class Rock {
-    public static Movement Create() {
+    
+    public static Movement Rock() {
         return new Movement(winsAgainst: new Scissors(default));
     }
 }
+
+public class Rock { }

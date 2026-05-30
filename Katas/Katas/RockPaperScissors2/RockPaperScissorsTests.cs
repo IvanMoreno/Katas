@@ -5,17 +5,17 @@ namespace Katas.RockPaperScissors2;
 public class RockPaperScissorsTests {
     [Test]
     public void RockBeatsScissors() {
-        Rock.Create().Against(Scissors.Create()).Should().Be(Outcome.Win);
+        Movement.Rock().Against(Scissors.Create()).Should().Be(Outcome.Win);
     }
 
     [Test]
     public void ScissorsLoosesAgainstRock() {
-        Scissors.Create().Against(Rock.Create()).Should().Be(Outcome.Lose);
+        Scissors.Create().Against(Movement.Rock()).Should().Be(Outcome.Lose);
     }
 
     [Test]
     public void RockTiesAgainstItself() {
-        Rock.Create().Against(Rock.Create()).Should().Be(Outcome.Tie);
+        Movement.Rock().Against(Movement.Rock()).Should().Be(Outcome.Tie);
     }
 
     [Test]
