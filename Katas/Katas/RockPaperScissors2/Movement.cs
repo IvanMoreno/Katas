@@ -1,9 +1,9 @@
 namespace Katas.RockPaperScissors2;
 
 public class Movement {
-    protected object winsAgainst;
-    
-    public Movement(object winsAgainst) {
+    readonly object winsAgainst;
+
+    Movement(object winsAgainst) {
         this.winsAgainst = winsAgainst;
     }
 
