@@ -9,12 +9,11 @@ public class Movement {
         this.figure = figure;
     }
 
-    public Outcome Against(Movement other) {
-        return winsAgainst.Equals(other.figure) ? Outcome.Win 
-            : figure.Equals(other.figure) ? Outcome.Tie 
-            : Outcome.Lose;
-    }
-    
+    public Outcome Against(Movement other) 
+        => winsAgainst.Equals(other.figure) ? Outcome.Win 
+         : figure.Equals(other.figure) ? Outcome.Tie 
+         : Outcome.Lose;
+
     public static Movement Rock() {
         return new Movement(winsAgainst: Figure.Scissors, figure: Figure.Rock);
     }
