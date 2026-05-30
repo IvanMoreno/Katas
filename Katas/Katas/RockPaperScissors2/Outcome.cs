@@ -5,6 +5,8 @@ public readonly struct Outcome {
 
     Outcome(string value) => this.value = value;
 
+    public override string ToString() => value;
+
     public static Outcome Tie => new("Tie");
     public static Outcome Win => new("Win");
     public static Outcome Lose => new("Lose");

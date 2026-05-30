@@ -3,7 +3,7 @@ namespace Katas.RockPaperScissors2;
 public class Rock {
     readonly object winsAgainst;
     
-    Rock(object winsAgainst) {
+    public Rock(object winsAgainst) {
         this.winsAgainst = winsAgainst;
     }
 
@@ -14,6 +14,6 @@ public class Rock {
     }
 
     public static Rock Create() {
-        return new Rock(winsAgainst: new Scissors());
+        return new Rock(winsAgainst: new Scissors(default));
     }
 }
