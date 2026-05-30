@@ -14,7 +14,9 @@ public class Rock {
     }
 
     public Outcome Against(Rock other) {
-        return Outcome.Tie;
+        return winsAgainst.GetType() == other.GetType() ? Outcome.Win 
+            : other.GetType() == GetType() ? Outcome.Tie 
+            : Outcome.Lose;
     }
 
     public static Rock Create() {
