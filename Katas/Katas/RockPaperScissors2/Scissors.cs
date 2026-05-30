@@ -1,3 +1,5 @@
+using Katas.RockPaperScissors;
+
 namespace Katas.RockPaperScissors2;
 
 public class Scissors {
@@ -13,7 +15,7 @@ public class Scissors {
             : Outcome.Lose;
     }
     
-    public static Scissors Create() {
-        return new Scissors(new Scissors(default));
+    public static Movement Create() {
+        return Movement.Scissors();
     }
 }

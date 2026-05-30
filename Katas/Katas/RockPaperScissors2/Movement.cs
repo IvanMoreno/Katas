@@ -2,18 +2,26 @@ namespace Katas.RockPaperScissors2;
 
 public class Movement {
     readonly object winsAgainst;
+    readonly object figure;
 
-    Movement(object winsAgainst) {
+    Movement(object winsAgainst, object figure) {
         this.winsAgainst = winsAgainst;
+        this.figure = figure;
     }
 
-    public Outcome Against(object other) {
-        return winsAgainst.GetType() == other.GetType() ? Outcome.Win 
-            : other.GetType() == GetType() ? Outcome.Tie 
+    public Outcome Against(Movement other) {
+        return winsAgainst.GetType() == other.figure.GetType() ? Outcome.Win 
+            : figure.GetType() == other.figure.GetType() ? Outcome.Tie 
             : Outcome.Lose;
     }
     
     public static Movement Rock() {
-        return new Movement(winsAgainst: new Scissors(default));
+        return new Movement(winsAgainst: new Scissors(default), figure: new Rock());
+    }
+    
+    public static Movement Scissors() {
+        return new Movement(winsAgainst: new Scissors(default), figure: new Scissors(default));
     }
 }
+
+public class Rock { }
