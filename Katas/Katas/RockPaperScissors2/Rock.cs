@@ -7,13 +7,7 @@ public class Rock {
         this.winsAgainst = winsAgainst;
     }
 
-    public Outcome Against(Scissors other) {
-        return winsAgainst.GetType() == other.GetType() ? Outcome.Win 
-            : other.GetType() == GetType() ? Outcome.Tie 
-            : Outcome.Lose;
-    }
-
-    public Outcome Against(Rock other) {
+    public Outcome Against(object other) {
         return winsAgainst.GetType() == other.GetType() ? Outcome.Win 
             : other.GetType() == GetType() ? Outcome.Tie 
             : Outcome.Lose;
