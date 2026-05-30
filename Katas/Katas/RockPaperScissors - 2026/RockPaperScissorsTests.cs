@@ -11,7 +11,7 @@ public class RockPaperScissorsTests {
     }
 
     [Test]
-    public void ScissorsLoosesAgainstRock() {
+    public void ScissorsLosesAgainstRock() {
         Scissors.Against(Rock).Should().Be(Lose);
     }
 
@@ -21,7 +21,7 @@ public class RockPaperScissorsTests {
     }
 
     [Test]
-    public void PaperLoosesAgainstScissors() {
+    public void PaperLosesAgainstScissors() {
         Paper.Against(Scissors).Should().Be(Lose);
     }
 
@@ -31,7 +31,7 @@ public class RockPaperScissorsTests {
     }
 
     [Test]
-    public void RockLoosesAgainstPaper() {
+    public void RockLosesAgainstPaper() {
         Rock.Against(Paper).Should().Be(Lose);
     }
 
