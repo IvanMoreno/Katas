@@ -23,6 +23,6 @@ public class Movement {
     }
     
     public static Movement Paper() {
-        return new Movement(winsAgainst: Figure.Scissors, figure: Figure.Paper);
+        return new Movement(winsAgainst: Figure.Rock, figure: Figure.Paper);
     }
 }
