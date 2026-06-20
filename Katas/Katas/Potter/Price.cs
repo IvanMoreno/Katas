@@ -1,9 +1,9 @@
 namespace Katas.Potter;
 
 public struct Price {
-    readonly int euro;
+    readonly float euro;
 
-    public Price(int euro) {
+    public Price(float euro) {
         this.euro = euro;
     }
 }
