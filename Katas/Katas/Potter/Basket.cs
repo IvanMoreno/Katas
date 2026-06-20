@@ -23,15 +23,12 @@ public class Basket {
     }
 
     static Discount DiscountFor(int differentBooks) {
-        var haveThreeBooksDiscount = differentBooks == 3;
-        var haveTwoBooksDiscount = differentBooks == 2;
-
-        var result = new Discount(0);
-        if (haveThreeBooksDiscount)
-            result = new Discount(10);
-        else if (haveTwoBooksDiscount)
-            result = new Discount(5);
+        if (differentBooks == 3)
+            return new Discount(10);
         
-        return result;
+        if (differentBooks == 2)
+            return new Discount(5);
+
+        return new Discount(0);
     }
 }
