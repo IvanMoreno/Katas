@@ -9,9 +9,12 @@ public class Basket {
 
     public Price Price() {
         var differentBooks = books.Distinct().Count();
-        var nonBundledBooksPrice = new Price((books.Count - differentBooks) * 8);
+        
         var bundlePrice = new Price(differentBooks * 8);
         var discountedPrice = bundlePrice.Off(DiscountFor(differentBooks));
+        
+        var nonBundledBooksPrice = new Price((books.Count - differentBooks) * 8);
+        
         return discountedPrice + nonBundledBooksPrice;
     }
 
