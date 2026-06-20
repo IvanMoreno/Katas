@@ -12,20 +12,23 @@ public class Basket {
             var differentBooks = books.Distinct().Count();
             
             var haveThreeBooksDiscount = differentBooks == 3;
-            var bundleOfThreeBooksDiscount = new Discount(10);
-            
             var haveTwoBooksDiscount = differentBooks == 2;
-            var bundleOfTwoBooksDiscount = new Discount(5);
+
+            var bundleDiscount = new Discount(0);
+            if (haveThreeBooksDiscount)
+                bundleDiscount = new Discount(10);
+            else if (haveTwoBooksDiscount)
+                bundleDiscount = new Discount(5);
             
             var nonBundledBooksPrice = new Price((books.Count - differentBooks) * 8);
             var bundlePrice = new Price(differentBooks * 8);
             if (haveThreeBooksDiscount) {
-                var discountedPrice = bundlePrice.Off(bundleOfThreeBooksDiscount);
+                var discountedPrice = bundlePrice.Off(bundleDiscount);
                 return discountedPrice + nonBundledBooksPrice;
             }
             
             if (haveTwoBooksDiscount) {
-                var discountedPrice = bundlePrice.Off(bundleOfTwoBooksDiscount);
+                var discountedPrice = bundlePrice.Off(bundleDiscount);
                 return discountedPrice + nonBundledBooksPrice;
             }
         }
