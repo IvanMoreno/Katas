@@ -10,3 +10,17 @@ Smaller Behavior
 - If you buy 3 different books, you get a 10% discount. 
 - With 4 different books, you get a 20% discount. 
 - If you go the whole hog, and buy all 5, you get a huge 25% discount.
+
+Examples
+- [book1] => 8 EUR
+- [book2] => 8 EUR
+- [book3] => 8 EUR
+- [book4] => 8 EUR
+- [book5] => 8 EUR
+- [book1, book1] => 16 EUR
+- [book1, book2] => 15.20 EUR
+- [book1, book2, book1] => 23.20 EUR (no discount on third book)
+- [book1, book2, book3] => 21.6 EUR
+- [book1, book2, book3, book4] => 25.6 EUR
+- [book1, book2, book3, book4, book5] => 30 EUR
+- [book1, book2, book3, book4, book5, book5] => 38 EUR (no discount on sixth book)
