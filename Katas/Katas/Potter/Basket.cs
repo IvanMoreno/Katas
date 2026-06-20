@@ -21,7 +21,7 @@ public class Basket {
         if (books.Count == 3) {
             var have10Discount = books.Distinct().Count() == 3;
             if (have10Discount) {
-                var bundlePrice = new Price(books.Count * 8);
+                var bundlePrice = new Price(3 * 8);
                 return bundlePrice.Off(new Discount(10));
             }
             
