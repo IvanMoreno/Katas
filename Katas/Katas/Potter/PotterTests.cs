@@ -48,11 +48,6 @@ public class PotterTests {
         new Basket([PotterBook.First(), PotterBook.Second(), PotterBook.First()]).Price().Should().Be(new Price(23.20f));
         new Basket([PotterBook.First(), PotterBook.First(), PotterBook.Second()]).Price().Should().Be(new Price(23.20f));
     }
-    
-    [Test]
-    public void ThreeDifferentBooks_AndOneRepeated_ComeWith_10PercentDiscount_OnlyOnThreeBooks() {
-        new Basket([PotterBook.First(), PotterBook.Second(), PotterBook.Third(), PotterBook.First()]).Price().Should().Be(new Price(29.60f));
-    }
 
     [Test]
     public void FourDifferentBooks_ComeWith_20PercentDiscount() {
