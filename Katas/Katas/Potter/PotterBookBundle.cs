@@ -17,7 +17,7 @@ public readonly struct PotterBookBundle : IEnumerable<PotterBook> {
     readonly IEnumerable<PotterBook> books;
 
     public Price Price => new Price(Size * BaseBookPrice).Off(BundleSizeToDiscount[Size]);
-    public int Size => books.Count();
+    int Size => books.Count();
 
     public PotterBookBundle(IEnumerable<PotterBook> books) {
         if (books.Distinct().Count() != books.Count())
