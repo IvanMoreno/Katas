@@ -7,6 +7,7 @@ namespace Katas.Potter;
 // [x] [book1, book1] => 16 EUR
 // [x] [book1, book2] => 15.20 EUR
 // [] [book1, book2, book3] => 21.6 EUR
+// [] [book1, book2, book1] => 23.2 EUR
 // [] [book1, book2, book3, book4] => 25.6 EUR
 // [] [book1, book2, book3, book4, book5] => 30 EUR
 // [] [book1, book2, book3, book1] => 29.6 EUR (no discount on fourth book)
