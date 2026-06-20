@@ -1,6 +1,14 @@
 namespace Katas.Potter;
 
 public class Basket {
+    static readonly Dictionary<int, Discount> differentBooksToDiscounts = new() {
+        { 0, new Discount(0) },
+        { 1, new Discount(0) },
+        { 2, new Discount(5) },
+        { 3, new Discount(10) },
+        { 4, new Discount(20) },
+    };
+    
     readonly List<PotterBook> books;
 
     public Basket(List<PotterBook> books) {
@@ -19,15 +27,6 @@ public class Basket {
     }
 
     static Discount DiscountFor(int differentBooks) {
-        if (differentBooks == 4)
-            return new Discount(20);
-        
-        if (differentBooks == 3)
-            return new Discount(10);
-
-        if (differentBooks == 2)
-            return new Discount(5);
-
-        return new Discount(0);
+        return differentBooksToDiscounts[differentBooks];
     }
 }
