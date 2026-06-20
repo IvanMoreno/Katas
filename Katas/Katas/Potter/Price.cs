@@ -7,8 +7,8 @@ public struct Price {
         this.euro = euro;
     }
 
-    public Price Off(Discount howMuch) {
-        return new Price(10);
+    public Price Off(Discount discount) {
+        return new Price(discount.AppliedOn(euro));
     }
 
     public override string ToString() {
