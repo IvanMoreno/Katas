@@ -17,6 +17,6 @@ public class PotterTests
 {
     [Test]
     public void EmptyBasket_CostsNothing() {
-        new Basket().Price().Should().Be(new Euro(0));
+        new Basket().Price().Should().Be(new Price(0));
     }
 }

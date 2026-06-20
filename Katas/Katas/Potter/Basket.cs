@@ -1,7 +1,7 @@
 namespace Katas.Potter;
 
 public class Basket {
-    public Euro Price() {
-        return new Euro(0);
+    public Price Price() {
+        return new Price(0);
     }
 }
