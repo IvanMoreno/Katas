@@ -35,4 +35,15 @@ public class PotterTests {
         PotterBook.First().Should().Be(PotterBook.First());
         PotterBook.First().Should().NotBe(PotterBook.Second());
     }
+
+    [Test]
+    public void ApplyDiscountToPrice() {
+        new Price(20).Off(new Discount(50)).Should().Be(new Price(10));
+    }
+}
+
+public readonly struct Discount {
+    public Discount(int percent) {
+        
+    }
 }

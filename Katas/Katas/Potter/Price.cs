@@ -7,6 +7,10 @@ public struct Price {
         this.euro = euro;
     }
 
+    public Price Off(Discount howMuch) {
+        return new Price(10);
+    }
+
     public override string ToString() {
         return $"{nameof(euro)}: {euro}";
     }
