@@ -1,7 +1,7 @@
 namespace Katas.Potter;
 
 public class PotterBookBundle(IEnumerable<PotterBook> books) {
-    static readonly Dictionary<int, Discount> bundleSizeToDiscount = new() {
+    static readonly Dictionary<int, Discount> BundleSizeToDiscount = new() {
         { 0, new Discount(0) },
         { 1, new Discount(0) },
         { 2, new Discount(5) },
@@ -14,6 +14,6 @@ public class PotterBookBundle(IEnumerable<PotterBook> books) {
     public int Size => books.Count();
 
     static Discount DiscountFor(int bundleSize) {
-        return bundleSizeToDiscount[bundleSize];
+        return BundleSizeToDiscount[bundleSize];
     }
 }
