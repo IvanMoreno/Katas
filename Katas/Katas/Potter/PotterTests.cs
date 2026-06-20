@@ -13,8 +13,7 @@ namespace Katas.Potter;
 // [] [book1, book1, book2, book2, book3, book3, book4, book5] => 51.20 EUR
 // [] [book1, book2, book1, book3, book2] => 36.8 EUR
 
-public class PotterTests
-{
+public class PotterTests {
     [Test]
     public void EmptyBasket_CostsNothing() {
         new Basket().Price().Should().Be(new Price(0));
