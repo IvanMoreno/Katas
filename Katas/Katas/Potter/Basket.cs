@@ -18,16 +18,16 @@ public class Basket {
             var bundleOfTwoBooksDiscount = new Discount(5);
             
             var nonBundledBooksPrice = new Price((books.Count - differentBooks) * 8);
-            
+            Price discountedPrice;
             if (haveThreeBooksDiscount) {
                 var bundlePrice = new Price(differentBooks * 8);
-                var discountedPrice = bundlePrice.Off(bundleOfThreeBooksDiscount);
-                return discountedPrice;
+                discountedPrice = bundlePrice.Off(bundleOfThreeBooksDiscount);
+                return discountedPrice + nonBundledBooksPrice;
             }
             
             if (haveTwoBooksDiscount) {
                 var bundlePrice = new Price(differentBooks * 8);
-                var discountedPrice = bundlePrice.Off(bundleOfTwoBooksDiscount);
+                discountedPrice = bundlePrice.Off(bundleOfTwoBooksDiscount);
                 return discountedPrice + nonBundledBooksPrice;
             }
         }
