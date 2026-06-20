@@ -7,12 +7,12 @@ namespace Katas.Potter;
 
 // [x] [book1, book2, book1] => [(book1, book2), (book1)]
 // [x] [book1, book1, book1] => [(book1), (book1), (book1)]
-// [] [book1, book2, book3, book1, book2, book3] => [(book1, book2, book3), (book1, book2, book3)]
-// [] [book1, book2, book2, book3, book3, book4, book5] => [(book1, book2, book3, book4, book5), (book2, book3)]
+// [-] [book1, book2, book1, book2] => [(book1, book2), (book1, book2)]
+// [-] [book1, book2, book2, book3, book3, book4, book5] => [(book1, book2, book3, book4, book5), (book2, book3)]
 // [] [book1, book1, book2, book2, book3, book3, book4, book5] => [(book1, book2, book3, book4), (book1, book2, book3, book5)]
 
 // [] [book1, book1, book2, book2, book3, book3, book4, book5] => 51.20 EUR
-// [] [book1, book2, book1, book3, book2] => 36.8 EUR
+// [-] [book1, book2, book1, book3, book2] => 36.8 EUR
 
 // [-] Use Discount API in tests
 
@@ -65,6 +65,14 @@ public class PotterTests {
     [Test]
     public void ApplyNoDiscount_ToThreeIdenticalBooks() {
         new Basket([PotterBook.First, PotterBook.First, PotterBook.First]).Price().Should().Be(new Price(24));
+    }
+
+    [Test, Ignore("Stuck here, will test-drive an internal implementation to get unstuck")]
+    public void LookForBestDeals_WhenApplyingDiscounts() {
+        new Basket([PotterBook.First, PotterBook.Second, PotterBook.Third, PotterBook.Fourth, 
+                PotterBook.First, PotterBook.Second, PotterBook.Third, PotterBook.Fifth])
+            .Price()
+            .Should().Be(new Price(51.20f));
     }
     
     [Test]
