@@ -13,7 +13,7 @@ public class Basket {
             var haveThreeBooksDiscount = differentBooks == 3;
             var bundleOfThreeBooksDiscount = new Discount(10);
             if (haveThreeBooksDiscount) {
-                var bundlePrice = new Price(3 * 8);
+                var bundlePrice = new Price(differentBooks * 8);
                 var discountedPrice = bundlePrice.Off(bundleOfThreeBooksDiscount);
                 return discountedPrice;
             }
@@ -21,7 +21,7 @@ public class Basket {
             var haveTwoBooksDiscount = differentBooks == 2;
             var bundleOfTwoBooksDiscount = new Discount(5);
             if (haveTwoBooksDiscount) {
-                var bundlePrice = new Price(2 * 8);
+                var bundlePrice = new Price(differentBooks * 8);
                 var nonBundledBooksPrice = new Price((books.Count - differentBooks) * 8);
                 var discountedPrice = bundlePrice.Off(bundleOfTwoBooksDiscount);
                 return discountedPrice + nonBundledBooksPrice;
