@@ -2,7 +2,7 @@ namespace Katas.Potter;
 
 public class BundleSlicer {
     public List<PotterBookBundle> BundleFrom(List<PotterBook> books) {
-        var bundles = new List<PotterBookBundle>();
+        var result = new List<PotterBookBundle>();
 
         var remainingBooks = new List<PotterBook>(books);
         var bundledBooks = books.Distinct();
@@ -10,8 +10,8 @@ public class BundleSlicer {
             remainingBooks.Remove(book);
         }
 
-        bundles.Add(new PotterBookBundle(bundledBooks));
-        bundles.Add(new PotterBookBundle(remainingBooks));
-        return bundles;
+        result.Add(new PotterBookBundle(bundledBooks));
+        result.Add(new PotterBookBundle(remainingBooks));
+        return result;
     }
 }
