@@ -2,6 +2,7 @@ using FluentAssertions;
 
 namespace Katas.Potter;
 
+// [] empty => 0 EUR
 // [] [book1] => 8 EUR
 // [] [book1, book1] => 16 EUR
 // [] [book1, book2] => 15.20 EUR
