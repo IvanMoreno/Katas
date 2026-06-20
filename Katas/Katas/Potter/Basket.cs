@@ -7,6 +7,7 @@ public class Basket {
         { 2, new Discount(5) },
         { 3, new Discount(10) },
         { 4, new Discount(20) },
+        { 5, new Discount(25) }
     };
     
     readonly List<PotterBook> books;
