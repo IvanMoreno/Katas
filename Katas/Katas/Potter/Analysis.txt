@@ -1,6 +1,6 @@
 Source: https://codingdojo.org/kata/Potter/
 
-Observable Behavior: Calculate price of books basket
+Observable Behavior: Calculate price of books basket with highest possible discount
 - Input: Basket (list of Books)
 - Output: Price
 
@@ -12,15 +12,35 @@ Smaller Behavior
 - If you go the whole hog, and buy all 5, you get a huge 25% discount.
 
 Examples
+P1) [book[1-5]] => 8 EUR
 - [book1] => 8 EUR
 - [book2] => 8 EUR
 - [book3] => 8 EUR
 - [book4] => 8 EUR
 - [book5] => 8 EUR
+
+P2) [book(a), book(a), ...] => count * 8 EUR
 - [book1, book1] => 16 EUR
+
+P3) [book(a), book(b)] => 16 EUR with 5% Discount
 - [book1, book2] => 15.20 EUR
-- [book1, book2, book1] => 23.20 EUR (no discount on third book)
+- [book2, book3] => 15.20 EUR
+
+P4) [book(a), book(b), book(c)] => 24 EUR with 10% Discount
 - [book1, book2, book3] => 21.6 EUR
+
+P5) [book(a), book(b), book(c), book(d)] => 32 EUR with 20% Discount
 - [book1, book2, book3, book4] => 25.6 EUR
+
+P6) [book(a), book(b), book(c), book(d), book(e)] => 40 EUR with 25% Discount
 - [book1, book2, book3, book4, book5] => 30 EUR
+
+P7) [(discount bundle), repeated book] => discounted bundle price + 8 EUR
+- [book1, book2, book1] => 23.20 EUR (no discount on third book)
 - [book1, book2, book3, book4, book5, book5] => 38 EUR (no discount on sixth book)
+
+P8) [(discount bundle), (discount bundle)] => give highest possible discount
+- [book1, book1, book2, book2, book3, book3, book4, book5] => (4 * 8) - 20% [book1, book2, book3, book4]
+                                                            + (4 * 8) - 20% [book1, book2, book3, book5]
+                                                            = 25.6 * 2
+                                                            = 51.20
