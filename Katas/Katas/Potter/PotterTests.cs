@@ -24,9 +24,3 @@ public class PotterTests {
         new Basket([new Book("1")]).Price().Should().Be(new Price(8));
     }
 }
-
-public class Book {
-    public Book(string title) {
-        
-    }
-}
