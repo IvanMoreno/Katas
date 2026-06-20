@@ -52,13 +52,13 @@ P7 / P8
                                                     
 Examples (Bundles)
 P1) (bundle, book[1-5]) => (bundle, book[1-5])
-// [] [book1, book2, book1] => [(book1, book2), (book1)]
+- [book1, book2, book1] => [(book1, book2), (book1)]
 
 P2) (bundle(a), bundle(a)) => (bundle(a), bundle(a))
-// [] [book1, book2, book3, book1, book2, book3] => [(book1, book2, book3), (book1, book2, book3)]
+- [] [book1, book2, book3, book1, book2, book3] => [(book1, book2, book3), (book1, book2, book3)]
 
 P3) (bundle(a), bundle(b)) => (bundle(a), bundle(b)) when discounted price is well adjusted
-// [] [book1, book2, book2, book3, book3, book4, book5] => [(book1, book2, book3, book4, book5), (book2, book3)]
+- [] [book1, book2, book2, book3, book3, book4, book5] => [(book1, book2, book3, book4, book5), (book2, book3)]
 
 P4) (bundle(a), bundle(b)) => (bundle(c), bundle(d)) when discounted price can be optimized
-// [] [book1, book1, book2, book2, book3, book3, book4, book5] => [(book1, book2, book3, book4), (book1, book2, book3, book5)]
+- [] [book1, book1, book2, book2, book3, book3, book4, book5] => [(book1, book2, book3, book4), (book1, book2, book3, book5)]
