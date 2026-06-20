@@ -1,6 +1,6 @@
 namespace Katas.Potter;
 
-public class PotterBookBundle(IEnumerable<PotterBook> books) {
+public class PotterBookBundle {
     const int BaseBookPrice = 8;
 
     static readonly Dictionary<int, Discount> BundleSizeToDiscount = new() {
@@ -12,6 +12,15 @@ public class PotterBookBundle(IEnumerable<PotterBook> books) {
         { 5, new Discount(25) }
     };
 
+    readonly IEnumerable<PotterBook> books;
+
     public Price Price => new Price(Size * BaseBookPrice).Off(BundleSizeToDiscount[Size]);
     public int Size => books.Count();
+
+    public PotterBookBundle(IEnumerable<PotterBook> books) {
+        if (books.Distinct().Count() != books.Count())
+            throw new ArgumentException("Bundle cannot contain identical books");
+        
+        this.books = books;
+    }
 }
