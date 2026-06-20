@@ -23,4 +23,9 @@ public class PotterTests {
     public void OneBook_Costs8Euro() {
         new Basket([PotterBook.First()]).Price().Should().Be(new Price(8));
     }
+
+    [Test]
+    public void TwoDifferentBooks_ComeWith_5PercentDiscount() {
+        new Basket([PotterBook.First(), PotterBook.Second()]).Price().Should().Be(new Price(15.20f));
+    }
 }
