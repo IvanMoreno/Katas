@@ -1,13 +1,11 @@
 namespace Katas.Potter;
 
 public readonly struct Discount {
-    readonly int percent;
+    readonly float percent;
 
     public Discount(int percent) {
-        this.percent = percent;
+        this.percent = percent * 0.01f;
     }
 
-    public float AppliedOn(float euro) {
-        return euro - euro * (0.01f * percent);
-    }
+    public float AppliedOn(float euro) => euro - euro * percent;
 }
