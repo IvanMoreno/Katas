@@ -36,6 +36,11 @@ public class PotterTests {
     }
 
     [Test]
+    public void ThreeDifferentBooks_ComeWith_10PercentDiscount() {
+        new Basket([PotterBook.First(), PotterBook.Second(), PotterBook.Third()]).Price().Should().Be(new Price(21.60f));
+    }
+
+    [Test]
     public void BookEqualityTest() {
         PotterBook.First().Should().Be(PotterBook.First());
         PotterBook.First().Should().NotBe(PotterBook.Second());
