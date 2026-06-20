@@ -14,6 +14,8 @@ public struct Price {
         return new Price(discount.AppliedOn(euro));
     }
 
+    public static Price operator +(Price source, Price addend) => new(source.euro + addend.euro);
+
     public override string ToString() {
         return $"{nameof(euro)}: {euro}";
     }

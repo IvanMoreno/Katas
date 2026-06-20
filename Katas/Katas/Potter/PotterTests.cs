@@ -7,7 +7,7 @@ namespace Katas.Potter;
 // [x] [book1, book1] => 16 EUR
 // [x] [book1, book2] => 15.20 EUR
 // [] [book1, book2, book3] => 21.6 EUR
-// [] [book1, book2, book1] => 23.2 EUR
+// [x] [book1, book2, book1] => 23.2 EUR
 // [] [book1, book2, book3, book4] => 25.6 EUR
 // [] [book1, book2, book3, book4, book5] => 30 EUR
 // [] [book1, book2, book3, book1] => 29.6 EUR (no discount on fourth book)
@@ -15,6 +15,7 @@ namespace Katas.Potter;
 // [] [book1, book2, book1, book3, book2] => 36.8 EUR
 // [x] Book Equality
 // [] Use Discount API in tests
+// [] Ignore order of books for bundle check --> [] [book1, book1, book2] => 23.2 EUR
 
 public class PotterTests {
     [Test]
@@ -40,6 +41,11 @@ public class PotterTests {
     [Test]
     public void ThreeDifferentBooks_ComeWith_10PercentDiscount() {
         new Basket([PotterBook.First(), PotterBook.Second(), PotterBook.Third()]).Price().Should().Be(new Price(21.60f));
+    }
+
+    [Test]
+    public void TwoDifferentBooks_AndOneRepeated_ComeWith_5PercentDiscount_OnlyOnTwoBooks() {
+        new Basket([PotterBook.First(), PotterBook.Second(), PotterBook.First()]).Price().Should().Be(new Price(23.20f));
     }
 
     [Test]
