@@ -19,6 +19,9 @@ public class Basket {
     }
 
     static Discount DiscountFor(int differentBooks) {
+        if (differentBooks == 4)
+            return new Discount(20);
+        
         if (differentBooks == 3)
             return new Discount(10);
 

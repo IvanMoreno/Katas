@@ -18,4 +18,8 @@ public readonly struct PotterBook {
     public static PotterBook Third() {
         return new PotterBook("3");
     }
+
+    public static PotterBook Fourth() {
+        return new PotterBook("4");
+    }
 }
