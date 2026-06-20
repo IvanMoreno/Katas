@@ -6,4 +6,8 @@ public struct Price {
     public Price(float euro) {
         this.euro = euro;
     }
+
+    public override string ToString() {
+        return $"{nameof(euro)}: {euro}";
+    }
 }

@@ -16,6 +16,17 @@ namespace Katas.Potter;
 public class PotterTests {
     [Test]
     public void EmptyBasket_CostsNothing() {
-        new Basket().Price().Should().Be(new Price(0));
+        new Basket([]).Price().Should().Be(new Price(0));
+    }
+
+    [Test]
+    public void OneBook_Costs8Euro() {
+        new Basket([new Book("1")]).Price().Should().Be(new Price(8));
+    }
+}
+
+public class Book {
+    public Book(string title) {
+        
     }
 }
