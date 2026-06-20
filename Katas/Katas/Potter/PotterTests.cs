@@ -39,5 +39,6 @@ public class PotterTests {
     [Test]
     public void ApplyDiscountToPrice() {
         new Price(20).Off(new Discount(50)).Should().Be(new Price(10));
+        new Price(7).Off(new Discount(50)).Should().Be(new Price(3.5f));
     }
 }
