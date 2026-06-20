@@ -31,9 +31,7 @@ P6) [book(a), book(b), book(c), book(d), book(e)] => 40 EUR with 25% Discount
 - [book1, book2, book3, book4, book5] => 30 EUR
 
 P7) [(discount bundle), repeated book] => discounted bundle price + 8 EUR
-- [book1, book2, book1] => 23.20 EUR (no discount on third book)
-- [book1, book2, book3, book4, book5, book5] => 38 EUR (no discount on sixth book)
-- [book1, book2, book1, book3] => 29.6 EUR
+- [book1, book2, book3, book1] => 29.6 EUR (no discount on fourth book)
 
 P8) [(discount bundle), (discount bundle)] => give highest possible discount
 - [book1, book1, book2, book2, book3, book3, book4, book5] => (4 * 8) - 20% [book1, book2, book3, book4]
