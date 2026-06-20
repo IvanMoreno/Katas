@@ -1,8 +1,10 @@
 namespace Katas.Potter;
 
 public readonly struct PotterBook {
-    public PotterBook(string id) {
-        
+    readonly string id;
+
+    PotterBook(string id) {
+        this.id = id;
     }
 
     public static PotterBook First() {
