@@ -10,10 +10,6 @@ public class PotterBookBundle(IEnumerable<PotterBook> books) {
         { 5, new Discount(25) }
     };
 
-    public Price Price => new Price(Size * 8).Off(DiscountFor(Size));
+    public Price Price => new Price(Size * 8).Off(BundleSizeToDiscount[Size]);
     public int Size => books.Count();
-
-    static Discount DiscountFor(int bundleSize) {
-        return BundleSizeToDiscount[bundleSize];
-    }
 }
