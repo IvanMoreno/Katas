@@ -8,11 +8,11 @@ public class Basket {
     }
 
     public Price Price() 
-        => PotterBookBundles()
+        => PotterBookBundles(books)
             .Select(bundle => bundle.Price)
             .Aggregate((zero, price) => zero + price);
 
-    List<PotterBookBundle> PotterBookBundles() {
+    List<PotterBookBundle> PotterBookBundles(List<PotterBook> books) {
         var bundles = new List<PotterBookBundle>();
 
         var remainingBooks = new List<PotterBook>(books);
