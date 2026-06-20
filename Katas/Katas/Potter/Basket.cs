@@ -1,7 +1,7 @@
 namespace Katas.Potter;
 
 public class Basket {
-    static readonly Dictionary<int, Discount> differentBooksToDiscounts = new() {
+    static readonly Dictionary<int, Discount> bundleSizeToDiscount = new() {
         { 0, new Discount(0) },
         { 1, new Discount(0) },
         { 2, new Discount(5) },
@@ -17,16 +17,16 @@ public class Basket {
     }
 
     public Price Price() {
-        var booksInBundle = books.Distinct().Count();
+        var bundleSize = books.Distinct().Count();
 
-        var bundlePrice = new Price(booksInBundle * 8).Off(DiscountFor(booksInBundle));
+        var bundlePrice = new Price(bundleSize * 8).Off(DiscountFor(bundleSize));
         
-        var nonBundledBooksPrice = new Price((books.Count - booksInBundle) * 8);
+        var nonBundledBooksPrice = new Price((books.Count - bundleSize) * 8);
         
         return bundlePrice + nonBundledBooksPrice;
     }
 
-    static Discount DiscountFor(int differentBooks) {
-        return differentBooksToDiscounts[differentBooks];
+    static Discount DiscountFor(int bundleSize) {
+        return bundleSizeToDiscount[bundleSize];
     }
 }
