@@ -1,6 +1,6 @@
 namespace Katas.Potter;
 
-public class Book {
+public readonly struct Book {
     public Book(string title) {
         
     }
