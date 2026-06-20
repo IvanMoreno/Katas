@@ -14,17 +14,12 @@ Smaller Behavior
 Examples
 P1) [book[1-5]] => 8 EUR
 - [book1] => 8 EUR
-- [book2] => 8 EUR
-- [book3] => 8 EUR
-- [book4] => 8 EUR
-- [book5] => 8 EUR
 
 P2) [book(a), book(a), ...] => count * 8 EUR
 - [book1, book1] => 16 EUR
 
 P3) [book(a), book(b)] => 16 EUR with 5% Discount
 - [book1, book2] => 15.20 EUR
-- [book2, book3] => 15.20 EUR
 
 P4) [book(a), book(b), book(c)] => 24 EUR with 10% Discount
 - [book1, book2, book3] => 21.6 EUR
