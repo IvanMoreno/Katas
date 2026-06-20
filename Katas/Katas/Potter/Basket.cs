@@ -11,14 +11,16 @@ public class Basket {
         if (books.Count == 0)
             return new Price(0);
 
+        var bundles = new List<PotterBookBundle>();
+
         var remainingBooks = new List<PotterBook>(books);
         var bundledBooks = books.Distinct();
         foreach (var book in bundledBooks) {
             remainingBooks.Remove(book);
         }
         
-        var bundle = new PotterBookBundle(bundledBooks);
-        var remaining = new PotterBookBundle(remainingBooks);
-        return bundle.Price + remaining.Price;
+        bundles.Add(new PotterBookBundle(bundledBooks));
+        bundles.Add(new PotterBookBundle(remainingBooks));
+        return bundles.Select(bundle => bundle.Price).Aggregate((zero, price) => zero + price);
     }
 }
