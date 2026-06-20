@@ -1,6 +1,8 @@
+using System.Collections;
+
 namespace Katas.Potter;
 
-public class PotterBookBundle {
+public readonly struct PotterBookBundle : IEnumerable<PotterBook> {
     const int BaseBookPrice = 8;
 
     static readonly Dictionary<int, Discount> BundleSizeToDiscount = new() {
@@ -23,4 +25,7 @@ public class PotterBookBundle {
         
         this.books = books;
     }
+
+    public IEnumerator<PotterBook> GetEnumerator() => books.GetEnumerator();
+    IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 }

@@ -11,7 +11,7 @@ public class BundleSlicer {
         };
         
         var remainingBooks = new List<PotterBook>(books);
-        foreach (var book in bundle) {
+        foreach (var book in result.SelectMany(book => book)) {
             remainingBooks.Remove(book);
         }
         
