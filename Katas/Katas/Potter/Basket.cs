@@ -7,10 +7,12 @@ public class Basket {
         this.books = books;
     }
 
-    public Price Price() {
-        if (books.Count == 0)
-            return new Price(0);
+    public Price Price() 
+        => PotterBookBundles()
+            .Select(bundle => bundle.Price)
+            .Aggregate((zero, price) => zero + price);
 
+    List<PotterBookBundle> PotterBookBundles() {
         var bundles = new List<PotterBookBundle>();
 
         var remainingBooks = new List<PotterBook>(books);
@@ -21,6 +23,6 @@ public class Basket {
         
         bundles.Add(new PotterBookBundle(bundledBooks));
         bundles.Add(new PotterBookBundle(remainingBooks));
-        return bundles.Select(bundle => bundle.Price).Aggregate((zero, price) => zero + price);
+        return bundles;
     }
 }
