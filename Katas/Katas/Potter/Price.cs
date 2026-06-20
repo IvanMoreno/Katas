@@ -4,6 +4,9 @@ public struct Price {
     readonly float euro;
 
     public Price(float euro) {
+        if (euro < 0)
+            throw new ArgumentException("Price cannot be negative");
+        
         this.euro = euro;
     }
 
