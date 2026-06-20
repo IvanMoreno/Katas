@@ -67,7 +67,7 @@ public class PotterTests {
         new Basket([PotterBook.First, PotterBook.First, PotterBook.First]).Price().Should().Be(new Price(24));
     }
 
-    [Test, Ignore("Stuck here, will test-drive an internal implementation to get unstuck")]
+    [Test]
     public void LookForBestDeals_WhenApplyingDiscounts() {
         new Basket([PotterBook.First, PotterBook.Second, PotterBook.Third, PotterBook.Fourth, 
                 PotterBook.First, PotterBook.Second, PotterBook.Third, PotterBook.Fifth])

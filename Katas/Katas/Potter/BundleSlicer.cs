@@ -7,7 +7,18 @@ public class BundleSlicer {
         
         var bundle = BestDeals(books);
         var remaining = Remaining(books, bundle);
-        return bundle.Concat(BundleFrom(remaining)).ToList();
+        var option1 = bundle.Concat(BundleFrom(remaining)).ToList();
+
+        if (books.Distinct().Count() == 5) {
+            var smallerBundle = new List<PotterBookBundle> { new PotterBookBundle(books.Distinct().Take(4)) };
+            var smallerRemaining = Remaining(books, smallerBundle);
+            var option2 = smallerBundle.Concat(BundleFrom(smallerRemaining)).ToList();
+
+            if (PriceOf(option2).CheaperThan(PriceOf(option1)))
+                return option2;
+        }
+
+        return option1;
     }
 
     static List<PotterBookBundle> BestDeals(List<PotterBook> books) {
@@ -17,7 +28,7 @@ public class BundleSlicer {
         
         return result;
     }
-    
+
     static List<PotterBook> Remaining(List<PotterBook> books, List<PotterBookBundle> bundle) {
         var result = new List<PotterBook>(books);
         foreach (var book in bundle.SelectMany(book => book)) {
@@ -26,4 +37,7 @@ public class BundleSlicer {
 
         return result;
     }
+
+    static Price PriceOf(List<PotterBookBundle> bundles)
+        => bundles.Select(b => b.Price).Aggregate((a, b) => a + b);
 }
