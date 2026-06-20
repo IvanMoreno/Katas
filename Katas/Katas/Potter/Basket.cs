@@ -10,9 +10,15 @@ public class Basket {
     public Price Price() {
         if (books.Count == 0)
             return new Price(0);
+
+        var remainingBooks = new List<PotterBook>(books);
+        var bundledBooks = books.Distinct();
+        foreach (var book in bundledBooks) {
+            remainingBooks.Remove(book);
+        }
         
-        var bundle = new PotterBookBundle(books.Distinct());
-        var nonBundledBooksPrice = new Price((books.Count - bundle.Size) * 8);
-        return bundle.Price + nonBundledBooksPrice;
+        var bundle = new PotterBookBundle(bundledBooks);
+        var remaining = new PotterBookBundle(remainingBooks);
+        return bundle.Price + remaining.Price;
     }
 }
