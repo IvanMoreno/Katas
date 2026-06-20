@@ -2,9 +2,18 @@ using FluentAssertions;
 
 namespace Katas.Potter;
 
+// [] Configure discounts
+// [] Configure book price
+
+// [] [book1, book2, book1] => [(book1, book2), (book1)]
+// [] [book1, book2, book3, book1, book2, book3] => [(book1, book2, book3), (book1, book2, book3)]
+// [] [book1, book2, book2, book3, book3, book4, book5] => [(book1, book2, book3, book4, book5), (book2, book3)]
+// [] [book1, book1, book2, book2, book3, book3, book4, book5] => [(book1, book2, book3, book4), (book1, book2, book3, book5)]
+
 // [] [book1, book1, book2, book2, book3, book3, book4, book5] => 51.20 EUR
 // [] [book1, book2, book1, book3, book2] => 36.8 EUR
-// [] Use Discount API in tests
+
+// [-] Use Discount API in tests
 
 public class PotterTests {
     [Test]
