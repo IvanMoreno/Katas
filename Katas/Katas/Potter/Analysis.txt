@@ -1,7 +1,7 @@
 Source: https://codingdojo.org/kata/Potter/
 
 Observable Behavior: Calculate price of books basket with highest possible discount
-- Input: Basket (list of Books) and Discounts
+- Input: Basket (list of Books), Discounts and Book Price
 - Output: Price
 
 Smaller Behavior
