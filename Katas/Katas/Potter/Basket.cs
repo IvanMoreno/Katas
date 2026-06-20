@@ -10,7 +10,7 @@ public class Basket {
     }
 
     public Price Price()
-        => bundleSlicer.PotterBookBundles(books)
+        => bundleSlicer.BundleFrom(books)
             .Select(bundle => bundle.Price)
             .Aggregate((zero, price) => zero + price);
 }
