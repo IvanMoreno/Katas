@@ -39,3 +39,11 @@ P8) [(discount bundle), (discount bundle)] => give highest possible discount
                                                             + (4 * 8) - 20% [book1, book2, book3, book5]
                                                             = 25.6 * 2
                                                             = 51.20
+                                                            
+BVA
+P7 / P8
+- from P7: 
+    on-point: [book1, book2, book1, book3] => (3 * 8) - 10% 
+                                            + 8
+    off-point: [book1, book2, book1, book3, book2] => (3 * 8) - 10% 
+                                                    + (2 * 8) - 5%
