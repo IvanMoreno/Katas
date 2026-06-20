@@ -5,21 +5,21 @@ public class BundleSlicer {
         if (books.Count <= 1)
             return [new PotterBookBundle(books)];
         
-        var bundle = BundleBestDeals(books);
-        var remainingBooks = RemainingBooks(books, bundle);
-        return bundle.Concat(BundleFrom(remainingBooks)).ToList();
+        var bundle = BestDeals(books);
+        var remaining = Remaining(books, bundle);
+        return bundle.Concat(BundleFrom(remaining)).ToList();
     }
 
-    static List<PotterBook> RemainingBooks(List<PotterBook> books, List<PotterBookBundle> bundle) {
-        var remainingBooks = new List<PotterBook>(books);
+    static List<PotterBook> Remaining(List<PotterBook> books, List<PotterBookBundle> bundle) {
+        var result = new List<PotterBook>(books);
         foreach (var book in bundle.SelectMany(book => book)) {
-            remainingBooks.Remove(book);
+            result.Remove(book);
         }
 
-        return remainingBooks;
+        return result;
     }
 
-    static List<PotterBookBundle> BundleBestDeals(List<PotterBook> books) {
+    static List<PotterBookBundle> BestDeals(List<PotterBook> books) {
         var bundle = books.Distinct();
         var result = new List<PotterBookBundle> {
             new PotterBookBundle(bundle),
