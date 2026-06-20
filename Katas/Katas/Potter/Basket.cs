@@ -17,11 +17,11 @@ public class Basket {
     }
 
     public Price Price() {
-        var differentBooks = books.Distinct().Count();
+        var booksInBundle = books.Distinct().Count();
 
-        var bundlePrice = new Price(differentBooks * 8).Off(DiscountFor(differentBooks));
+        var bundlePrice = new Price(booksInBundle * 8).Off(DiscountFor(booksInBundle));
         
-        var nonBundledBooksPrice = new Price((books.Count - differentBooks) * 8);
+        var nonBundledBooksPrice = new Price((books.Count - booksInBundle) * 8);
         
         return bundlePrice + nonBundledBooksPrice;
     }
