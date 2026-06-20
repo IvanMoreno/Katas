@@ -22,17 +22,3 @@ public class PotterTests
         basket.Price().Should().Be(new Euro(0));
     }
 }
-
-public struct Euro {
-    readonly int value;
-
-    public Euro(int value) {
-        this.value = value;
-    }
-}
-
-public class Basket {
-    public Euro Price() {
-        return new Euro(0);
-    }
-}
