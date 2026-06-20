@@ -19,11 +19,9 @@ public class Basket {
     public Price Price() {
         var bundle = new PotterBookBundle(books.Distinct());
 
-        var bundlePrice = bundle.Price;
-        
         var nonBundledBooksPrice = new Price((books.Count - bundle.Size) * 8);
         
-        return bundlePrice + nonBundledBooksPrice;
+        return bundle.Price + nonBundledBooksPrice;
     }
 
     static Discount DiscountFor(int bundleSize) {
