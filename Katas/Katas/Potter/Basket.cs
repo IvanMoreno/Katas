@@ -8,17 +8,7 @@ public class Basket {
     }
 
     public Price Price() {
-        if (books.Count == 2) {
-            var bundlePrice = new Price(books.Count * 8);
-            var haveDiscount = !books[0].Equals(books[1]);
-            var discount = new Discount(5);
-
-            return haveDiscount 
-                ? bundlePrice.Off(discount) 
-                : bundlePrice;
-        }
-        
-        if (books.Count == 3) {
+        if (books.Count > 1) {
             var differentBooks = books.Distinct().Count();
             var have10Discount = differentBooks == 3;
             if (have10Discount) {
