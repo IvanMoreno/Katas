@@ -8,6 +8,6 @@ public readonly struct Discount {
     }
 
     public float AppliedOn(float euro) {
-        return euro - euro / (100f / percent);
+        return euro - euro * (0.01f * percent);
     }
 }
