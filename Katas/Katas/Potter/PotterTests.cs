@@ -3,7 +3,7 @@ using FluentAssertions;
 namespace Katas.Potter;
 
 // [x] empty => 0 EUR
-// [] [book1] => 8 EUR
+// [x] [book1] => 8 EUR
 // [] [book1, book1] => 16 EUR
 // [] [book1, book2] => 15.20 EUR
 // [] [book1, book2, book3] => 21.6 EUR
@@ -21,6 +21,6 @@ public class PotterTests {
 
     [Test]
     public void OneBook_Costs8Euro() {
-        new Basket([new Book("1")]).Price().Should().Be(new Price(8));
+        new Basket([PotterBook.First()]).Price().Should().Be(new Price(8));
     }
 }

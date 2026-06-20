@@ -1,9 +1,9 @@
 namespace Katas.Potter;
 
 public class Basket {
-    readonly List<Book> books;
+    readonly List<PotterBook> books;
 
-    public Basket(List<Book> books) {
+    public Basket(List<PotterBook> books) {
         this.books = books;
     }
 
