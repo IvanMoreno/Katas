@@ -5,8 +5,8 @@ namespace Katas.Potter;
 // [] Configure discounts
 // [] Configure book price
 
-// [] [book1, book2, book1] => [(book1, book2), (book1)]
-// [] [book1, book1, book1] => [(book1), (book1), (book1)]
+// [x] [book1, book2, book1] => [(book1, book2), (book1)]
+// [x] [book1, book1, book1] => [(book1), (book1), (book1)]
 // [] [book1, book2, book3, book1, book2, book3] => [(book1, book2, book3), (book1, book2, book3)]
 // [] [book1, book2, book2, book3, book3, book4, book5] => [(book1, book2, book3, book4, book5), (book2, book3)]
 // [] [book1, book1, book2, book2, book3, book3, book4, book5] => [(book1, book2, book3, book4), (book1, book2, book3, book5)]
