@@ -25,7 +25,7 @@ public class Basket {
                 return bundlePrice.Off(new Discount(10));
             }
             
-            var have5Discount = !books[0].Equals(books[1]);
+            var have5Discount = !books[0].Equals(books[1]) || !books[0].Equals(books[2]);
             if (have5Discount) {
                 var bundlePrice = new Price(2 * 8);
                 return bundlePrice.Off(new Discount(5)) + new Price(8);
