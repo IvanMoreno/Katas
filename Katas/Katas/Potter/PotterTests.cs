@@ -4,7 +4,7 @@ namespace Katas.Potter;
 
 // [x] empty => 0 EUR
 // [x] [book1] => 8 EUR
-// [] [book1, book1] => 16 EUR
+// [x] [book1, book1] => 16 EUR
 // [x] [book1, book2] => 15.20 EUR
 // [] [book1, book2, book3] => 21.6 EUR
 // [] [book1, book2, book3, book4] => 25.6 EUR
@@ -28,6 +28,11 @@ public class PotterTests {
     [Test]
     public void TwoDifferentBooks_ComeWith_5PercentDiscount() {
         new Basket([PotterBook.First(), PotterBook.Second()]).Price().Should().Be(new Price(15.20f));
+    }
+
+    [Test]
+    public void TwoSameBooks_ComeWith_NoDiscount() {
+        new Basket([PotterBook.First(), PotterBook.First()]).Price().Should().Be(new Price(16));
     }
 
     [Test]

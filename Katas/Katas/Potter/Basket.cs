@@ -8,9 +8,13 @@ public class Basket {
     }
 
     public Price Price() {
-        if (books.Count > 1)
+        if (books.Count > 1) {
+            if (books[0].Equals(books[1]))
+                return new Price(books.Count * 8);
+ 
             return new Price(books.Count * 8).Off(new Discount(5));
-        
+        }
+
         return new Price(books.Count * 8);
     }
 }
